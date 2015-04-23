@@ -1,0 +1,107 @@
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=C:\ece385\lab7_usb --output-directory=C:\ece385\lab7_usb\usb_system\synthesis --file-set=QUARTUS_SYNTH --report-file=html:C:\ece385\lab7_usb\usb_system\usb_system.html --report-file=sopcinfo:C:\ece385\lab7_usb\usb_system.sopcinfo --report-file=cmp:C:\ece385\lab7_usb\usb_system\usb_system.cmp --report-file=qip:C:\ece385\lab7_usb\usb_system\synthesis\usb_system.qip --report-file=svd:C:\ece385\lab7_usb\usb_system\synthesis\usb_system.svd --report-file=regmap:C:\ece385\lab7_usb\usb_system\synthesis\usb_system.regmap --report-file=xml:C:\ece385\lab7_usb\usb_system\usb_system.xml --report-file=debuginfo:C:\ece385\lab7_usb\usb_system\synthesis\usb_system.debuginfo --system-info=DEVICE_FAMILY="Cyclone IV E" --system-info=DEVICE=EP4CE115F29C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=C:\ece385\lab7_usb\usb_system.qsys --language=VERILOG
+Progress: Loading lab7_usb/usb_system.qsys
+Progress: Reading input file
+Progress: Adding clk [clock_source 14.0]
+Progress: Parameterizing module clk
+Progress: Adding sdram [altera_avalon_new_sdram_controller 14.0]
+Progress: Parameterizing module sdram
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 14.0]
+Progress: Parameterizing module jtag_uart
+Progress: Adding cpu [altera_nios2_qsys 14.0]
+Progress: Parameterizing module cpu
+Progress: Adding clocks [altpll 14.0]
+Progress: Parameterizing module clocks
+Progress: Adding keycode [altera_avalon_pio 14.0]
+Progress: Parameterizing module keycode
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 14.0]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Adding CY7C67200_IF_0 [CY7C67200_IF 1.0]
+Progress: Parameterizing module CY7C67200_IF_0
+Progress: Adding clock_crossing_io [altera_avalon_mm_clock_crossing_bridge 14.0]
+Progress: Parameterizing module clock_crossing_io
+Progress: Adding clock_bridge_sdram [altera_clock_bridge 14.0]
+Progress: Parameterizing module clock_bridge_sdram
+Progress: Adding clock_bridge_usb [altera_clock_bridge 14.0]
+Progress: Parameterizing module clock_bridge_usb
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: usb_system.cpu: Please note that for early evaluation, preview versions of new Nios II Gen2 Processors are available with this release.
+Info: usb_system.cpu: CPUID control register value is 0. Please manually assign CPUID if creating multiple Nios II system
+Warning: usb_system.CY7C67200_IF: TOP_LEVEL_HDL_MODULE automatically set to CY7C67200_IF
+Warning: usb_system.clocks: clocks.areset_conduit must be exported, or connected to a matching conduit.
+Warning: usb_system.clocks: clocks.locked_conduit must be exported, or connected to a matching conduit.
+Warning: usb_system.clocks: clocks.phasedone_conduit must be exported, or connected to a matching conduit.
+Info: usb_system: Generating usb_system "usb_system" for QUARTUS_SYNTH
+Info: Inserting clock-crossing logic between cmd_demux.src1 and cmd_mux_001.sink0
+Info: Inserting clock-crossing logic between cmd_demux_001.src1 and cmd_mux_001.sink1
+Info: Inserting clock-crossing logic between rsp_demux_001.src0 and rsp_mux.sink1
+Info: Inserting clock-crossing logic between rsp_demux_001.src1 and rsp_mux_001.sink1
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has readdatavalid signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has burstcount signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has address signal 22 bit wide, but the slave is 2 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has byteenable signal 4 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has debugaccess signal 1 bit wide, but the slave is 0 bit wide.
+Info: sdram: Starting RTL generation for module 'usb_system_sdram'
+Info: sdram:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=usb_system_sdram --dir=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0028_sdram_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0028_sdram_gen//usb_system_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'usb_system_sdram'
+Info: sdram: "usb_system" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: jtag_uart: Starting RTL generation for module 'usb_system_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=usb_system_jtag_uart --dir=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0029_jtag_uart_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0029_jtag_uart_gen//usb_system_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'usb_system_jtag_uart'
+Info: jtag_uart: "usb_system" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: cpu: Starting RTL generation for module 'usb_system_cpu'
+Info: cpu:   Generation command is [exec C:/altera/14.0/quartus/bin64/eperlcmd.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=usb_system_cpu --dir=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0030_cpu_gen/ --quartus_bindir=C:/altera/14.0/quartus/bin64 --verilog --config=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0030_cpu_gen//usb_system_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2014.09.30 12:44:05 (*) Starting Nios II generation
+Info: cpu: # 2014.09.30 12:44:05 (*)   Checking for plaintext license.
+Info: cpu: # 2014.09.30 12:44:07 (*)   Couldn't query license setup in Quartus directory C:/altera/14.0/quartus/bin64
+Info: cpu: # 2014.09.30 12:44:07 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2014.09.30 12:44:07 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2014.09.30 12:44:07 (*)   Plaintext license not found.
+Info: cpu: # 2014.09.30 12:44:07 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2014.09.30 12:44:07 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2014.09.30 12:44:07 (*)   Creating all objects for CPU
+Info: cpu: # 2014.09.30 12:44:09 (*)   Generating RTL from CPU objects
+Info: cpu: # 2014.09.30 12:44:09 (*)   Creating plain-text RTL
+Info: cpu: # 2014.09.30 12:44:11 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'usb_system_cpu'
+Info: cpu: "usb_system" instantiated altera_nios2_qsys "cpu"
+Info: clocks: "usb_system" instantiated altpll "clocks"
+Info: keycode: Starting RTL generation for module 'usb_system_keycode'
+Info: keycode:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=usb_system_keycode --dir=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0033_keycode_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/Steggie/AppData/Local/Temp/alt6343_1434051422506729362.dir/0033_keycode_gen//usb_system_keycode_component_configuration.pl  --do_build_sim=0  ]
+Info: keycode: Done RTL generation for module 'usb_system_keycode'
+Info: keycode: "usb_system" instantiated altera_avalon_pio "keycode"
+Info: CY7C67200_IF_0: "usb_system" instantiated CY7C67200_IF "CY7C67200_IF_0"
+Info: clock_crossing_io: "usb_system" instantiated altera_avalon_mm_clock_crossing_bridge "clock_crossing_io"
+Info: mm_interconnect_0: "usb_system" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: mm_interconnect_1: "usb_system" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: irq_mapper: "usb_system" instantiated altera_irq_mapper "irq_mapper"
+Info: irq_synchronizer: "usb_system" instantiated altera_irq_clock_crosser "irq_synchronizer"
+Info: rst_controller: "usb_system" instantiated altera_reset_controller "rst_controller"
+Info: cpu_instruction_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_instruction_master_translator"
+Info: cpu_jtag_debug_module_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "cpu_jtag_debug_module_translator"
+Info: cpu_instruction_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_instruction_master_agent"
+Info: cpu_jtag_debug_module_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "cpu_jtag_debug_module_agent"
+Info: cpu_jtag_debug_module_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "cpu_jtag_debug_module_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_005: "mm_interconnect_0" instantiated altera_merlin_router "router_005"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_003: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_003"
+Info: Reusing file C:/ece385/lab7_usb/usb_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_003: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_003"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/ece385/lab7_usb/usb_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file C:/ece385/lab7_usb/usb_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: usb_system: Done "usb_system" with 31 modules, 48 files
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

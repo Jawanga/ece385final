@@ -1,0 +1,146 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: ip-generate --project-directory=D:\Documents\ECE385\ece385final\trunk --output-directory=D:\Documents\ECE385\ece385final\trunk\finalproject --report-file=bsf:D:\Documents\ECE385\ece385final\trunk\finalproject\finalproject.bsf --system-info=DEVICE_FAMILY="Cyclone IV E" --system-info=DEVICE=EP4CE115F29C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=D:\Documents\ECE385\ece385final\trunk\finalproject.qsys --remove-qsys-generate-warning
+Progress: Loading trunk/finalproject.qsys
+Progress: Reading input file
+Progress: Adding CY7C67200_IF_0 [CY7C67200_IF 1.0]
+Progress: Parameterizing module CY7C67200_IF_0
+Progress: Adding clk [clock_source 14.1]
+Progress: Parameterizing module clk
+Progress: Adding clock_bridge_sdram [altera_clock_bridge 14.1]
+Progress: Parameterizing module clock_bridge_sdram
+Progress: Adding clock_bridge_usb [altera_clock_bridge 14.1]
+Progress: Parameterizing module clock_bridge_usb
+Progress: Adding clock_crossing_io [altera_avalon_mm_clock_crossing_bridge 14.1]
+Progress: Parameterizing module clock_crossing_io
+Progress: Adding clocks [altpll 14.1]
+Progress: Parameterizing module clocks
+Progress: Adding cpu [altera_nios2_qsys 14.1]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 14.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding keycode [altera_avalon_pio 14.1]
+Progress: Parameterizing module keycode
+Progress: Adding sdram [altera_avalon_new_sdram_controller 14.1]
+Progress: Parameterizing module sdram
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 14.1]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: finalproject.CY7C67200_IF: TOP_LEVEL_HDL_MODULE automatically set to CY7C67200_IF
+Warning: finalproject.cpu: Nios II Classic cores are now superseded by improved Gen 2 cores.
+Info: finalproject.cpu: CPUID control register value is 0. Please manually assign CPUID if creating multiple Nios II system
+Warning: finalproject.clocks: clocks.areset_conduit must be exported, or connected to a matching conduit.
+Warning: finalproject.clocks: clocks.locked_conduit must be exported, or connected to a matching conduit.
+Warning: finalproject.clocks: clocks.phasedone_conduit must be exported, or connected to a matching conduit.
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=D:\Documents\ECE385\ece385final\trunk --output-directory=D:\Documents\ECE385\ece385final\trunk\finalproject\synthesis --file-set=QUARTUS_SYNTH --report-file=html:D:\Documents\ECE385\ece385final\trunk\finalproject\finalproject.html --report-file=sopcinfo:D:\Documents\ECE385\ece385final\trunk\finalproject.sopcinfo --report-file=cmp:D:\Documents\ECE385\ece385final\trunk\finalproject\finalproject.cmp --report-file=qip:D:\Documents\ECE385\ece385final\trunk\finalproject\synthesis\finalproject.qip --report-file=svd:D:\Documents\ECE385\ece385final\trunk\finalproject\synthesis\finalproject.svd --report-file=regmap:D:\Documents\ECE385\ece385final\trunk\finalproject\synthesis\finalproject.regmap --report-file=xml:D:\Documents\ECE385\ece385final\trunk\finalproject\finalproject.xml --report-file=debuginfo:D:\Documents\ECE385\ece385final\trunk\finalproject\synthesis\finalproject.debuginfo --system-info=DEVICE_FAMILY="Cyclone IV E" --system-info=DEVICE=EP4CE115F29C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=D:\Documents\ECE385\ece385final\trunk\finalproject.qsys --remove-qsys-generate-warning --language=VERILOG
+Progress: Loading trunk/finalproject.qsys
+Progress: Reading input file
+Progress: Adding CY7C67200_IF_0 [CY7C67200_IF 1.0]
+Progress: Parameterizing module CY7C67200_IF_0
+Progress: Adding clk [clock_source 14.1]
+Progress: Parameterizing module clk
+Progress: Adding clock_bridge_sdram [altera_clock_bridge 14.1]
+Progress: Parameterizing module clock_bridge_sdram
+Progress: Adding clock_bridge_usb [altera_clock_bridge 14.1]
+Progress: Parameterizing module clock_bridge_usb
+Progress: Adding clock_crossing_io [altera_avalon_mm_clock_crossing_bridge 14.1]
+Progress: Parameterizing module clock_crossing_io
+Progress: Adding clocks [altpll 14.1]
+Progress: Parameterizing module clocks
+Progress: Adding cpu [altera_nios2_qsys 14.1]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 14.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding keycode [altera_avalon_pio 14.1]
+Progress: Parameterizing module keycode
+Progress: Adding sdram [altera_avalon_new_sdram_controller 14.1]
+Progress: Parameterizing module sdram
+Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 14.1]
+Progress: Parameterizing module sysid_qsys_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: finalproject.CY7C67200_IF: TOP_LEVEL_HDL_MODULE automatically set to CY7C67200_IF
+Warning: finalproject.cpu: Nios II Classic cores are now superseded by improved Gen 2 cores.
+Info: finalproject.cpu: CPUID control register value is 0. Please manually assign CPUID if creating multiple Nios II system
+Warning: finalproject.clocks: clocks.areset_conduit must be exported, or connected to a matching conduit.
+Warning: finalproject.clocks: clocks.locked_conduit must be exported, or connected to a matching conduit.
+Warning: finalproject.clocks: clocks.phasedone_conduit must be exported, or connected to a matching conduit.
+Info: finalproject: Generating finalproject "finalproject" for QUARTUS_SYNTH
+Info: Inserting clock-crossing logic between cmd_demux.src5 and cmd_mux_005.sink0
+Info: Inserting clock-crossing logic between cmd_demux_001.src2 and cmd_mux_005.sink1
+Info: Inserting clock-crossing logic between rsp_demux_005.src0 and rsp_mux.sink5
+Info: Inserting clock-crossing logic between rsp_demux_005.src1 and rsp_mux_001.sink2
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has readdatavalid signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has burstcount signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has address signal 22 bit wide, but the slave is 2 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has byteenable signal 4 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master clock_crossing_io.m0 and slave CY7C67200_IF_0.hpi because the master has debugaccess signal 1 bit wide, but the slave is 0 bit wide.
+Info: CY7C67200_IF_0: "finalproject" instantiated CY7C67200_IF "CY7C67200_IF_0"
+Info: clock_crossing_io: "finalproject" instantiated altera_avalon_mm_clock_crossing_bridge "clock_crossing_io"
+Info: clocks: "finalproject" instantiated altpll "clocks"
+Info: cpu: Starting RTL generation for module 'finalproject_cpu'
+Info: cpu:   Generation command is [exec {D:/program files/altera/14.1/quartus/bin64/eperlcmd.exe} -I {D:/program files/altera/14.1/quartus/bin64/perl/lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/europa} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/perl_lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin} -I {D:/program files/altera/14.1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib} -I {D:/program files/altera/14.1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib} -I {D:/program files/altera/14.1/quartus/../ip/altera/nios2_ip/altera_nios2} -I {D:/program files/altera/14.1/quartus/../ip/altera/nios2_ip/altera_nios2} -- {D:/program files/altera/14.1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl} --name=finalproject_cpu --dir=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0004_cpu_gen/ {--quartus_bindir=D:/program files/altera/14.1/quartus/bin64} --verilog --config=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0004_cpu_gen//finalproject_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2015.04.23 00:32:31 (*) Starting Nios II generation
+Info: cpu: # 2015.04.23 00:32:31 (*)   Checking for plaintext license.
+Info: cpu: # 2015.04.23 00:32:33 (*)   Couldn't query license setup in Quartus directory D:/program files/altera/14.1/quartus/bin64
+Info: cpu: # 2015.04.23 00:32:33 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2015.04.23 00:32:33 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2015.04.23 00:32:33 (*)   Plaintext license not found.
+Info: cpu: # 2015.04.23 00:32:33 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2015.04.23 00:32:33 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2015.04.23 00:32:33 (*)   Creating all objects for CPU
+Info: cpu: # 2015.04.23 00:32:34 (*)   Generating RTL from CPU objects
+Info: cpu: # 2015.04.23 00:32:34 (*)   Creating plain-text RTL
+Info: cpu: # 2015.04.23 00:32:37 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'finalproject_cpu'
+Info: cpu: "finalproject" instantiated altera_nios2_qsys "cpu"
+Info: jtag_uart: Starting RTL generation for module 'finalproject_jtag_uart'
+Info: jtag_uart:   Generation command is [exec {D:/program files/altera/14.1/quartus/bin64/perl/bin/perl.exe} -I {D:/program files/altera/14.1/quartus/bin64/perl/lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/europa} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/perl_lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin} -I {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/common} -I {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart} -- {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl} --name=finalproject_jtag_uart --dir=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0005_jtag_uart_gen/ {--quartus_dir=D:/program files/altera/14.1/quartus} --verilog --config=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0005_jtag_uart_gen//finalproject_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'finalproject_jtag_uart'
+Info: jtag_uart: "finalproject" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: keycode: Starting RTL generation for module 'finalproject_keycode'
+Info: keycode:   Generation command is [exec {D:/program files/altera/14.1/quartus/bin64/perl/bin/perl.exe} -I {D:/program files/altera/14.1/quartus/bin64/perl/lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/europa} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/perl_lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin} -I {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/common} -I {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio} -- {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl} --name=finalproject_keycode --dir=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0006_keycode_gen/ {--quartus_dir=D:/program files/altera/14.1/quartus} --verilog --config=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0006_keycode_gen//finalproject_keycode_component_configuration.pl  --do_build_sim=0  ]
+Info: keycode: Done RTL generation for module 'finalproject_keycode'
+Info: keycode: "finalproject" instantiated altera_avalon_pio "keycode"
+Info: sdram: Starting RTL generation for module 'finalproject_sdram'
+Info: sdram:   Generation command is [exec {D:/program files/altera/14.1/quartus/bin64/perl/bin/perl.exe} -I {D:/program files/altera/14.1/quartus/bin64/perl/lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/europa} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin/perl_lib} -I {D:/program files/altera/14.1/quartus/sopc_builder/bin} -I {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/common} -I {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller} -- {D:/program files/altera/14.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl} --name=finalproject_sdram --dir=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0007_sdram_gen/ {--quartus_dir=D:/program files/altera/14.1/quartus} --verilog --config=C:/Users/JASONW~1/AppData/Local/Temp/alt6548_8516116655556823750.dir/0007_sdram_gen//finalproject_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'finalproject_sdram'
+Info: sdram: "finalproject" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: mm_interconnect_0: "finalproject" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: mm_interconnect_1: "finalproject" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: irq_mapper: "finalproject" instantiated altera_irq_mapper "irq_mapper"
+Info: irq_synchronizer: "finalproject" instantiated altera_irq_clock_crosser "irq_synchronizer"
+Info: rst_controller: "finalproject" instantiated altera_reset_controller "rst_controller"
+Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
+Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
+Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file D:/Documents/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file D:/Documents/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file D:/Documents/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: finalproject: Done "finalproject" with 31 modules, 50 files
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
