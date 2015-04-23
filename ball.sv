@@ -12,14 +12,56 @@
 //    UIUC ECE Department                                                --
 //-------------------------------------------------------------------------
 
+/*
+
+	Ball circle takes up bottom third of the screen
+	2 balls 180 degrees from each other
+		red ball - right side
+		blue ball - left side
+	
+	mid_y = starting y position of balls
+	mid_x = center point of circle
+	left_x = left edge of circle
+	right_x = right edge of circle
+
+	number of degrees rotated
+	
+	left key - counter clockwise
+		if y_pos > mid_y
+			decrease x
+		if y_pos < mid_y
+			increase x
+		if x_pos > mid_x
+			increase y
+		if x_pos < mid_x
+			decrease y
+	right key - clockwise
+		if y_pos > mid_y
+			increase x
+		if y_pos < mid_y
+			decrease x
+		if x_pos > mid_x
+			decrease y
+		if x_pos < mid_x
+			increase y
+	circumference = pi*2*radius
+	area = pi*radius^2
+	
+	color: 2 - dead, 1 - red, 0 - blue
+	
+*/
+
+
 
 module  ball ( input Reset, frame_clk,
-					input [7:0] keycode,
+					input [7:0] keycode, input [1:0] color,
                output [9:0]  BallX, BallY, BallS);
     
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
 	 
     parameter [9:0] Ball_X_Center=320;  // Center position on the X axis
+	parameter [9:0] Ball_X_Right=400;
+	parameter [9:0] Ball_X_Left=260;
     parameter [9:0] Ball_Y_Center=240;  // Center position on the Y axis
     parameter [9:0] Ball_X_Min=0;       // Leftmost point on the X axis
     parameter [9:0] Ball_X_Max=639;     // Rightmost point on the X axis
@@ -35,36 +77,66 @@ module  ball ( input Reset, frame_clk,
         if (Reset)  // Asynchronous Reset
         begin 
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
-				Ball_X_Motion <= 10'd0; //Ball_X_Step;
-				Ball_Y_Pos <= Ball_Y_Center;
-				Ball_X_Pos <= Ball_X_Center;
+			Ball_X_Motion <= 10'd0; //Ball_X_Step;
+			Ball_Y_Pos <= Ball_Y_Center;
+			if (color == 2'b1)
+			begin
+				Ball_X_Pos <= Ball_X_Right;	//red - right - 2'b1
+			end
+			else if (color == 2'b0)
+			begin
+				Ball_X_Pos <= Ball_X_Left;
+			end
         end
+		
            
         else 
         begin 
+			// left key - counter clockwise
+				// if y_pos > mid_y
+					// decrease x
+				// if y_pos < mid_y
+					// increase x
+				// if x_pos > mid_x
+					// increase y
+				// if x_pos < mid_x
+					// decrease y
+			// right key - clockwise
+				// if y_pos > mid_y
+					// increase x
+				// if y_pos < mid_y
+					// decrease x
+				// if x_pos > mid_x
+					// decrease y
+				// if x_pos < mid_x
+					// increase y
 				 case (keycode)
-				 7:
+				 7:		//right key
 					begin
-						Ball_X_Motion = Ball_X_Step;
-						Ball_Y_Motion = 10'd0;
+						if (y_pos > mid_y)
+							Ball_X_Motion = (Ball_X_Step);
+						else if (y_pos < mid_y)
+							Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+						if (x_pos > mid_x)
+							Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+						else if (x_pos < mid_x)
+							Ball_Y_Motion = (Ball_Y_Step);
 					end
-				 4:
+				 4:		//left key
 					begin
-						Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-						Ball_Y_Motion = 10'd0;
+						if (y_pos < mid_y)
+							Ball_X_Motion = (Ball_X_Step);
+						else if (y_pos > mid_y)
+							Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+						if (x_pos < mid_x)
+							Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+						else if (x_pos > mid_x)
+							Ball_Y_Motion = (Ball_Y_Step);
 					end
-				 26:
-					begin
-						Ball_X_Motion = 10'd0;
-						Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-					end
-				 22:
-					begin
-						Ball_X_Motion = 10'd0;
-						Ball_Y_Motion = Ball_Y_Step;
-					end
+
 				 endcase
 				 
+				 /*
 				 if ( (Ball_Y_Pos + Ball_Size) >= Ball_Y_Max )  // Ball is at the bottom edge, BOUNCE!
 					  Ball_Y_Motion = (~ (Ball_Y_Step) + 1'b1);  // 2's complement.
 					  
@@ -85,7 +157,7 @@ module  ball ( input Reset, frame_clk,
 				 
 				 Ball_Y_Pos = (Ball_Y_Pos + Ball_Y_Motion);  // Update ball position
 				 Ball_X_Pos = (Ball_X_Pos + Ball_X_Motion);
-			
+				*/
 			
 	  /**************************************************************************************
 	    ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
