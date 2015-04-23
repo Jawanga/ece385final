@@ -1,0 +1,265 @@
+!SESSION 2015-04-23 12:27:58.387 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-04-23 12:29:58.308
+!MESSAGE Indexed 'usb_kb' (2 sources, 17 headers) in 0.62 sec: 54 declarations; 1,403 references; 28 unresolved inclusions; 0 syntax errors; 367 unresolved names (20.12%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-04-23 12:30:28.183
+!MESSAGE Indexed 'usb_kb_bsp' (79 sources, 100 headers) in 1.76 sec: 3,060 declarations; 4,019 references; 26 unresolved inclusions; 6 syntax errors; 133 unresolved names (1.84%)
+
+!ENTRY com.altera.sbtgui.core 4 0 2015-04-23 12:30:35.754
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: File not found: ..\..\usb_system.sopcinfo
+SEVERE: File not found: ..\..\usb_system.sopcinfo
+SEVERE: nios2-bsp-generate-files failed.
+
+
+!ENTRY com.altera.sbtgui.core 4 0 2015-04-23 12:31:32.557
+!MESSAGE Error executing 'nios2-bsp-generate-files --bsp-dir . --settings settings.bsp', unexpected return code 1.
+
+Error message:
+
+SEVERE: File not found: ..\..\usb_system.sopcinfo
+SEVERE: File not found: ..\..\usb_system.sopcinfo
+SEVERE: nios2-bsp-generate-files failed.
+
+!SESSION 2015-04-23 12:46:49.095 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:47:50.133
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:47:51.792
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:47:51.840
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:47:57.049
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:47:57.054
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:48:05.173
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:06.642
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:48:06.690
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:11.917
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:11.922
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:48:15.992
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:17.472
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:48:17.521
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:22.706
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:22.713
+!MESSAGE Downloading ELF Process failed
+!SESSION 2015-04-23 12:48:36.380 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:48:46.206
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:47.684
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:48:47.731
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:52.941
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:48:52.946
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:49:18.218
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:49:21.758
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:49:27.038
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:49:27.042
+!MESSAGE Downloading ELF Process failed
+!SESSION 2015-04-23 12:54:33.271 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-04-23 12:55:23.744
+!MESSAGE Indexed 'usb_kb' (2 sources, 17 headers) in 0.16 sec: 54 declarations; 1,470 references; 28 unresolved inclusions; 0 syntax errors; 383 unresolved names (20.08%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-04-23 12:55:49.931
+!MESSAGE Indexed 'usb_kb_bsp' (79 sources, 102 headers) in 0.98 sec: 2,214 declarations; 3,936 references; 26 unresolved inclusions; 493 syntax errors; 234 unresolved names (3.67%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:56:43.751
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:56:45.229
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:56:45.277
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:56:50.565
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:56:50.570
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:57:20.204
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:57:23.773
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:57:29.025
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:57:29.030
+!MESSAGE Downloading ELF Process failed
+!SESSION 2015-04-23 12:58:02.340 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:59:52.699
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:59:54.186
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 12:59:54.235
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:59:59.483
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 12:59:59.488
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:01:29.072
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:01:32.637
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:01:37.922
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:01:37.927
+!MESSAGE Downloading ELF Process failed
+!SESSION 2015-04-23 13:05:05.493 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:05:46.458
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:05:48.038
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+!SESSION 2015-04-23 13:10:13.369 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:11:09.359
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:11:10.856
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:11:10.902
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:11:16.099
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, --accept-bad-sysid, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:11:16.103
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:11:33.054
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:11:36.778
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:11:41.961
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:11:41.966
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:11:56.733
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:12:00.454
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:12:05.686
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB-0]', --device=1, --instance=0, --go, /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2015-04-23 13:12:05.690
+!MESSAGE Downloading ELF Process failed
+!SESSION 2015-04-23 13:16:07.427 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:16:49.216
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2015-04-23 13:16:52.809
+!MESSAGE Executing: [C:/altera/14.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/u/ECE385/ece385final/trunk/software/usb_kb/usb_kb.elf]

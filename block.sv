@@ -14,74 +14,63 @@
 
 
 module  block ( input Reset, frame_clk,
+					 input [9:0]  Block_X_Center, Block_Y_Center,
                output [9:0]  BlockX, BlockY, BlockS);
     
     logic [9:0] Block_X_Pos, Block_X_Motion, Block_Y_Pos, Block_Y_Motion, Block_Size;
 	 
-    parameter [9:0] Block_X_Center=440;  // Center position on the X axis
-    parameter [9:0] Block_Y_Center=120;  // Center position on the Y axis
+    //parameter [9:0] Block_X_Center=440;  // Center position on the X axis
+    //parameter [9:0] Block_Y_Center=120;  // Center position on the Y axis
     parameter [9:0] Block_X_Min=0;       // Leftmost point on the X axis
     parameter [9:0] Block_X_Max=639;     // Rightmost point on the X axis
     parameter [9:0] Block_Y_Min=0;       // Topmost point on the Y axis
     parameter [9:0] Block_Y_Max=479;     // Bottommost point on the Y axis
-	 /*
     parameter [9:0] Block_X_Step=1;      // Step size on the X axis
     parameter [9:0] Block_Y_Step=1;      // Step size on the Y axis
-	*/
 	
-    assign Block_Size = 8;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
+    assign Block_Size = 12;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
-//    always_ff @ (posedge Reset or posedge frame_clk )
-//    begin: Move_Block
-//        if (Reset)  // Asynchronous Reset
-//        begin 
-//            Block_Y_Motion <= 10'd0; //Block_Y_Step;
-//				Block_X_Motion <= 10'd0; //Block_X_Step;
-//				Block_Y_Pos <= Block_Y_Center;
-//				Block_X_Pos <= Block_X_Center;
-//        end
-//           
-//        else 
-//        begin 
-//				 
-//				 if ( (Block_Y_Pos + Block_Size) >= Block_Y_Max )  // Block is at the bottom edge, BOUNCE!
-//					  Block_Y_Motion = (~ (Block_Y_Step) + 1'b1);  // 2's complement.
-//					  
-//				 else if ( (Block_Y_Pos - Block_Size) <= Block_Y_Min )  // Block is at the top edge, BOUNCE!
-//					  Block_Y_Motion = Block_Y_Step;
-//					  
-//				 else 
-//					  Block_Y_Motion = Block_Y_Motion;  // Block is somewhere in the middle, don't bounce, just keep moving
-//					  
-//				 if ( (Block_X_Pos + Block_Size) >= Block_X_Max )  // Block is at the bottom edge, BOUNCE!
-//					  Block_X_Motion = (~ (Block_X_Step) + 1'b1);  // 2's complement.
-//					  
-//				 else if ( (Block_X_Pos - Block_Size) <= Block_X_Min )  // Block is at the top edge, BOUNCE!
-//					  Block_X_Motion = Block_X_Step;
-//					  
-//				 else 
-//					  Block_X_Motion = Block_X_Motion;  // You need to remove this and make both X and Y respond to keyboard input
-//				 
-//				 Block_Y_Pos = (Block_Y_Pos + Block_Y_Motion);  // Update Block position
-//				 Block_X_Pos = (Block_X_Pos + Block_X_Motion);
-//			
-//			
-//	  /**************************************************************************************
-//	    ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
-//		 Hidden Question #2/2:
-//          Note that Block_Y_Motion in the above statement may have been changed at the same clock edge
-//          that is causing the assignment of Block_Y_pos.  Will the new value of Block_Y_Motion be used,
-//          or the old?  How will this impact behavior of the Block during a bounce, and how might that 
-//          interact with a response to a keypress?  Can you fix it?  Give an answer in your Post-Lab.
-//      **************************************************************************************/
-//      
-//			
-//		end  
-//    end
-//       
+    always_ff @ (posedge Reset or posedge frame_clk )
+    begin: Move_Block
+        if (Reset)  // Asynchronous Reset
+        begin 
+            Block_Y_Motion <= 10'd0; //Block_Y_Step;
+				Block_X_Motion <= 10'd0; //Block_X_Step;
+				Block_Y_Pos <= Block_Y_Center;
+				Block_X_Pos <= Block_X_Center;
+        end
+           
+        else 
+        begin
+				if (Block_Y_Pos > Block_Y_Max)	//allow block to stop once off screen
+				begin
+					Block_Y_Motion = 10'd0;
+				end
+				
+				else
+				begin
+				 Block_Y_Motion = Block_Y_Step;
+				end
+				 
+				 Block_Y_Pos = (Block_Y_Pos + Block_Y_Motion);  // Update Block position
+			
+			
+	  /**************************************************************************************
+	    ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
+		 Hidden Question #2/2:
+          Note that Block_Y_Motion in the above statement may have been changed at the same clock edge
+          that is causing the assignment of Block_Y_pos.  Will the new value of Block_Y_Motion be used,
+          or the old?  How will this impact behavior of the Block during a bounce, and how might that 
+          interact with a response to a keypress?  Can you fix it?  Give an answer in your Post-Lab.
+      **************************************************************************************/
+      
+			
+		end  
+    end
+       
     assign BlockX = Block_X_Center;
    
-    assign BlockY = Block_Y_Center;
+    assign BlockY = Block_Y_Pos;
    
     assign BlockS = Block_Size;
     

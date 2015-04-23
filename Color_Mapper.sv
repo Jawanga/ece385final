@@ -50,7 +50,7 @@ module  color_mapper ( input        [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
 	  
 	 always_comb
 	 begin:Block_on_proc
-		  if ( (BlockDistX <= Block_size) | (BlockDistY <= Block_size) )
+		  if ( (BlockDistX <= Block_size) && (BlockDistY <= Block_size) )
 				block_on = 1'b1;
 		  else
 				block_on = 1'b0;
@@ -58,18 +58,36 @@ module  color_mapper ( input        [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
        
     always_comb
     begin:RGB_Display
-        if ((ball_on == 1'b1) | (block_on == 1'b1)) 
+
+        if (block_on == 1'b1)) 
         begin 
-            Red = 8'h00;
-            Green = 8'hff;
+            Red = 8'hff;
+            Green = 8'h00;
             Blue = 8'hff;
         end       
+		
+		else if (ball_red_on == 1'b1))
+		begin
+			Red = 8'h00;
+			Green = 8'hff;
+			Blue = 8'hff;
+		end
+		
+		else if ((ball_blue_on == 1'b1)) 
+        begin 
+            Red = 8'hff;
+            Green = 8'hff;
+            Blue = 8'h00;
+		end
+			
         else 
         begin 
             Red = 8'h4f - DrawX[9:3];
             Green = 8'h00;
             Blue = 8'h44; 
-        end      
-    end 
+
+        end
+		
+    end
     
 endmodule

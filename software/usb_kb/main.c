@@ -192,14 +192,14 @@ int main(void)
 	//-------------------------------get device descriptor-1 -----------------------------------//
 	// TASK: Call the appropriate function for this step.
 
+	UsbGetDeviceDesc1();
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbGetDeviceDesc1();
 		usleep(10*1000);
 	}
-
 	UsbWaitTDListDone();
-
 	IOWR(CY7C67200_BASE,HPI_ADDR,0x0506);
 	printf("[ENUM PROCESS]:step 4 TD Status Byte is %x\n",IORD(CY7C67200_BASE,HPI_DATA));
 
@@ -218,13 +218,15 @@ int main(void)
 	//get device descriptor
 	// TASK: Call the appropriate function for this step.
 
+	UsbGetDeviceDesc2();
+
 	//if no message
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		//resend the get device descriptor
 		//get device descriptor
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
-
+		UsbGetDeviceDesc2();
 		usleep(10*1000);
 	}
 
@@ -248,10 +250,12 @@ int main(void)
 	//-----------------------------------get configuration descriptor -1 ----------------------------------//
 	// TASK: Call the appropriate function for this step.
 
+	UsbGetConfigDesc1();
 	//if no message
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbGetConfigDesc1();
 		usleep(10*1000);
 	}
 
@@ -273,11 +277,13 @@ int main(void)
 	//-----------------------------------get configuration descriptor-2------------------------------------//
 	// TASK: Call the appropriate function for this step.
 
+	UsbGetConfigDesc2();
 	usleep(100*1000);
 	//if no message
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbGetConfigDesc2();
 		usleep(10*1000);
 	}
 
@@ -300,7 +306,9 @@ int main(void)
 
 	// ---------------------------------get device info---------------------------------------------//
 
-	// TASK: Write the address to read from the memory for byte 7 of the interface descriptor to HPI_ADDR.
+	// TASK: Write the address to read from the memory for byte 7 of the interface descriptor to HPI_ADDR
+	UsbPrintMem();
+	IOWR(CY7C67200_BASE, HPI_ADDR, 0x056C);
 	code = IORD(CY7C67200_BASE,HPI_DATA);
 	printf("\ncode = %x\n", code);
 	code = code & 0x0ff;
@@ -310,22 +318,24 @@ int main(void)
 	}
 	else
 	{
-		//printf("\nvalue= %x\n", code);
+		printf("\nvalue= %x\n", code);
 		printf("\n[INFO]:Keyboard Not Detected!!! \n\n");
 	}
 
 	// TASK: Write the address to read from the memory for the endpoint descriptor to HPI_ADDR.
-
-	data_size = (IORD(CY7C67200_BASE,HPI_DATA)>>8)&0x0ff;
+	IOWR(CY7C67200_BASE, HPI_ADDR, 0x057B);
+	data_size = 0x08;//(IORD(CY7C67200_BASE,HPI_DATA)>>8)&0x0ff;
 	printf("[ENUM PROCESS]:data packet size is %d\n",data_size);
 
 	// STEP 7 begin
 	//------------------------------------set configuration -----------------------------------------//
 	// TASK: Call the appropriate function for this step.
 
+	UsbSetConfig();
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbSetConfig();
 		usleep(10*1000);
 	}
 
@@ -347,9 +357,11 @@ int main(void)
 	//----------------------------------------------class request out ------------------------------------------//
 	// TASK: Call the appropriate function for this step.
 
+	UsbClassRequest();
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbClassRequest();
 		usleep(10*1000);
 	}
 
@@ -373,10 +385,11 @@ int main(void)
 	//----------------------------------get descriptor(class 0x21 = HID) request out --------------------------------//
 	// TASK: Call the appropriate function for this step.
 
-
+	UsbGetHidDesc();
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbGetHidDesc();
 		usleep(10*1000);
 	}
 
@@ -399,9 +412,12 @@ int main(void)
 	//-------------------------------get descriptor (class 0x22 = report)-------------------------------------------//
 	// TASK: Call the appropriate function for this step.
 	//if no message
+
+	UsbGetReportDesc();
 	while (!(IORD(CY7C67200_BASE,HPI_STATUS) & HPI_STATUS_SIE1msg_FLAG) )  //read sie1 msg register
 	{
 		// TASK: Call the appropriate function again if it wasn't processed successfully.
+		UsbGetReportDesc();
 		usleep(10*1000);
 	}
 
@@ -473,6 +489,7 @@ int main(void)
 
 		// packet starts from 0x051c, reading third byte
 		// TASK: Write the address to read from the memory for byte 3 of the report descriptor to HPI_ADDR.
+		IOWR(CY7C67200_BASE, HPI_ADDR, 0x051E);
 		keycode = IORD(CY7C67200_BASE,HPI_DATA);
 		printf("\nfirst two keycode values are %04x\n",keycode);
 		IOWR(KEYCODE_BASE, 0, keycode & 0xff);

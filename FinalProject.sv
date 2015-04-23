@@ -103,8 +103,7 @@ module  FinalProject		( input         Clk,
 	 
 	 ball ball_instance(.Reset(Reset_h), .frame_clk(vs), .BallX, .BallY, .BallS, .keycode);
 	 
-	 block block_instance(.Reset(Reset_h), .frame_clk(vs), .BlockX, .BlockY, .BlockS);
-										  
+	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .Block_Y_Center(120), .BlockX, .BlockY, .BlockS);
 	 HexDriver hex_inst_0 (keycode[3:0], HEX0);
 	 HexDriver hex_inst_1 (keycode[7:4], HEX1);
     
