@@ -113,27 +113,65 @@ module  ball ( input Reset, frame_clk,
 				 case (keycode)
 				 7:		//right key
 					begin
-						if (y_pos > mid_y)
-							Ball_X_Motion = (Ball_X_Step);
-						else if (y_pos < mid_y)
-							Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-						if (x_pos > mid_x)
-							Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-						else if (x_pos < mid_x)
-							Ball_Y_Motion = (Ball_Y_Step);
+						if (color ==2'b1)
+						begin
+							if (y_pos > mid_y)
+								Ball_X_Motion = (Ball_X_Step);
+							else if (y_pos < mid_y)
+								Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+							if (x_pos > mid_x)
+								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+							else if (x_pos < mid_x)
+								Ball_Y_Motion = (Ball_Y_Step);
+						end
+						else if(color == 2'b0)
+						begin
+							if (y_pos > mid_y)
+									Ball_X_Motion = (Ball_X_Step);
+								else if (y_pos < mid_y)
+									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+								if (x_pos > mid_x)
+									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+								else if (x_pos < mid_x)
+									Ball_Y_Motion = (Ball_Y_Step);
+							end
+						end
 					end
 				 4:		//left key
-					begin
-						if (y_pos < mid_y)
-							Ball_X_Motion = (Ball_X_Step);
-						else if (y_pos > mid_y)
-							Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-						if (x_pos < mid_x)
-							Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-						else if (x_pos > mid_x)
-							Ball_Y_Motion = (Ball_Y_Step);
-					end
+					// begin
+						// if (y_pos < mid_y)
+							// Ball_X_Motion = (Ball_X_Step);
+						// else if (y_pos > mid_y)
+							// Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+						// if (x_pos < mid_x)
+							// Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+						// else if (x_pos > mid_x)
+							// Ball_Y_Motion = (Ball_Y_Step);
+					// end
 
+						if (color ==2'b0)
+						begin
+							if (y_pos > mid_y)
+								Ball_X_Motion = (Ball_X_Step);
+							else if (y_pos < mid_y)
+								Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+							if (x_pos > mid_x)
+								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+							else if (x_pos < mid_x)
+								Ball_Y_Motion = (Ball_Y_Step);
+						end
+						else if(color == 2'b1)
+						begin
+							if (y_pos > mid_y)
+									Ball_X_Motion = (Ball_X_Step);
+								else if (y_pos < mid_y)
+									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+								if (x_pos > mid_x)
+									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+								else if (x_pos < mid_x)
+									Ball_Y_Motion = (Ball_Y_Step);
+							end
+						end
 				 endcase
 				 
 				 /*
