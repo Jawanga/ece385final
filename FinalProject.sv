@@ -48,7 +48,7 @@ module  FinalProject		( input         Clk,
     logic Reset_h;
 	 logic [7:0] keycode;
 	 logic [9:0] DrawX, DrawY;
-	 logic [9:0] BallX, BallY, BallS;
+	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
 	 logic [9:0] BlockX, BlockY, BlockS;
     
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
@@ -101,7 +101,8 @@ module  FinalProject		( input         Clk,
                output [9:0]  BallX, BallY, BallS );
 	 */
 	 
-	 ball ball_instance(.Reset(Reset_h), .frame_clk(vs), .BallX, .BallY, .BallS, .keycode);
+	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode);
+	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode);
 	 
 	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .Block_Y_Center(120), .BlockX, .BlockY, .BlockS);
 	 HexDriver hex_inst_0 (keycode[3:0], HEX0);

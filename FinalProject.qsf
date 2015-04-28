@@ -257,7 +257,6 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity l
 set_global_assignment -name SYSTEMVERILOG_FILE FinalProject.sv
 set_global_assignment -name QIP_FILE finalproject/synthesis/finalproject.qip
 set_global_assignment -name SYSTEMVERILOG_FILE VGA_controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE lab8_usb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Color_Mapper.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ball.sv
 set_global_assignment -name SYSTEMVERILOG_FILE block.sv

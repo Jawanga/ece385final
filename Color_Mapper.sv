@@ -13,11 +13,11 @@
 //-------------------------------------------------------------------------
 
 
-module  color_mapper ( input        [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
-							  input			[9:0] BlockX, BlockY, Block_size,
+module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0:1],
+							  input			[9:0] BlockX, BlockY, Block_size, DrawX, DrawY,
                        output logic [7:0]  Red, Green, Blue );
     
-    logic ball_on, block_on;
+    logic ball_red_on, ball_blue_on, block_on;
 	 
  /* Old Ball: Generated square box by checking if the current pixel is within a square of length
     2*Ball_Size, centered at (BallX, BallY).  Note that this requires unsigned comparisons.
@@ -32,20 +32,31 @@ module  color_mapper ( input        [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
      of the 12 available multipliers on the chip!  Since the multiplicants are required to be signed,
 	  we have to first cast them from logic to int (signed by default) before they are multiplied). */
 	  
-    int DistX, DistY, Size;
+    int RedDistX, RedDistY, RedSize, BlueDistX, BlueDistY, BlueSize;
 	 int BlockDistX, BlockDistY;
-	 assign DistX = DrawX - BallX;
-    assign DistY = DrawY - BallY;
+	 assign BlueDistX = DrawX - BallX[0];
+    assign BlueDistY = DrawY - BallY[0];
+	 assign RedDistX = DrawX - BallX[1];
+    assign RedDistY = DrawY - BallY[1];
 	 assign BlockDistX = DrawX - BlockX;
 	 assign BlockDistY = DrawY - BlockY;
-    assign Size = Ball_size;
+    assign BlueSize = Ball_size[0];
+	 assign RedSize = Ball_size[1];
 	  
     always_comb
-    begin:Ball_on_proc
-        if ( ( DistX*DistX + DistY*DistY) <= (Size * Size) ) 
-            ball_on = 1'b1;
+    begin:BlueBall_on_proc
+        if ( ( BlueDistX*BlueDistX + BlueDistY*BlueDistY) <= (BlueSize * BlueSize) ) 
+            ball_blue_on = 1'b1;
         else 
-            ball_on = 1'b0;
+            ball_blue_on = 1'b0;
+     end
+	  
+	 always_comb
+    begin:RedBall_on_proc
+        if ( ( RedDistX*RedDistX + RedDistY*RedDistY) <= (RedSize * RedSize) ) 
+            ball_red_on = 1'b1;
+        else 
+            ball_red_on = 1'b0;
      end 
 	  
 	 always_comb
@@ -59,21 +70,21 @@ module  color_mapper ( input        [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
     always_comb
     begin:RGB_Display
 
-        if (block_on == 1'b1)) 
+        if (block_on == 1'b1)
         begin 
             Red = 8'hff;
             Green = 8'h00;
             Blue = 8'hff;
         end       
 		
-		else if (ball_red_on == 1'b1))
+		else if (ball_red_on == 1'b1)
 		begin
 			Red = 8'h00;
 			Green = 8'hff;
 			Blue = 8'hff;
 		end
 		
-		else if ((ball_blue_on == 1'b1)) 
+		else if (ball_blue_on == 1'b1)
         begin 
             Red = 8'hff;
             Green = 8'hff;

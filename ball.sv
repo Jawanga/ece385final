@@ -54,14 +54,14 @@
 
 
 module  ball ( input Reset, frame_clk,
-					input [7:0] keycode, input [1:0] color,
+					input [7:0] keycode, input color,
                output [9:0]  BallX, BallY, BallS);
     
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
 	 
     parameter [9:0] Ball_X_Center=320;  // Center position on the X axis
 	parameter [9:0] Ball_X_Right=400;
-	parameter [9:0] Ball_X_Left=260;
+	parameter [9:0] Ball_X_Left=240;
     parameter [9:0] Ball_Y_Center=240;  // Center position on the Y axis
     parameter [9:0] Ball_X_Min=0;       // Leftmost point on the X axis
     parameter [9:0] Ball_X_Max=639;     // Rightmost point on the X axis
@@ -79,11 +79,11 @@ module  ball ( input Reset, frame_clk,
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
 			Ball_Y_Pos <= Ball_Y_Center;
-			if (color == 2'b1)
+			if (color == 1'b1)
 			begin
 				Ball_X_Pos <= Ball_X_Right;	//red - right - 2'b1
 			end
-			else if (color == 2'b0)
+			else if (color == 1'b0)
 			begin
 				Ball_X_Pos <= Ball_X_Left;
 			end
@@ -92,51 +92,56 @@ module  ball ( input Reset, frame_clk,
            
         else 
         begin 
-			// left key - counter clockwise
-				// if y_pos > mid_y
-					// decrease x
-				// if y_pos < mid_y
-					// increase x
-				// if x_pos > mid_x
-					// increase y
-				// if x_pos < mid_x
-					// decrease y
-			// right key - clockwise
-				// if y_pos > mid_y
-					// increase x
-				// if y_pos < mid_y
-					// decrease x
-				// if x_pos > mid_x
-					// decrease y
-				// if x_pos < mid_x
-					// increase y
+			
 				 case (keycode)
+					default:
+						begin
+							Ball_X_Motion = 0;
+							Ball_Y_Motion = 0;
+						end
 				 7:		//right key
-					begin
-						if (color ==2'b1)
 						begin
-							if (y_pos > mid_y)
+							if (Ball_Y_Pos < Ball_Y_Center)
 								Ball_X_Motion = (Ball_X_Step);
-							else if (y_pos < mid_y)
+							else if (Ball_Y_Pos > Ball_Y_Center)
 								Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-							if (x_pos > mid_x)
+							if (Ball_X_Pos < Ball_X_Center)
 								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-							else if (x_pos < mid_x)
-								Ball_Y_Motion = (Ball_Y_Step);
-						end
-						else if(color == 2'b0)
-						begin
-							if (y_pos > mid_y)
+							else if (Ball_X_Pos > Ball_X_Center)
+								Ball_Y_Motion = (Ball_Y_Step);				
+							
+							if (Ball_X_Pos == Ball_X_Center)
+							begin
+								if (Ball_Y_Pos < Ball_Y_Center)
+									begin
+									//decrease x & y
 									Ball_X_Motion = (Ball_X_Step);
-								else if (y_pos < mid_y)
-									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-								if (x_pos > mid_x)
-									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-								else if (x_pos < mid_x)
 									Ball_Y_Motion = (Ball_Y_Step);
+									end
+								else
+									begin
+									//increase x & y
+									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+									end
 							end
+							if (Ball_Y_Pos == Ball_Y_Center)
+							begin
+								if (Ball_X_Pos < Ball_X_Center)
+									//increase y, decrease x
+									begin
+									Ball_X_Motion = (Ball_X_Step);
+									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+									end
+								else
+									//decrease y, increase x
+									begin
+									Ball_Y_Motion = (Ball_Y_Step);
+									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+									end
+							end
+							
 						end
-					end
 				 4:		//left key
 					// begin
 						// if (y_pos < mid_y)
@@ -149,28 +154,46 @@ module  ball ( input Reset, frame_clk,
 							// Ball_Y_Motion = (Ball_Y_Step);
 					// end
 
-						if (color ==2'b0)
 						begin
-							if (y_pos > mid_y)
-								Ball_X_Motion = (Ball_X_Step);
-							else if (y_pos < mid_y)
+							if (Ball_Y_Pos < Ball_Y_Center)
 								Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-							if (x_pos > mid_x)
-								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-							else if (x_pos < mid_x)
+							else if (Ball_Y_Pos > Ball_Y_Center)
+								Ball_X_Motion = (Ball_X_Step);
+							if (Ball_X_Pos < Ball_X_Center)
 								Ball_Y_Motion = (Ball_Y_Step);
-						end
-						else if(color == 2'b1)
-						begin
-							if (y_pos > mid_y)
+							else if (Ball_X_Pos > Ball_X_Center)
+								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+							if (Ball_X_Pos == Ball_X_Center)
+							begin
+								if (Ball_Y_Pos > Ball_Y_Center)
+								begin
+									//decrease x & y
 									Ball_X_Motion = (Ball_X_Step);
-								else if (y_pos < mid_y)
-									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-								if (x_pos > mid_x)
 									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-								else if (x_pos < mid_x)
+								end
+								else
+								begin
+									//increase x & y
+									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
 									Ball_Y_Motion = (Ball_Y_Step);
+								end
 							end
+							if (Ball_Y_Pos == Ball_Y_Center)
+							begin
+								if (Ball_X_Pos < Ball_X_Center)
+								begin
+									//increase y, decrease x
+									Ball_Y_Motion = (Ball_Y_Step);
+									Ball_X_Motion = (Ball_X_Step);
+								end
+								else
+								begin
+									//decrease y, increase x
+									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
+									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
+								end
+							end
+							
 						end
 				 endcase
 				 
@@ -196,7 +219,8 @@ module  ball ( input Reset, frame_clk,
 				 Ball_Y_Pos = (Ball_Y_Pos + Ball_Y_Motion);  // Update ball position
 				 Ball_X_Pos = (Ball_X_Pos + Ball_X_Motion);
 				*/
-			
+			Ball_Y_Pos = (Ball_Y_Pos + Ball_Y_Motion);  // Update ball position
+			Ball_X_Pos = (Ball_X_Pos + Ball_X_Motion);
 	  /**************************************************************************************
 	    ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
 		 Hidden Question #2/2:
@@ -210,6 +234,7 @@ module  ball ( input Reset, frame_clk,
 		end  
     end
        
+	
     assign BallX = Ball_X_Pos;
    
     assign BallY = Ball_Y_Pos;
