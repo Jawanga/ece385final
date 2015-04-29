@@ -1,0 +1,4 @@
+library verilog;
+use verilog.vl_types.all;
+entity finalproject_cpu_nios2_performance_monitors is
+end finalproject_cpu_nios2_performance_monitors;

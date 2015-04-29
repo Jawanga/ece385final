@@ -1,7 +1,9 @@
 
 module usb_system (
 	clk_clk,
+	keycode_export,
 	reset_reset_n,
+	sdram_out_clk_clk,
 	sdram_wire_addr,
 	sdram_wire_ba,
 	sdram_wire_cas_n,
@@ -11,7 +13,6 @@ module usb_system (
 	sdram_wire_dqm,
 	sdram_wire_ras_n,
 	sdram_wire_we_n,
-	keycode_export,
 	usb_DATA,
 	usb_ADDR,
 	usb_RD_N,
@@ -19,11 +20,12 @@ module usb_system (
 	usb_CS_N,
 	usb_RST_N,
 	usb_INT,
-	sdram_out_clk_clk,
 	usb_out_clk_clk);	
 
 	input		clk_clk;
+	output	[7:0]	keycode_export;
 	input		reset_reset_n;
+	output		sdram_out_clk_clk;
 	output	[12:0]	sdram_wire_addr;
 	output	[1:0]	sdram_wire_ba;
 	output		sdram_wire_cas_n;
@@ -33,7 +35,6 @@ module usb_system (
 	output	[3:0]	sdram_wire_dqm;
 	output		sdram_wire_ras_n;
 	output		sdram_wire_we_n;
-	output	[7:0]	keycode_export;
 	inout	[15:0]	usb_DATA;
 	output	[1:0]	usb_ADDR;
 	output		usb_RD_N;
@@ -41,6 +42,5 @@ module usb_system (
 	output		usb_CS_N;
 	output		usb_RST_N;
 	input		usb_INT;
-	output		sdram_out_clk_clk;
 	output		usb_out_clk_clk;
 endmodule

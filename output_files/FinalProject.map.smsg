@@ -1,13 +1,14 @@
-Info (10281): Verilog HDL Declaration information at FinalProject.sv(21): object "Blue" differs only in case from object "blue" in the same scope
-Info (10281): Verilog HDL Declaration information at FinalProject.sv(19): object "Red" differs only in case from object "red" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router_003.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router_003.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router_002.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router_002.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router_001.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router_001.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at finalproject_mm_interconnect_0_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router_003.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router_003.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router_002.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router_002.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router_001.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router_001.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at usb_system_mm_interconnect_0_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at block_SM.sv(1): object "Reset" differs only in case from object "RESET" in the same scope
+Info (10281): Verilog HDL Declaration information at FinalProject.sv(22): object "Blue" differs only in case from object "blue" in the same scope
+Info (10281): Verilog HDL Declaration information at FinalProject.sv(20): object "Red" differs only in case from object "red" in the same scope
 Warning (10268): Verilog HDL information at ball.sv(75): always construct contains both blocking and non-blocking assignments
 Warning (10268): Verilog HDL information at block.sv(33): always construct contains both blocking and non-blocking assignments
 Warning (10273): Verilog HDL warning at hexdriver.sv(23): extended using "x" or "z"

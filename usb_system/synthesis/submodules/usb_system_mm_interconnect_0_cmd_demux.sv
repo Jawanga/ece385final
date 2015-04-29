@@ -30,7 +30,7 @@
 //   output_name:         usb_system_mm_interconnect_0_cmd_demux
 //   ST_DATA_W:           105
 //   ST_CHANNEL_W:        6
-//   NUM_OUTPUTS:         3
+//   NUM_OUTPUTS:         6
 //   VALID_WIDTH:         1
 // ------------------------------------------
 
@@ -76,6 +76,27 @@ module usb_system_mm_interconnect_0_cmd_demux
     output reg                      src2_endofpacket,
     input                           src2_ready,
 
+    output reg                      src3_valid,
+    output reg [105-1    : 0] src3_data, // ST_DATA_W=105
+    output reg [6-1 : 0] src3_channel, // ST_CHANNEL_W=6
+    output reg                      src3_startofpacket,
+    output reg                      src3_endofpacket,
+    input                           src3_ready,
+
+    output reg                      src4_valid,
+    output reg [105-1    : 0] src4_data, // ST_DATA_W=105
+    output reg [6-1 : 0] src4_channel, // ST_CHANNEL_W=6
+    output reg                      src4_startofpacket,
+    output reg                      src4_endofpacket,
+    input                           src4_ready,
+
+    output reg                      src5_valid,
+    output reg [105-1    : 0] src5_data, // ST_DATA_W=105
+    output reg [6-1 : 0] src5_channel, // ST_CHANNEL_W=6
+    output reg                      src5_startofpacket,
+    output reg                      src5_endofpacket,
+    input                           src5_ready,
+
 
     // -------------------
     // Clock & Reset
@@ -87,7 +108,7 @@ module usb_system_mm_interconnect_0_cmd_demux
 
 );
 
-    localparam NUM_OUTPUTS = 3;
+    localparam NUM_OUTPUTS = 6;
     wire [NUM_OUTPUTS - 1 : 0] ready_vector;
 
     // -------------------
@@ -115,6 +136,27 @@ module usb_system_mm_interconnect_0_cmd_demux
 
         src2_valid         = sink_channel[2] && sink_valid;
 
+        src3_data          = sink_data;
+        src3_startofpacket = sink_startofpacket;
+        src3_endofpacket   = sink_endofpacket;
+        src3_channel       = sink_channel >> NUM_OUTPUTS;
+
+        src3_valid         = sink_channel[3] && sink_valid;
+
+        src4_data          = sink_data;
+        src4_startofpacket = sink_startofpacket;
+        src4_endofpacket   = sink_endofpacket;
+        src4_channel       = sink_channel >> NUM_OUTPUTS;
+
+        src4_valid         = sink_channel[4] && sink_valid;
+
+        src5_data          = sink_data;
+        src5_startofpacket = sink_startofpacket;
+        src5_endofpacket   = sink_endofpacket;
+        src5_channel       = sink_channel >> NUM_OUTPUTS;
+
+        src5_valid         = sink_channel[5] && sink_valid;
+
     end
 
     // -------------------
@@ -123,8 +165,11 @@ module usb_system_mm_interconnect_0_cmd_demux
     assign ready_vector[0] = src0_ready;
     assign ready_vector[1] = src1_ready;
     assign ready_vector[2] = src2_ready;
+    assign ready_vector[3] = src3_ready;
+    assign ready_vector[4] = src4_ready;
+    assign ready_vector[5] = src5_ready;
 
-    assign sink_ready = |(sink_channel & {{3{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & ready_vector);
 
 endmodule
 

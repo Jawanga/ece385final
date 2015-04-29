@@ -1,0 +1,1601 @@
+m255
+K3
+13
+cModel Technology
+Z0 dU:\ECE385\ece385final\trunk\simulation\modelsim
+valtera_avalon_dc_fifo
+I@?UgE9nJK91=OFS63XZiY0
+VZUPMFz?KzgYeJJhUEZ1JV2
+Z1 dU:\ECE385\ece385final\trunk\simulation\modelsim
+Z2 w1429809971
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_dc_fifo.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_dc_fifo.v
+L0 13
+Z3 OV;L;10.1e;51
+r1
+31
+Z4 o-vlog01compat -work finalproject -O0
+Z5 !s92 -vlog01compat -work finalproject +incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules -O0
+!i10b 1
+!s100 l@CBL=G9z2?ib@C9b6A;;2
+!s85 0
+!s108 1430263089.689000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_dc_fifo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_dc_fifo.v|
+!s101 -O0
+valtera_avalon_mm_clock_crossing_bridge
+I27hBl^j]28[_C5eImV3Cn1
+VY<=b61mdCWG@f4=iRWf<73
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v
+L0 30
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 OX5_hWoPXIALRzSSJM1Xe1
+!s85 0
+!s108 1430263089.468000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v|
+!s101 -O0
+valtera_avalon_sc_fifo
+IoNHXT1T:OX5Y45?R[6B2X0
+VjOzUMS5nAQIa6?lLKEfID0
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_sc_fifo.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_sc_fifo.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 b57RF]@zH=[ZDo6lIQ=Xc3
+!s85 0
+!s108 1430263083.605000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_sc_fifo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_sc_fifo.v|
+!s101 -O0
+valtera_avalon_st_clock_crosser
+I5TbceAgi4T_7k;_JTNCY01
+V0e:lkDY0^f=mT6IM[:_5b3
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_clock_crosser.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_clock_crosser.v
+L0 22
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 ?i@ZHo<VLB9McDc]eTEzB3
+!s85 0
+!s108 1430263092.953000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_clock_crosser.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_clock_crosser.v|
+!s101 -O0
+valtera_avalon_st_handshake_clock_crosser
+IgdAIaNhRhM?<JGEdQez9G0
+VYDTFiCWV0RkTigPZ<4iW90
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+L0 24
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 @TRBUfIP652_l<@jg@0bh2
+!s85 0
+!s108 1430263092.750000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
+!s101 -O0
+valtera_dcfifo_synchronizer_bundle
+IneKk;Mo7540<3eQO^zn<^2
+Vj>T>Y6nGjcX>R_6B^<M_z0
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v
+L0 8
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 cMXde@@>1TYJ5Sa0:K17G3
+!s85 0
+!s108 1430263089.933000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v|
+!s101 -O0
+valtera_irq_clock_crosser
+Z6 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+IaPR2gGIRzVNnkYoK`PE^73
+VQ^oZabhTZI6Ri3BO2OVO73
+S1
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_irq_clock_crosser.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_irq_clock_crosser.sv
+L0 21
+R3
+r1
+31
+Z7 o-sv -work finalproject -O0
+Z8 !s92 -sv -work finalproject +incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules -O0
+!i10b 1
+!s100 o[Rmad;jXYK_IiM=mcR9K2
+!s105 altera_irq_clock_crosser_sv_unit
+!s85 0
+!s108 1430263091.867000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_irq_clock_crosser.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_irq_clock_crosser.sv|
+!s101 -O0
+valtera_merlin_arb_adder
+R6
+I7Qh_eINbaX>[2TO]`h@cR1
+VeEm48mj>0hhNR4acO5n:k1
+Z9 !s105 altera_merlin_arbitrator_sv_unit
+S1
+R1
+Z10 w1429809972
+Z11 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv
+Z12 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv
+L0 228
+R3
+r1
+31
+Z13 !s108 1430263093.150000
+Z14 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv|
+Z15 !s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_arbitrator.sv|
+R7
+R8
+!i10b 1
+!s100 HL<@l57jQT_o6XYFg@o9Z1
+!s85 0
+!s101 -O0
+valtera_merlin_arbitrator
+R6
+ILcL074I1zQYfE7kPn]M1[2
+VkoHZHN`N_KjQAPBBQ3eh^0
+R9
+S1
+R1
+R10
+R11
+R12
+L0 103
+R3
+r1
+31
+R13
+R14
+R15
+R7
+R8
+!i10b 1
+!s100 L016Qf<Y?Kamk@z_TUdCJ1
+!s85 0
+!s101 -O0
+valtera_merlin_burst_uncompressor
+R6
+I6P87dzSon;lYYQdgPCheV0
+Vk1gIA`RY2OQ1N9QbTULJo2
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+L0 40
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 ]jV[5N1@:am8jU^;^Wk8Q1
+!s105 altera_merlin_burst_uncompressor_sv_unit
+!s85 0
+!s108 1430263096.824000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
+!s101 -O0
+valtera_merlin_master_agent
+R6
+!i10b 1
+!s100 08:JWj?G8XY2d6=D55c120
+IP1B7G:OhY4a>V_B[KYgDO0
+V6JI]KbZGZm>LIKL4M18FY3
+!s105 altera_merlin_master_agent_sv_unit
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_agent.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_agent.sv
+L0 28
+R3
+r1
+!s85 0
+31
+!s108 1430263097.017000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_agent.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_agent.sv|
+!s101 -O0
+R7
+R8
+valtera_merlin_master_translator
+R6
+ID=ST8LR^YeGI34g?Tnc?B1
+VR^c8h^3M]`bzVaj1m;bbJ0
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_translator.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_translator.sv
+L0 30
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 OX?D5J9^Jn?AM:koWR3bY3
+!s105 altera_merlin_master_translator_sv_unit
+!s85 0
+!s108 1430263092.495000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_translator.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_master_translator.sv|
+!s101 -O0
+valtera_merlin_slave_agent
+R6
+Ij0Rn67nghhO:db8P`cOEG1
+V:8aXM?KhH66P>V0fl]jIm2
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_agent.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_agent.sv
+L0 34
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 KUJFG1PHKl[GO@2IR3cz33
+!s105 altera_merlin_slave_agent_sv_unit
+!s85 0
+!s108 1430263096.541000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_agent.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_agent.sv|
+!s101 -O0
+valtera_merlin_slave_translator
+R6
+ITQ6;VUMAf]da]nRPY::cm1
+VBBWB=ACWYI0jO:bRkHCJ20
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_translator.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_translator.sv
+L0 35
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 YlS:;zifOT3^[Y2>ZEALH3
+!s105 altera_merlin_slave_translator_sv_unit
+!s85 0
+!s108 1430263092.306000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_translator.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_merlin_slave_translator.sv|
+!s101 -O0
+valtera_reset_controller
+IUO<^2IGHQWKbO@IHUaGB;1
+Vd6XZeNR]PniX]Sml3E;hm2
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_controller.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_controller.v
+L0 42
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 =Ie3aWRVHKh:0g94cE2lN2
+!s85 0
+!s108 1430263082.730000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_controller.v|
+!s101 -O0
+valtera_reset_synchronizer
+I@2Ch[I[Q_:0hZ8^>3CKjY3
+V3CjoOZCIEdzCJgPn8]D7`2
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_synchronizer.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_synchronizer.v
+L0 24
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 Q2<3_GFg4F4Q?TBR@iOX;0
+!s85 0
+!s108 1430263082.905000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_synchronizer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_reset_synchronizer.v|
+!s101 -O0
+valtera_std_synchronizer_nocut
+ID4i7KD;m9R>RQZX3`C1581
+VOfV7@eGD_hKiXZ[XdCWLS2
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_std_synchronizer_nocut.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_std_synchronizer_nocut.v
+L0 31
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 JU0;60LJNGL]D]oEK3QE`3
+!s85 0
+!s108 1430263090.138000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_std_synchronizer_nocut.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/altera_std_synchronizer_nocut.v|
+!s101 -O0
+vCY7C67200_IF
+I3I6Dm2j:_2n`1>_gEZc@W0
+V::k4la3CMMFD]j?loj8141
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/CY7C67200_IF.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/CY7C67200_IF.v
+L0 1
+R3
+r1
+31
+R4
+R5
+n@c@y7@c67200_@i@f
+!i10b 1
+!s100 dB;NdGYJVWYVCMbkmEmV:1
+!s85 0
+!s108 1430263090.360000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/CY7C67200_IF.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/CY7C67200_IF.v|
+!s101 -O0
+vfinalproject
+Ie?d;MA1SOlhFXi2:lhm;13
+V0HI[7f8QMCU4oXDmJ<Vzl0
+R1
+R2
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/finalproject.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/finalproject.v
+L0 6
+R3
+r1
+31
+R4
+!i10b 1
+!s100 ma^ZlazJM_W_RRjS0XYN91
+!s85 0
+!s108 1430263082.521000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/finalproject.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis|U:/ECE385/ece385final/trunk/finalproject/synthesis/finalproject.v|
+!s101 -O0
+!s92 -vlog01compat -work finalproject +incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis -O0
+vfinalproject_clocks
+IZ4_Ha>IX;GH<C7JMgNa=n2
+VMXzzz:oMgKH_m^CBGIHn:0
+R1
+R10
+Z16 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_clocks.v
+Z17 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_clocks.v
+L0 218
+R3
+r1
+31
+Z18 !s108 1430263088.897000
+Z19 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_clocks.v|
+Z20 !s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_clocks.v|
+R4
+R5
+!i10b 1
+!s100 G>zo3iz^<Y90zh:8K6ME31
+!s85 0
+!s101 -O0
+vfinalproject_clocks_altpll_pqa2
+IIb4i0Yd_CiI[WI9A?D>P22
+V><MMHamcJQXGm2Ng]BSYQ1
+R1
+R10
+R16
+R17
+L0 131
+R3
+r1
+31
+R18
+R19
+R20
+R4
+R5
+!i10b 1
+!s100 bg7k:CG:Uzd1Lh:VY8@cz2
+!s85 0
+!s101 -O0
+vfinalproject_clocks_dffpipe_l2c
+IK`61Jic>=HjJJ]?1gULjz1
+VcJdnTFSlXne^P0U;SnWQc0
+R1
+R10
+R16
+R17
+L0 38
+R3
+r1
+31
+R18
+R19
+R20
+R4
+R5
+!i10b 1
+!s100 [1;mgHRf7=hMe5<zZF3el1
+!s85 0
+!s101 -O0
+vfinalproject_clocks_stdsync_sv6
+IjE]lg<e0e28z4c9VYFCX[1
+VICU:lOO44Pd9md>9?9QV40
+R1
+R10
+R16
+R17
+L0 99
+R3
+r1
+31
+R18
+R19
+R20
+R4
+R5
+!i10b 1
+!s100 ]mJ=CYeCj8z1`[2=4zX_P1
+!s85 0
+!s101 -O0
+vfinalproject_cpu
+I[hAU525nC1G7N^icECe241
+V9:c4F6C^OKhd=5il0GBeI1
+R1
+R10
+Z21 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu.v
+Z22 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu.v
+L0 3166
+R3
+r1
+31
+Z23 !s108 1430263085.022000
+Z24 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu.v|
+Z25 !s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu.v|
+R4
+R5
+!i10b 1
+!s100 5IbjI[]:_W@VAn==iTTNK3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_jtag_debug_module_sysclk
+IKzi3DRY]`2Hd6enMmj?`;0
+VA]@iEedUX1j2XHGzNmIW;3
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_sysclk.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_sysclk.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 hCO`]T3g=o>33GEF9C^dO0
+!s85 0
+!s108 1430263087.667000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_sysclk.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_sysclk.v|
+!s101 -O0
+vfinalproject_cpu_jtag_debug_module_tck
+I`D]XacbP]K5VakX5QXhaW0
+V2DYcQfCPFS:8n>98TPW]K3
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_tck.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_tck.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 X>3:2g8Ho<3QWFVk^@^@50
+!s85 0
+!s108 1430263087.861000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_tck.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_tck.v|
+!s101 -O0
+vfinalproject_cpu_jtag_debug_module_wrapper
+I`Qzm=X36K=ckgUDV3HcoI1
+V]8i2_>BmFe1NX_2F7<A_71
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_wrapper.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_wrapper.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 Gfa<BjLc;aN7R5Y[27o;a0
+!s85 0
+!s108 1430263088.090000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_wrapper.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_jtag_debug_module_wrapper.v|
+!s101 -O0
+vfinalproject_cpu_nios2_avalon_reg
+I_MJd6z7V7hl9IH26]lW7e0
+V1ODal:;0dIAa<3^cMWZjk2
+R1
+R10
+R21
+R22
+L0 536
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 9P<eVOZNiXdRoBj9@RX8S1
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci
+IFX5`fADQUZ`i7;ZL<I`zh3
+V@:k8Di@20>9_N;mTKF=SH1
+R1
+R10
+R21
+R22
+L0 2658
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 @EmCenf[nM7PGFjEg259@3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_break
+I<I_W8DYnzK@i]3O=4UWal3
+VRa9M=KOT]ccC0HN:9T?[a0
+R1
+R10
+R21
+R22
+L0 628
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 N^VJKbTlaHjHSJN^nH7AK2
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_compute_input_tm_cnt
+IR1U7HXY>P?a6S4oLPGn]S3
+VGORkKhYH5W7YVDhjR?UD63
+R1
+R10
+R21
+R22
+L0 1798
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 `E[hYUVBXNKAP;5Zd0Sk^1
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_dbrk
+I0B>aGm1`fYfLfJeJ;km[S2
+VPNJDl7:mfaiPCG<G0Wd^F3
+R1
+R10
+R21
+R22
+L0 1128
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 ?LoT[<QJ=Fo2o`5ZUU[Eb0
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_debug
+IM<CoNFJRj=5zgj]E<C5`z0
+Vf`f;Q3S_n3b6E21NlL[cP0
+R1
+R10
+R21
+R22
+L0 151
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 DcjlfWS?36DiGjYgj?a7M2
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_dtrace
+IhnAQAjeonV]J2d4T];KFA1
+VXQzn:JmJEZ0C`LVZ>]AWI3
+R1
+R10
+R21
+R22
+L0 1704
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 [nFLBXXk]EgLzR:lcWAz=3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_fifo
+I2E4T=o2zkg;7mn1faagUi3
+VjSV9Pb]MZ_Ro^IPTT1O7B1
+R1
+R10
+R21
+R22
+L0 1957
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 @HC_h[8YZGA8;_a_z`OfC2
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_fifo_cnt_inc
+IBW4EJ[6gX@;5zGW]zM<X03
+VPHB0F7Ieg_;6=TY;^b;lg0
+R1
+R10
+R21
+R22
+L0 1911
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 <Mi=<:?Ma2ALzU9B^J^9d3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_fifo_wrptr_inc
+I2CnJR1V`4Og=1ZWRGgH4W2
+Vgn:EH``RW@o9AJgUzZ6HY3
+R1
+R10
+R21
+R22
+L0 1869
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 elm0d14MkC2_9^XnKYZ=`3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_im
+InLABHHzBW@XkbcUE?W3Ph3
+VF1ViK290f6ao:Shk7nCIU2
+R1
+R10
+R21
+R22
+L0 2526
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 jZzT3X>7j>Pi^HU42e2LW3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_itrace
+I]SPnN_kCf>9KaS0Ubd]3[3
+VWAf[[Um`3kaPQ5?FL_4Gj1
+R1
+R10
+R21
+R22
+L0 1314
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 YJnSo:4QKRN6]mYV<VUQn1
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_pib
+Ifc]dz`cUgfPAla36Y2b>[1
+V_R<ZS;LIiI@mi19?dAkm52
+R1
+R10
+R21
+R22
+L0 2458
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 FTkP1OgihMeP<TeY>mHik2
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_td_mode
+IL=;nLO:LYdE[fjkjEOWTT3
+V?@kOe4=S@@fj7<JkD1gPf0
+R1
+R10
+R21
+R22
+L0 1637
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 0mB^5f?[LX8aB3;?E0Y_j3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_oci_xbrk
+I=_OTN<HBF4KT6Q0_RVCMH3
+V=TnJ<GFiNHMQ;80KVCZB02
+R1
+R10
+R21
+R22
+L0 922
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 VGjY7eLD`8caYN9FkI_;=3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_ocimem
+I3KWaDA4[Gzd8755?OnnQz3
+V8L[?B<0zjHWbRZ7<iLjjP2
+R1
+R10
+R21
+R22
+L0 355
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 ee]YJkOBelKzFOElTISFS3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_nios2_performance_monitors
+I2i6CAlE9TBLG1QhEDa2c]3
+VghN7BFn2j@z;zDH>mWo5F0
+R1
+R10
+R21
+R22
+L0 2642
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 2Oj=H9OYn9]BdS8kXIZ>11
+!s85 0
+!s101 -O0
+vfinalproject_cpu_oci_test_bench
+IaUI8omTQ1nc7_V9CPgIgf3
+VF2a0mZaa>>7FcYjeJUYl71
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_oci_test_bench.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_oci_test_bench.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 e4:V=dT^a5ELk=3J3Q9VQ2
+!s85 0
+!s108 1430263088.347000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_oci_test_bench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_oci_test_bench.v|
+!s101 -O0
+vfinalproject_cpu_ociram_sp_ram_module
+IFgJE5YK;5HDB=g:QX8dD;1
+V1h:8M48WZMYR`l`JWSSa:1
+R1
+R10
+R21
+R22
+L0 292
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 iia0aUF@=h:PVF?6Tnd@X0
+!s85 0
+!s101 -O0
+vfinalproject_cpu_register_bank_a_module
+IP@lziEXA=8D>ImC[_8bJT2
+ViY7]Sk6jULLj@:XhK=OC50
+R1
+R10
+R21
+R22
+L0 21
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 8S@H`7V`0Gh43GgQYbN=R2
+!s85 0
+!s101 -O0
+vfinalproject_cpu_register_bank_b_module
+I^=_YAPl6k5A5g2]Q32J9:2
+Vg9KN9VEjUn:5CC1z@So750
+R1
+R10
+R21
+R22
+L0 86
+R3
+r1
+31
+R23
+R24
+R25
+R4
+R5
+!i10b 1
+!s100 AVla[1?P6lICj0lCdF?WR3
+!s85 0
+!s101 -O0
+vfinalproject_cpu_test_bench
+I9:eQ@9@@ci:;?>iYW_ZCk0
+V`>UfGAln[iZ6bFe`5]9cB2
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_test_bench.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_test_bench.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 UF_FGPE5e<22Y]6D`JP]I1
+!s85 0
+!s108 1430263088.603000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_test_bench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_cpu_test_bench.v|
+!s101 -O0
+vfinalproject_irq_mapper
+R6
+IWG^8ezdV_Va2URG_Yegnn1
+Vn_S0[nRo=0F7MGaj2SI:k3
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_irq_mapper.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_irq_mapper.sv
+L0 31
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 ZdK4RFW[VF<Y]ZjH2:jP90
+!s105 finalproject_irq_mapper_sv_unit
+!s85 0
+!s108 1430263092.115000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_irq_mapper.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_irq_mapper.sv|
+!s101 -O0
+vfinalproject_jtag_uart
+I^>TZJ6BYhJYR0C`BjKEkc0
+VOPOFjg]PdKf;HC]9]?F9D0
+R1
+R10
+Z26 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_jtag_uart.v
+Z27 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_jtag_uart.v
+L0 327
+R3
+r1
+31
+Z28 !s108 1430263084.428000
+Z29 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_jtag_uart.v|
+Z30 !s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_jtag_uart.v|
+R4
+R5
+!i10b 1
+!s100 lKAOOG1F^UMChXmefnUZJ1
+!s85 0
+!s101 -O0
+vfinalproject_jtag_uart_scfifo_r
+ICeW=U9mZo28E`j_F6lkH]2
+VI671I4:RBCocShaVYeij@0
+R1
+R10
+R26
+R27
+L0 240
+R3
+r1
+31
+R28
+R29
+R30
+R4
+R5
+!i10b 1
+!s100 WTEdE3[e5nfWGb:`l5;9X0
+!s85 0
+!s101 -O0
+vfinalproject_jtag_uart_scfifo_w
+IDe8?Oon5a4IoFmd0=BSOE0
+VQkSBHM@_d:n@2i1=WC<T22
+R1
+R10
+R26
+R27
+L0 77
+R3
+r1
+31
+R28
+R29
+R30
+R4
+R5
+!i10b 1
+!s100 aESf`l2MXO1aJ@]K=H?K@0
+!s85 0
+!s101 -O0
+vfinalproject_jtag_uart_sim_scfifo_r
+IQb4ElQdKeYBobDIKzbWLn2
+Vn68Jn@S;@?Xio8h?14DGC1
+R1
+R10
+R26
+R27
+L0 162
+R3
+r1
+31
+R28
+R29
+R30
+R4
+R5
+!i10b 1
+!s100 dDoj:A;5jED>Y_mVL<<:>2
+!s85 0
+!s101 -O0
+vfinalproject_jtag_uart_sim_scfifo_w
+I^=lGFdW>1k`WG>S]07IC`0
+VUKnXKReE?^=?JzZ6oXlJ90
+R1
+R10
+R26
+R27
+L0 21
+R3
+r1
+31
+R28
+R29
+R30
+R4
+R5
+!i10b 1
+!s100 C83X1=MJe<g4E;]:[z5Wg0
+!s85 0
+!s101 -O0
+vfinalproject_keycode
+IOK=3bP_[h`dN_^9W=<@jD2
+VkHViR5f`LH3CKAeUSL]7l1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_keycode.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_keycode.v
+L0 21
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 kQ7[do`<2:=k8mej4:cM^2
+!s85 0
+!s108 1430263084.199000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_keycode.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_keycode.v|
+!s101 -O0
+vfinalproject_mm_interconnect_0
+I7Ffhj`@>Ve=KXmD7SXIKM0
+V?FN8Uh?kAl0bL4Vmn?9ha2
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0.v
+L0 9
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 k<KIR7T7mkh];1Q6[ak6a3
+!s85 0
+!s108 1430263083.285000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0.v|
+!s101 -O0
+vfinalproject_mm_interconnect_0_cmd_demux
+R6
+InDPP?;PL;=QGOSMzX``FY1
+VD7Cl<dHdDf>EbGZIX04TU1
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux.sv
+L0 43
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 4gQf8z3cz6FhV@YKkNki^2
+!s105 finalproject_mm_interconnect_0_cmd_demux_sv_unit
+!s85 0
+!s108 1430263094.972000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_cmd_demux_001
+R6
+IZ0bnF71726^>>3iZhCAEn2
+V;DaU@ZjB:`7HL;c5l:QmB2
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux_001.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux_001.sv
+L0 43
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 >oV?D[Nl>ZEBmK8<zC:R<0
+!s105 finalproject_mm_interconnect_0_cmd_demux_001_sv_unit
+!s85 0
+!s108 1430263094.731000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux_001.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_demux_001.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_cmd_mux
+R6
+IJSWG_WCfYSVOzA8jkHOYW2
+VAFA4@WmKU[:c7^OcQzQ3K1
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux.sv
+L0 38
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 bl]S2f[h8=QgBWNd9KHAa2
+!s105 finalproject_mm_interconnect_0_cmd_mux_sv_unit
+!s85 0
+!s108 1430263094.508000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_cmd_mux_001
+R6
+I?]f[:3hECAzCKFL`iJil40
+VW[kO7g6f;iZ58fDE?PNVR1
+S1
+R1
+R10
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux_001.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux_001.sv
+L0 38
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 e@1EK`Sm^1cfJ<@6L^F`K2
+!s105 finalproject_mm_interconnect_0_cmd_mux_001_sv_unit
+!s85 0
+!s108 1430263094.312000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux_001.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_cmd_mux_001.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_router
+R6
+IPaSKY[CjY9aiU[E4O8[BZ3
+VXcKY=Ja6kSQZEG5:kkZfj3
+Z31 !s105 finalproject_mm_interconnect_0_router_sv_unit
+S1
+R1
+Z32 w1429809973
+Z33 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router.sv
+Z34 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router.sv
+L0 84
+R3
+r1
+31
+Z35 !s108 1430263096.224000
+Z36 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router.sv|
+Z37 !s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router.sv|
+R7
+R8
+!i10b 1
+!s100 522Y[?4B:dLfSc>>jMnDP1
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_001
+R6
+IcB=GZ4>zbAfG><MC@k8cd2
+VnYRJfbdQzK=CMC2mIGM?R1
+Z38 !s105 finalproject_mm_interconnect_0_router_001_sv_unit
+S1
+R1
+R32
+Z39 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_001.sv
+Z40 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_001.sv
+L0 84
+R3
+r1
+31
+Z41 !s108 1430263095.859000
+Z42 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_001.sv|
+Z43 !s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_001.sv|
+R7
+R8
+!i10b 1
+!s100 GlMM4O3]>3PGMDa0o75N]3
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_001_default_decode
+R6
+IgEJkia1I1YHCJaXGl7m6l0
+V`]BXkMd6TZ[`[:IoF9E]F2
+R38
+S1
+R1
+R32
+R39
+R40
+L0 45
+R3
+r1
+31
+R41
+R42
+R43
+R7
+R8
+!i10b 1
+!s100 iV5Fbckg]dL]^RAP;X=582
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_002
+R6
+I?`]cG5zA8Xi1M5TN>NjAj3
+V[VRT^gFI:0iX8]m9A[<8D3
+Z44 !s105 finalproject_mm_interconnect_0_router_002_sv_unit
+S1
+R1
+R32
+Z45 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_002.sv
+Z46 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_002.sv
+L0 84
+R3
+r1
+31
+Z47 !s108 1430263095.545000
+Z48 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_002.sv|
+Z49 !s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_002.sv|
+R7
+R8
+!i10b 1
+!s100 O796_IT=S;VdIingWQ:0n2
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_002_default_decode
+R6
+ILj9IMhPbSlSFN^Nk@SEQI3
+V?OMVg6:I:c5<BcHm^XXEP2
+R44
+S1
+R1
+R32
+R45
+R46
+L0 45
+R3
+r1
+31
+R47
+R48
+R49
+R7
+R8
+!i10b 1
+!s100 8C^i8ZP4<Z=X=Y>?eZ7V:3
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_003
+R6
+I9HBZTHfVGFXD1J>KQkb?Y2
+V]N^<LI0[2mihB:C_:?Hk@0
+Z50 !s105 finalproject_mm_interconnect_0_router_003_sv_unit
+S1
+R1
+R32
+Z51 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_003.sv
+Z52 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_003.sv
+L0 84
+R3
+r1
+31
+Z53 !s108 1430263095.168000
+Z54 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_003.sv|
+Z55 !s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_router_003.sv|
+R7
+R8
+!i10b 1
+!s100 ??VgdXdg2;]e6n>3hOUnj3
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_003_default_decode
+R6
+I@eeTHBFF39mm<_P[hi:@E3
+VBPdS[BjZ;MYjl1XUA6cei1
+R50
+S1
+R1
+R32
+R51
+R52
+L0 45
+R3
+r1
+31
+R53
+R54
+R55
+R7
+R8
+!i10b 1
+!s100 IYg5;LKgjJLCN[44aAXn41
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_router_default_decode
+R6
+IIM`c``^_kd3l4>49U6XGz3
+VOeCoBCDERcH1IMneQVlTI0
+R31
+S1
+R1
+R32
+R33
+R34
+L0 45
+R3
+r1
+31
+R35
+R36
+R37
+R7
+R8
+!i10b 1
+!s100 ^N=hn=A@c^__C8;YI5GMa0
+!s85 0
+!s101 -O0
+vfinalproject_mm_interconnect_0_rsp_demux
+R6
+IM?1Dkj2@R<MNJ@BoII=5_0
+VAh7fC2b?Q]Qn8oDQeDDSX2
+S1
+R1
+R32
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux.sv
+L0 43
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 Uz;I2WX9GbnNZ[B7?DGI[3
+!s105 finalproject_mm_interconnect_0_rsp_demux_sv_unit
+!s85 0
+!s108 1430263094.079000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_rsp_demux_001
+R6
+Iz:fS1ABHGz>=;YJ6UeVbT2
+VLL0l1bzPD4b6X?BmMlg>a0
+S1
+R1
+R32
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux_001.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux_001.sv
+L0 43
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 _D96^Lcz6lXZ9KYa0n9S;1
+!s105 finalproject_mm_interconnect_0_rsp_demux_001_sv_unit
+!s85 0
+!s108 1430263093.854000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux_001.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_demux_001.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_rsp_mux
+R6
+ICG66@UVW9H:;n<Rof3YFP2
+Vi^HWFB0e9>^8f`<;WTlIW3
+S1
+R1
+R32
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux.sv
+L0 38
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 EG>08P:`nDFGV8IeFNcTI3
+!s105 finalproject_mm_interconnect_0_rsp_mux_sv_unit
+!s85 0
+!s108 1430263093.673000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_0_rsp_mux_001
+R6
+I7[gT54NNgGT@01ZRmW<YY0
+VZRWfM0`cM=ZZHi>NDV>_i0
+S1
+R1
+R32
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux_001.sv
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux_001.sv
+L0 38
+R3
+r1
+31
+R7
+R8
+!i10b 1
+!s100 3=?CCz7HXoD6:fT7LFO993
+!s105 finalproject_mm_interconnect_0_rsp_mux_001_sv_unit
+!s85 0
+!s108 1430263093.454000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux_001.sv|
+!s90 -reportprogress|300|-sv|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_0_rsp_mux_001.sv|
+!s101 -O0
+vfinalproject_mm_interconnect_1
+IHOzM@JEd?VbA6NInF9CIk1
+VjUakYHWNmWazJY:a86K;j0
+R1
+R32
+8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_1.v
+FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_1.v
+L0 9
+R3
+r1
+31
+R4
+R5
+!i10b 1
+!s100 GZ4lo4BLlB?c:Z^?mAGb?0
+!s85 0
+!s108 1430263083.089000
+!s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_mm_interconnect_1.v|
+!s101 -O0
+vfinalproject_sdram
+IcSbO:J[;O>ce]Nb7ZSa]^0
+Vn_A=OUnodz01Z^=W3k>:S0
+R1
+R32
+Z56 8U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_sdram.v
+Z57 FU:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_sdram.v
+L0 158
+R3
+r1
+31
+Z58 !s108 1430263083.867000
+Z59 !s107 U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_sdram.v|
+Z60 !s90 -reportprogress|300|-vlog01compat|-work|finalproject|+incdir+U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules|U:/ECE385/ece385final/trunk/finalproject/synthesis/submodules/finalproject_sdram.v|
+R4
+R5
+!i10b 1
+!s100 e:5fCL=BNcc05>2_10Bce1
+!s85 0
+!s101 -O0
+vfinalproject_sdram_input_efifo_module
+I0oc^HL@TXSKfZEWdY4DSR0
+Vn[fn2PSW@N7WoL0Rj@dgH1
+R1
+R32
+R56
+R57
+L0 21
+R3
+r1
+31
+R58
+R59
+R60
+R4
+R5
+!i10b 1
+!s100 RbE[fz9bCZ>Y;h18[JPj81
+!s85 0
+!s101 -O0

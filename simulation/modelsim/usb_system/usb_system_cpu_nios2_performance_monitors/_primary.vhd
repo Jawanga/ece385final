@@ -1,0 +1,4 @@
+library verilog;
+use verilog.vl_types.all;
+entity usb_system_cpu_nios2_performance_monitors is
+end usb_system_cpu_nios2_performance_monitors;

@@ -14,10 +14,11 @@
 
 
 module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0:1],
-							  input			[9:0] BlockX, BlockY, Block_size, DrawX, DrawY,
+							  input			[9:0] BlockX [0:4], BlockY [0:4], Block_size [0:4], DrawX, DrawY,
+							  input			[2:0] block_ready,
                        output logic [7:0]  Red, Green, Blue );
     
-    logic ball_red_on, ball_blue_on, block_on;
+    logic ball_red_on, ball_blue_on, block_on [0:4];
 	 
  /* Old Ball: Generated square box by checking if the current pixel is within a square of length
     2*Ball_Size, centered at (BallX, BallY).  Note that this requires unsigned comparisons.
@@ -33,13 +34,15 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	  we have to first cast them from logic to int (signed by default) before they are multiplied). */
 	  
     int RedDistX, RedDistY, RedSize, BlueDistX, BlueDistY, BlueSize;
-	 int BlockDistX, BlockDistY;
+	 int BlockDistX [0:4], BlockDistY [0:4];
 	 assign BlueDistX = DrawX - BallX[0];
     assign BlueDistY = DrawY - BallY[0];
 	 assign RedDistX = DrawX - BallX[1];
     assign RedDistY = DrawY - BallY[1];
-	 assign BlockDistX = DrawX - BlockX;
-	 assign BlockDistY = DrawY - BlockY;
+	 assign BlockDistX[0] = DrawX - BlockX[0];
+	 assign BlockDistY[0] = DrawY - BlockY[0];
+	 assign BlockDistX[1] = DrawX - BlockX[1];
+	 assign BlockDistY[1] = DrawY - BlockY[1];
     assign BlueSize = Ball_size[0];
 	 assign RedSize = Ball_size[1];
 	  
@@ -61,16 +64,18 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	  
 	 always_comb
 	 begin:Block_on_proc
-		  if ( (BlockDistX <= Block_size) && (BlockDistY <= Block_size) )
-				block_on = 1'b1;
+		for (int i = 0; i < 2; i++) begin
+		  if ( (BlockDistX[i] <= Block_size[i]) && (BlockDistY[i] <= Block_size[i]) )
+				block_on[i] = 1'b1;
 		  else
-				block_on = 1'b0;
+				block_on[i] = 1'b0;
+		end
 	 end
        
     always_comb
     begin:RGB_Display
-
-        if (block_on == 1'b1)
+		
+      if ((block_on[0] == 1'b1 && block_ready >= 3'd1) || (block_on[1] == 1'b1 && block_ready >= 3'd2))
         begin 
             Red = 8'hff;
             Green = 8'h00;

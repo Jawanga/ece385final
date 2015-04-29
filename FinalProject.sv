@@ -12,6 +12,7 @@
 
 module  FinalProject		( input         Clk,
                                      Reset,
+												 Run,
 							  output [6:0]  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
 							  output [8:0]  LEDG,
 							  output [17:0] LEDR,
@@ -49,13 +50,15 @@ module  FinalProject		( input         Clk,
 	 logic [7:0] keycode;
 	 logic [9:0] DrawX, DrawY;
 	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
-	 logic [9:0] BlockX, BlockY, BlockS;
+	 logic [9:0] BlockX [0:4], BlockY [0:4], BlockS [0:4];
+	 logic [2:0] block_ready;
     
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
+	 assign Run_h = ~Run;
 	 assign OTG_FSPEED = 1'bz;
 	 assign OTG_LSPEED = 1'bz;
 	    
-	 finalproject usbsys_instance(
+	 usb_system usbsys_instance(
 										 .clk_clk(Clk),         
 										 .reset_reset_n(1'b1),   
 										 .sdram_wire_addr(sdram_wire_addr), 
@@ -95,7 +98,7 @@ module  FinalProject		( input         Clk,
                        output logic [7:0]  Red, Green, Blue );
 	 */
 	 
-	 color_mapper color_instance(.BallX, .BallY, .DrawX, .DrawY, .Ball_size(BallS), .BlockX, .BlockY, .Block_size(BlockS), .Red, .Green, .Blue);
+	 color_mapper color_instance(.BallX, .BallY, .DrawX, .DrawY, .Ball_size(BallS), .BlockX, .BlockY, .Block_size(BlockS), .block_ready, .Red, .Green, .Blue);
 	 /*
 	 module  ball ( input Reset, frame_clk,
                output [9:0]  BallX, BallY, BallS );
@@ -104,7 +107,11 @@ module  FinalProject		( input         Clk,
 	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode);
 	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode);
 	 
-	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .Block_Y_Center(120), .BlockX, .BlockY, .BlockS);
+	 block_SM statemachine_instance(.Clk(vs), .Reset(Reset_h), .Run(Run_h), .block_ready);
+	 
+	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .BlockS(BlockS[0]));
+	 block block2(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(220), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .BlockS(BlockS[1]));
+
 	 HexDriver hex_inst_0 (keycode[3:0], HEX0);
 	 HexDriver hex_inst_1 (keycode[7:4], HEX1);
     

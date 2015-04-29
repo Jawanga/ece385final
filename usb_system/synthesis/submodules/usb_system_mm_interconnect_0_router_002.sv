@@ -47,7 +47,7 @@ module usb_system_mm_interconnect_0_router_002_default_decode
      parameter DEFAULT_CHANNEL = 0,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 1 
+               DEFAULT_DESTID = 0 
    )
   (output [91 - 89 : 0] default_destination_id,
    output [6-1 : 0] default_wr_channel,
@@ -165,11 +165,6 @@ module usb_system_mm_interconnect_0_router_002
 
 
 
-    // -------------------------------------------------------
-    // Write and read transaction signals
-    // -------------------------------------------------------
-    wire read_transaction;
-    assign read_transaction  = sink_data[PKT_TRANS_READ];
 
 
     usb_system_mm_interconnect_0_router_002_default_decode the_default_decode(
@@ -191,12 +186,8 @@ module usb_system_mm_interconnect_0_router_002
 
 
 
-        if (destid == 1  && read_transaction) begin
-            src_channel = 6'b01;
-        end
-
         if (destid == 0 ) begin
-            src_channel = 6'b10;
+            src_channel = 6'b1;
         end
 
 

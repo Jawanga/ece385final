@@ -14,7 +14,7 @@
 
 
 module  block ( input Reset, frame_clk,
-					 input [9:0]  Block_X_Center, Block_Y_Center,
+					 input [9:0]  Block_X_Center,
                output [9:0]  BlockX, BlockY, BlockS);
     
     logic [9:0] Block_X_Pos, Block_X_Motion, Block_Y_Pos, Block_Y_Motion, Block_Size;
@@ -36,7 +36,7 @@ module  block ( input Reset, frame_clk,
         begin 
             Block_Y_Motion <= 10'd0; //Block_Y_Step;
 				Block_X_Motion <= 10'd0; //Block_X_Step;
-				Block_Y_Pos <= Block_Y_Center;
+				Block_Y_Pos <= 0;
 				Block_X_Pos <= Block_X_Center;
         end
            
