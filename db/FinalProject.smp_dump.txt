@@ -1,12 +1,13 @@
 
 State Machine - |FinalProject|block_SM:statemachine_instance|state
-Name state.BLOCK5 state.BLOCK4 state.BLOCK3 state.BLOCK2 state.BLOCK1 state.RESET 
-state.RESET 0 0 0 0 0 0 
-state.BLOCK1 0 0 0 0 1 1 
-state.BLOCK2 0 0 0 1 0 1 
-state.BLOCK3 0 0 1 0 0 1 
-state.BLOCK4 0 1 0 0 0 1 
-state.BLOCK5 1 0 0 0 0 1 
+Name state.BLOCK5 state.BLOCK4 state.BLOCK3 state.BLOCK2 state.BLOCK1 state.READY state.RESET 
+state.RESET 0 0 0 0 0 0 0 
+state.READY 0 0 0 0 0 1 1 
+state.BLOCK1 0 0 0 0 1 0 1 
+state.BLOCK2 0 0 0 1 0 0 1 
+state.BLOCK3 0 0 1 0 0 0 1 
+state.BLOCK4 0 1 0 0 0 0 1 
+state.BLOCK5 1 0 0 0 0 0 1 
 
 State Machine - |FinalProject|usb_system:usbsys_instance|usb_system_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 

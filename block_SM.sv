@@ -1,14 +1,18 @@
 module block_SM (input Clk, Reset, Run,
-					  output logic [2:0] block_ready);
+					  output logic block_ready [0:4]);
 
-		enum logic [3:0] {RESET, BLOCK1, BLOCK2, BLOCK3, BLOCK4, BLOCK5} state, next_state;
+		enum logic [3:0] {RESET, READY, BLOCK1, BLOCK2, BLOCK3, BLOCK4, BLOCK5} state, next_state;
+		
+		reg [27:0] counter;
 		
 		always_ff @ (posedge Clk or posedge Reset) begin
 			if (Reset) begin
 				state <= RESET;
+				counter <= 0;
 			end
 			else begin
 				state <= next_state;
+				counter <= counter + 1;
 			end
 		end
 		
@@ -17,32 +21,60 @@ module block_SM (input Clk, Reset, Run,
 			unique case (state)
 				RESET: begin
 					if (Run)
-						next_state = BLOCK1;
+						next_state <= READY;
 				end
-				BLOCK1:
-					next_state = BLOCK2;
-				BLOCK2:
-					next_state = BLOCK3;
-				BLOCK3:
-					next_state = BLOCK4;
-				BLOCK4:
-					next_state = BLOCK5;
+				READY: begin
+					if (counter == 0)
+						next_state <= BLOCK1;
+				end
+				BLOCK1: begin
+					if (counter == 50000000)
+						next_state <= BLOCK2;
+				end
+				BLOCK2: begin
+					if (counter == 100000000)
+						next_state <= BLOCK3;
+				end
+				BLOCK3: begin
+					if (counter == 150000000)
+						next_state <= BLOCK4;
+				end
+				BLOCK4: begin
+					if (counter == 200000000)
+						next_state <= BLOCK5;
+				end
 			endcase
 		end
 		
 		always_comb begin
-			block_ready = 0;
+			for (int i = 0; i < 5; i++) begin
+				block_ready[i] = 0;
+			end
 			case (state)
 					BLOCK1:
-						block_ready = 1;
-					BLOCK2:
-						block_ready = 2;
-					BLOCK3:
-						block_ready = 3;
-					BLOCK4:
-						block_ready = 4;
-					BLOCK5:	
-						block_ready = 5;
+						block_ready[0] = 1;
+					BLOCK2: begin
+						block_ready[0] = 1;
+						block_ready[1] = 1;
+					end
+					BLOCK3: begin
+						block_ready[0] = 1;
+						block_ready[1] = 1;
+						block_ready[2] = 1;
+					end
+					BLOCK4: begin
+						block_ready[0] = 1;
+						block_ready[1] = 1;
+						block_ready[2] = 1;
+						block_ready[3] = 1;
+					end
+					BLOCK5: begin
+						block_ready[0] = 1;
+						block_ready[1] = 1;
+						block_ready[2] = 1;
+						block_ready[3] = 1;
+						block_ready[4] = 1;
+					end
 			endcase
 		end
 		

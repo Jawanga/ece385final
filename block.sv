@@ -15,6 +15,7 @@
 
 module  block ( input Reset, frame_clk,
 					 input [9:0]  Block_X_Center,
+					 input block_ready,
                output [9:0]  BlockX, BlockY, BlockS);
     
     logic [9:0] Block_X_Pos, Block_X_Motion, Block_Y_Pos, Block_Y_Motion, Block_Size;
@@ -42,7 +43,7 @@ module  block ( input Reset, frame_clk,
            
         else 
         begin
-				if (Block_Y_Pos > Block_Y_Max)	//allow block to stop once off screen
+				if ((Block_Y_Pos > Block_Y_Max) || ~block_ready)	//allow block to stop once off screen, or if block is not ready to come on the screen
 				begin
 					Block_Y_Motion = 10'd0;
 				end

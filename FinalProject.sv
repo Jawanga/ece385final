@@ -51,7 +51,7 @@ module  FinalProject		( input         Clk,
 	 logic [9:0] DrawX, DrawY;
 	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
 	 logic [9:0] BlockX [0:4], BlockY [0:4], BlockS [0:4];
-	 logic [2:0] block_ready;
+	 logic block_ready [0:4];
     
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
 	 assign Run_h = ~Run;
@@ -107,11 +107,14 @@ module  FinalProject		( input         Clk,
 	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode);
 	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode);
 	 
-	 block_SM statemachine_instance(.Clk(vs), .Reset(Reset_h), .Run(Run_h), .block_ready);
+	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .block_ready);
 	 
-	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .BlockS(BlockS[0]));
-	 block block2(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(220), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .BlockS(BlockS[1]));
-
+	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .BlockS(BlockS[0]), .block_ready(block_ready[0]));
+	 block block2(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(220), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .BlockS(BlockS[1]), .block_ready(block_ready[1]));
+	 block block3(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(330), .BlockX(BlockX[2]), .BlockY(BlockY[2]), .BlockS(BlockS[2]), .block_ready(block_ready[2]));
+	 block block4(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(275), .BlockX(BlockX[3]), .BlockY(BlockY[3]), .BlockS(BlockS[3]), .block_ready(block_ready[3]));
+	 block block5(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(385), .BlockX(BlockX[4]), .BlockY(BlockY[4]), .BlockS(BlockS[4]), .block_ready(block_ready[4]));
+	 
 	 HexDriver hex_inst_0 (keycode[3:0], HEX0);
 	 HexDriver hex_inst_1 (keycode[7:4], HEX1);
     

@@ -1,6 +1,6 @@
 Assembler report for FinalProject
-Tue Apr 28 19:46:55 2015
-Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
+Wed Apr 29 04:50:27 2015
+Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
 ---------------------
@@ -11,7 +11,7 @@ Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: U:/ECE385/ece385final/trunk/output_files/FinalProject.sof
+  6. Assembler Device Options: D:/Documents/ECE385/ece385final/trunk/output_files/FinalProject.sof
   7. Assembler Messages
 
 
@@ -39,7 +39,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Apr 28 19:46:55 2015 ;
+; Assembler Status      ; Successful - Wed Apr 29 04:50:27 2015 ;
 ; Revision Name         ; FinalProject                          ;
 ; Top-level Entity Name ; FinalProject                          ;
 ; Family                ; Cyclone IV E                          ;
@@ -64,24 +64,24 @@ agreement for further details.
 +--------+------------------------+--------------+
 
 
-+-----------------------------------------------------------+
-; Assembler Generated Files                                 ;
-+-----------------------------------------------------------+
-; File Name                                                 ;
-+-----------------------------------------------------------+
-; U:/ECE385/ece385final/trunk/output_files/FinalProject.sof ;
-+-----------------------------------------------------------+
++---------------------------------------------------------------------+
+; Assembler Generated Files                                           ;
++---------------------------------------------------------------------+
+; File Name                                                           ;
++---------------------------------------------------------------------+
+; D:/Documents/ECE385/ece385final/trunk/output_files/FinalProject.sof ;
++---------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Assembler Device Options: U:/ECE385/ece385final/trunk/output_files/FinalProject.sof ;
-+----------------+--------------------------------------------------------------------+
-; Option         ; Setting                                                            ;
-+----------------+--------------------------------------------------------------------+
-; Device         ; EP4CE115F29C7                                                      ;
-; JTAG usercode  ; 0x007E44A2                                                         ;
-; Checksum       ; 0x007E44A2                                                         ;
-+----------------+--------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+; Assembler Device Options: D:/Documents/ECE385/ece385final/trunk/output_files/FinalProject.sof ;
++----------------+------------------------------------------------------------------------------+
+; Option         ; Setting                                                                      ;
++----------------+------------------------------------------------------------------------------+
+; Device         ; EP4CE115F29C7                                                                ;
+; JTAG usercode  ; 0x007EA096                                                                   ;
+; Checksum       ; 0x007EA096                                                                   ;
++----------------+------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -89,15 +89,15 @@ agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
-    Info: Version 14.0.0 Build 200 06/17/2014 SJ Full Version
-    Info: Processing started: Tue Apr 28 19:46:46 2015
+    Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
+    Info: Processing started: Wed Apr 29 04:50:21 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off FinalProject -c FinalProject
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 529 megabytes
-    Info: Processing ended: Tue Apr 28 19:46:56 2015
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 592 megabytes
+    Info: Processing ended: Wed Apr 29 04:50:28 2015
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

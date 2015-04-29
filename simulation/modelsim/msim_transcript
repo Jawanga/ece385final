@@ -1,1 +1,602 @@
-# Reading C:/altera/14.0/modelsim_ase/tcl/vsim/pref.tcl 
+# Reading D:/Program Files/altera/14.1/modelsim_ase/tcl/vsim/pref.tcl
+# do FinalProject_run_msim_rtl_systemverilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim PE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work rtl_work 
+# Copying D:/Program Files/altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied D:/Program Files/altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlib usb_system
+# ** Warning: (vlib-34) Library already exists at "usb_system".
+# 
+# vmap usb_system usb_system
+# Model Technology ModelSim PE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet usb_system usb_system 
+# Modifying modelsim.ini
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/usb_system.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:07 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/usb_system.v 
+# -- Compiling module usb_system
+# 
+# Top level modules:
+# 	usb_system
+# End time: 22:44:08 on Apr 28,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_reset_controller.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:08 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_reset_controller.v 
+# -- Compiling module altera_reset_controller
+# 
+# Top level modules:
+# 	altera_reset_controller
+# End time: 22:44:08 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_reset_synchronizer.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:08 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_reset_synchronizer.v 
+# -- Compiling module altera_reset_synchronizer
+# 
+# Top level modules:
+# 	altera_reset_synchronizer
+# End time: 22:44:08 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_1.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:08 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_1.v 
+# -- Compiling module usb_system_mm_interconnect_1
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_1
+# End time: 22:44:08 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:08 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0.v 
+# -- Compiling module usb_system_mm_interconnect_0
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0
+# End time: 22:44:08 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_sc_fifo.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:08 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_sc_fifo.v 
+# -- Compiling module altera_avalon_sc_fifo
+# 
+# Top level modules:
+# 	altera_avalon_sc_fifo
+# End time: 22:44:08 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_sdram.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:09 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_sdram.v 
+# -- Compiling module usb_system_sdram_input_efifo_module
+# -- Compiling module usb_system_sdram
+# 
+# Top level modules:
+# 	usb_system_sdram
+# End time: 22:44:09 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_keycode.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:09 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_keycode.v 
+# -- Compiling module usb_system_keycode
+# 
+# Top level modules:
+# 	usb_system_keycode
+# End time: 22:44:09 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_jtag_uart.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:09 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_jtag_uart.v 
+# -- Compiling module usb_system_jtag_uart_sim_scfifo_w
+# -- Compiling module usb_system_jtag_uart_scfifo_w
+# -- Compiling module usb_system_jtag_uart_sim_scfifo_r
+# -- Compiling module usb_system_jtag_uart_scfifo_r
+# -- Compiling module usb_system_jtag_uart
+# 
+# Top level modules:
+# 	usb_system_jtag_uart
+# End time: 22:44:09 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:09 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu.v 
+# -- Compiling module usb_system_cpu_register_bank_a_module
+# -- Compiling module usb_system_cpu_register_bank_b_module
+# -- Compiling module usb_system_cpu_nios2_oci_debug
+# -- Compiling module usb_system_cpu_ociram_sp_ram_module
+# -- Compiling module usb_system_cpu_nios2_ocimem
+# -- Compiling module usb_system_cpu_nios2_avalon_reg
+# -- Compiling module usb_system_cpu_nios2_oci_break
+# -- Compiling module usb_system_cpu_nios2_oci_xbrk
+# -- Compiling module usb_system_cpu_nios2_oci_dbrk
+# -- Compiling module usb_system_cpu_nios2_oci_itrace
+# -- Compiling module usb_system_cpu_nios2_oci_td_mode
+# -- Compiling module usb_system_cpu_nios2_oci_dtrace
+# -- Compiling module usb_system_cpu_nios2_oci_compute_input_tm_cnt
+# -- Compiling module usb_system_cpu_nios2_oci_fifo_wrptr_inc
+# -- Compiling module usb_system_cpu_nios2_oci_fifo_cnt_inc
+# -- Compiling module usb_system_cpu_nios2_oci_fifo
+# -- Compiling module usb_system_cpu_nios2_oci_pib
+# -- Compiling module usb_system_cpu_nios2_oci_im
+# -- Compiling module usb_system_cpu_nios2_performance_monitors
+# -- Compiling module usb_system_cpu_nios2_oci
+# -- Compiling module usb_system_cpu
+# 
+# Top level modules:
+# 	usb_system_cpu_nios2_performance_monitors
+# 	usb_system_cpu
+# End time: 22:44:10 on Apr 28,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_jtag_debug_module_sysclk.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:10 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_jtag_debug_module_sysclk.v 
+# -- Compiling module usb_system_cpu_jtag_debug_module_sysclk
+# 
+# Top level modules:
+# 	usb_system_cpu_jtag_debug_module_sysclk
+# End time: 22:44:10 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_jtag_debug_module_tck.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:11 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_jtag_debug_module_tck.v 
+# -- Compiling module usb_system_cpu_jtag_debug_module_tck
+# 
+# Top level modules:
+# 	usb_system_cpu_jtag_debug_module_tck
+# End time: 22:44:11 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_jtag_debug_module_wrapper.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:11 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_jtag_debug_module_wrapper.v 
+# -- Compiling module usb_system_cpu_jtag_debug_module_wrapper
+# 
+# Top level modules:
+# 	usb_system_cpu_jtag_debug_module_wrapper
+# End time: 22:44:11 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_oci_test_bench.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:11 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_oci_test_bench.v 
+# -- Compiling module usb_system_cpu_oci_test_bench
+# 
+# Top level modules:
+# 	usb_system_cpu_oci_test_bench
+# End time: 22:44:11 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_test_bench.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:11 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_cpu_test_bench.v 
+# -- Compiling module usb_system_cpu_test_bench
+# 
+# Top level modules:
+# 	usb_system_cpu_test_bench
+# End time: 22:44:11 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_clocks.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:12 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_clocks.v 
+# -- Compiling module usb_system_clocks_dffpipe_l2c
+# -- Compiling module usb_system_clocks_stdsync_sv6
+# -- Compiling module usb_system_clocks_altpll_pqa2
+# -- Compiling module usb_system_clocks
+# 
+# Top level modules:
+# 	usb_system_clocks
+# End time: 22:44:12 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:12 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v 
+# -- Compiling module altera_avalon_mm_clock_crossing_bridge
+# 
+# Top level modules:
+# 	altera_avalon_mm_clock_crossing_bridge
+# End time: 22:44:12 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_dc_fifo.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:12 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_dc_fifo.v 
+# -- Compiling module altera_avalon_dc_fifo
+# 
+# Top level modules:
+# 	altera_avalon_dc_fifo
+# End time: 22:44:12 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:12 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v 
+# -- Compiling module altera_dcfifo_synchronizer_bundle
+# 
+# Top level modules:
+# 	altera_dcfifo_synchronizer_bundle
+# End time: 22:44:12 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/CY7C67200_IF.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:12 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/CY7C67200_IF.v 
+# -- Compiling module CY7C67200_IF
+# 
+# Top level modules:
+# 	CY7C67200_IF
+# End time: 22:44:13 on Apr 28,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_irq_clock_crosser.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:13 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_irq_clock_crosser.sv 
+# -- Compiling module altera_irq_clock_crosser
+# 
+# Top level modules:
+# 	altera_irq_clock_crosser
+# End time: 22:44:13 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_irq_mapper.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:13 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_irq_mapper.sv 
+# -- Compiling module usb_system_irq_mapper
+# 
+# Top level modules:
+# 	usb_system_irq_mapper
+# End time: 22:44:13 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_translator.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:13 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_translator.sv 
+# -- Compiling module altera_merlin_slave_translator
+# 
+# Top level modules:
+# 	altera_merlin_slave_translator
+# End time: 22:44:13 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_master_translator.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:14 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_master_translator.sv 
+# -- Compiling module altera_merlin_master_translator
+# 
+# Top level modules:
+# 	altera_merlin_master_translator
+# End time: 22:44:14 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:14 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v 
+# -- Compiling module altera_avalon_st_handshake_clock_crosser
+# 
+# Top level modules:
+# 	altera_avalon_st_handshake_clock_crosser
+# End time: 22:44:14 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_st_clock_crosser.v}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:14 on Apr 28,2015
+# vlog -reportprogress 300 -vlog01compat -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_avalon_st_clock_crosser.v 
+# -- Compiling module altera_avalon_st_clock_crosser
+# 
+# Top level modules:
+# 	altera_avalon_st_clock_crosser
+# End time: 22:44:14 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_arbitrator.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:16 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_arbitrator.sv 
+# -- Compiling module altera_merlin_arbitrator
+# -- Compiling module altera_merlin_arb_adder
+# 
+# Top level modules:
+# 	altera_merlin_arbitrator
+# End time: 22:44:16 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_mux_001.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:16 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_mux_001.sv 
+# -- Compiling module usb_system_mm_interconnect_0_rsp_mux_001
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_rsp_mux_001
+# End time: 22:44:17 on Apr 28,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_mux.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:17 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_mux.sv 
+# -- Compiling module usb_system_mm_interconnect_0_rsp_mux
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_rsp_mux
+# End time: 22:44:17 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_demux_001.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:17 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_demux_001.sv 
+# -- Compiling module usb_system_mm_interconnect_0_rsp_demux_001
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_rsp_demux_001
+# End time: 22:44:17 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_demux.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_rsp_demux.sv 
+# -- Compiling module usb_system_mm_interconnect_0_rsp_demux
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_rsp_demux
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_mux_001.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_mux_001.sv 
+# -- Compiling module usb_system_mm_interconnect_0_cmd_mux_001
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_cmd_mux_001
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_mux.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_mux.sv 
+# -- Compiling module usb_system_mm_interconnect_0_cmd_mux
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_cmd_mux
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_demux_001.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_demux_001.sv 
+# -- Compiling module usb_system_mm_interconnect_0_cmd_demux_001
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_cmd_demux_001
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_demux.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_cmd_demux.sv 
+# -- Compiling module usb_system_mm_interconnect_0_cmd_demux
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_cmd_demux
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router_003.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router_003.sv 
+# -- Compiling module usb_system_mm_interconnect_0_router_003_default_decode
+# -- Compiling module usb_system_mm_interconnect_0_router_003
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_router_003
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router_002.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:18 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router_002.sv 
+# -- Compiling module usb_system_mm_interconnect_0_router_002_default_decode
+# -- Compiling module usb_system_mm_interconnect_0_router_002
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_router_002
+# End time: 22:44:18 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router_001.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:19 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router_001.sv 
+# -- Compiling module usb_system_mm_interconnect_0_router_001_default_decode
+# -- Compiling module usb_system_mm_interconnect_0_router_001
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_router_001
+# End time: 22:44:19 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:19 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/usb_system_mm_interconnect_0_router.sv 
+# -- Compiling module usb_system_mm_interconnect_0_router_default_decode
+# -- Compiling module usb_system_mm_interconnect_0_router
+# 
+# Top level modules:
+# 	usb_system_mm_interconnect_0_router
+# End time: 22:44:19 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:20 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv 
+# -- Compiling module altera_merlin_slave_agent
+# ** Warning: D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv(606): (vlog-2186) SystemVerilog testbench feature
+# 
+# (randomization, coverage or assertion) detected in the design.
+# 
+# These features are only supported in Questasim.
+# 
+# ** Warning: D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv(486): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# 
+# ** Warning: D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv(487): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# 
+# ** Warning: D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv(488): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# 
+# ** Warning: D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv(489): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# 
+# ** Warning: D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_slave_agent.sv(34): (vlog-2186) SystemVerilog testbench feature
+# 
+# (randomization, coverage or assertion) detected in the design.
+# 
+# These features are only supported in Questasim.
+# 
+# 
+# Top level modules:
+# 	altera_merlin_slave_agent
+# End time: 22:44:20 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 6
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:20 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv 
+# -- Compiling module altera_merlin_burst_uncompressor
+# 
+# Top level modules:
+# 	altera_merlin_burst_uncompressor
+# End time: 22:44:20 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work usb_system +incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules {D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_master_agent.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:20 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work usb_system "+incdir+D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules" D:/Documents/ECE385/ece385final/trunk/usb_system/synthesis/submodules/altera_merlin_master_agent.sv 
+# -- Compiling module altera_merlin_master_agent
+# 
+# Top level modules:
+# 	altera_merlin_master_agent
+# End time: 22:44:21 on Apr 28,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/block_SM.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:21 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/block_SM.sv 
+# -- Compiling module block_SM
+# 
+# Top level modules:
+# 	block_SM
+# End time: 22:44:21 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/VGA_controller.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:21 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/VGA_controller.sv 
+# -- Compiling module vga_controller
+# 
+# Top level modules:
+# 	vga_controller
+# End time: 22:44:21 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/Color_Mapper.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:21 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/Color_Mapper.sv 
+# -- Compiling module color_mapper
+# 
+# Top level modules:
+# 	color_mapper
+# End time: 22:44:21 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/ball.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:21 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/ball.sv 
+# -- Compiling module ball
+# 
+# Top level modules:
+# 	ball
+# End time: 22:44:21 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/block.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:21 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/block.sv 
+# -- Compiling module block
+# 
+# Top level modules:
+# 	block
+# End time: 22:44:21 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/hexdriver.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:22 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/hexdriver.sv 
+# -- Compiling module HexDriver
+# 
+# Top level modules:
+# 	HexDriver
+# End time: 22:44:22 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+D:/Documents/ECE385/ece385final/trunk {D:/Documents/ECE385/ece385final/trunk/FinalProject.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 22:44:22 on Apr 28,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+D:/Documents/ECE385/ece385final/trunk" D:/Documents/ECE385/ece385final/trunk/FinalProject.sv 
+# -- Compiling module FinalProject
+# 
+# Top level modules:
+# 	FinalProject
+# End time: 22:44:22 on Apr 28,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.FinalProject
+# vsim -gui "+altera" -l msim_transcript -do "FinalProject_run_msim_rtl_systemverilog.do" 
+# Start time: 22:44:28 on Apr 28,2015
+# Loading sv_std.std
+# Loading work.FinalProject
+# ** Error: (vsim-3033) D:/Documents/ECE385/ece385final/trunk/FinalProject.sv(61): Instantiation of 'usb_system' failed. The design unit was not found.
+# 
+#         Region: /FinalProject
+#         Searched libraries:
+#             D:/Documents/ECE385/ece385final/trunk/simulation/modelsim/rtl_work
+# Loading work.vga_controller
+# Loading work.color_mapper
+# Loading work.ball
+# Loading work.block_SM
+# Loading work.block
+# Loading work.HexDriver
+# Error loading design
+vsim work.block_SM
+# vsim 
+# Start time: 22:44:35 on Apr 28,2015
+# Loading sv_std.std
+# Loading work.block_SM
+add wave -position insertpoint  \
+sim:/block_SM/block_ready
+add wave -position insertpoint  \
+sim:/block_SM/Reset
+add wave -position insertpoint  \
+sim:/block_SM/Clk
+add wave -position insertpoint  \
+sim:/block_SM/state
+add wave -position insertpoint  \
+sim:/block_SM/next_state
+wave create -driver freeze -pattern clock -initialvalue HiZ -period 5ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/block_SM/Clk
+# Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
+# End time: 22:46:21 on Apr 28,2015, Elapsed time: 0:01:46
+# Errors: 0, Warnings: 0
