@@ -51,10 +51,11 @@
 	
 */
 
+unsigned 
 
 
 module  ball ( input Reset, frame_clk,
-					input [7:0] keycode, input color,
+					input [7:0] keycode, input color, input [5:0] index;
                output [9:0]  BallX, BallY, BallS);
     
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
@@ -69,7 +70,13 @@ module  ball ( input Reset, frame_clk,
     parameter [9:0] Ball_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis
     parameter [9:0] Ball_Y_Step=1;      // Step size on the Y axis
+	parameter [7:0] Radius=80;			//radius of the circle
+	
 
+	signed real relative_x = 0;
+	signed real relative_y = 0;
+	
+	
     assign Ball_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
     always_ff @ (posedge Reset or posedge frame_clk )
@@ -79,13 +86,17 @@ module  ball ( input Reset, frame_clk,
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
 			Ball_Y_Pos <= Ball_Y_Center;
+			relative_x = 0;
+			relative_y = 0;
 			if (color == 1'b1)
 			begin
 				Ball_X_Pos <= Ball_X_Right;	//red - right - 2'b1
+				index = 0;
 			end
 			else if (color == 1'b0)
 			begin
 				Ball_X_Pos <= Ball_X_Left;
+				index = 30;
 			end
         end
 		
@@ -101,98 +112,21 @@ module  ball ( input Reset, frame_clk,
 						end
 				 7:		//right key
 						begin
-							if (Ball_Y_Pos < Ball_Y_Center)
-								Ball_X_Motion = (Ball_X_Step);
-							else if (Ball_Y_Pos > Ball_Y_Center)
-								Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-							if (Ball_X_Pos < Ball_X_Center)
-								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-							else if (Ball_X_Pos > Ball_X_Center)
-								Ball_Y_Motion = (Ball_Y_Step);				
-							
-							if (Ball_X_Pos == Ball_X_Center)
-							begin
-								if (Ball_Y_Pos < Ball_Y_Center)
-									begin
-									//decrease x & y
-									Ball_X_Motion = (Ball_X_Step);
-									Ball_Y_Motion = (Ball_Y_Step);
-									end
-								else
-									begin
-									//increase x & y
-									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-									end
-							end
-							if (Ball_Y_Pos == Ball_Y_Center)
-							begin
-								if (Ball_X_Pos < Ball_X_Center)
-									//increase y, decrease x
-									begin
-									Ball_X_Motion = (Ball_X_Step);
-									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-									end
-								else
-									//decrease y, increase x
-									begin
-									Ball_Y_Motion = (Ball_Y_Step);
-									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-									end
-							end
-							
+							prev_index = index;
+							if (index == 0)
+								index = 58;
+							else 
+								index ++;
+							Ball_X_Motion = (cosine[index] - cosine[prev_index]) * radius;
+							Ball_Y_Motion = (sine[index + 1] - sine[index]) * radius;
 						end
 				 4:		//left key
-					// begin
-						// if (y_pos < mid_y)
-							// Ball_X_Motion = (Ball_X_Step);
-						// else if (y_pos > mid_y)
-							// Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-						// if (x_pos < mid_x)
-							// Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-						// else if (x_pos > mid_x)
-							// Ball_Y_Motion = (Ball_Y_Step);
-					// end
-
-						begin
-							if (Ball_Y_Pos < Ball_Y_Center)
-								Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-							else if (Ball_Y_Pos > Ball_Y_Center)
-								Ball_X_Motion = (Ball_X_Step);
-							if (Ball_X_Pos < Ball_X_Center)
-								Ball_Y_Motion = (Ball_Y_Step);
-							else if (Ball_X_Pos > Ball_X_Center)
-								Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-							if (Ball_X_Pos == Ball_X_Center)
-							begin
-								if (Ball_Y_Pos > Ball_Y_Center)
-								begin
-									//decrease x & y
-									Ball_X_Motion = (Ball_X_Step);
-									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-								end
-								else
-								begin
-									//increase x & y
-									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-									Ball_Y_Motion = (Ball_Y_Step);
-								end
-							end
-							if (Ball_Y_Pos == Ball_Y_Center)
-							begin
-								if (Ball_X_Pos < Ball_X_Center)
-								begin
-									//increase y, decrease x
-									Ball_Y_Motion = (Ball_Y_Step);
-									Ball_X_Motion = (Ball_X_Step);
-								end
-								else
-								begin
-									//decrease y, increase x
-									Ball_X_Motion = ~(Ball_X_Step) + 1'b1;
-									Ball_Y_Motion = ~(Ball_Y_Step) + 1'b1;
-								end
-							end
+							if (index == 58)
+								index = 0;
+							else
+								index--;
+							Ball_X_Motion = (cosine[index] - cosine[index- 1]) * radius;
+							Ball_Y_Motion = (sine[index - 1] - sine[index]) * radius;
 							
 						end
 				 endcase
