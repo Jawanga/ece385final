@@ -52,6 +52,7 @@ module  FinalProject		( input         Clk,
 	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
 	 logic [9:0] BlockX [0:4], BlockY [0:4], BlockS [0:4];
 	 logic block_ready [0:4];
+	 logic [5:0] index [0:1];
     
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
 	 assign Run_h = ~Run;
@@ -104,8 +105,8 @@ module  FinalProject		( input         Clk,
                output [9:0]  BallX, BallY, BallS );
 	 */
 	 
-	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode);
-	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode);
+	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .index(index[0]);
+	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode), .index(index[1]);
 	 
 	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .block_ready);
 	 
