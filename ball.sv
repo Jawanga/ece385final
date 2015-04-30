@@ -237,19 +237,20 @@ module  ball ( input Reset, frame_clk,
 						begin
 							prev_index = index;
 							if (index == 0)
-								index = 58;
+								index = 59;
 							else 
 								index ++;
-							Ball_X_Motion = (cosine[index] - cosine[prev_index]) * radius;
-							Ball_Y_Motion = (sine[index + 1] - sine[index]) * radius;
+							Ball_X_Motion = (cosine[prev_index] - cosine[index]) * radius;
+							Ball_Y_Motion = (sine[prev_index] - sine[index]) * radius;
 						end
 				 4:		//left key
-							if (index == 58)
+							prev_index = index;
+							if (index == 59)
 								index = 0;
 							else
 								index--;
-							Ball_X_Motion = (cosine[index] - cosine[index- 1]) * radius;
-							Ball_Y_Motion = (sine[index - 1] - sine[index]) * radius;
+							Ball_X_Motion = (cosine[prev_index] - cosine[index]) * radius;
+							Ball_Y_Motion = (sine[prev_index] - sine[index]) * radius;
 							
 						end
 				 endcase
