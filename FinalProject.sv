@@ -52,12 +52,13 @@ module  FinalProject		( input         Clk,
 	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
 	 logic [9:0] BlockX [0:4], BlockY [0:4], BlockS [0:4];
 	 logic block_ready [0:4];
-	 logic [5:0] index [0:1];
+	 logic [5:0] index [0:1], next_index [0:1];
     
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
 	 assign Run_h = ~Run;
 	 assign OTG_FSPEED = 1'bz;
 	 assign OTG_LSPEED = 1'bz;
+	 assign index = next_index;
 	    
 	 usb_system usbsys_instance(
 										 .clk_clk(Clk),         
@@ -105,8 +106,8 @@ module  FinalProject		( input         Clk,
                output [9:0]  BallX, BallY, BallS );
 	 */
 	 
-	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .index(index[0]);
-	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode), .index(index[1]);
+	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .index(index[0]), .next_index(next_index[0]));
+	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode, .index(index[1]), .next_index(next_index[1]));
 	 
 	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .block_ready);
 	 

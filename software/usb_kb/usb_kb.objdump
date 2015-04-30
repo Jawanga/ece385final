@@ -4434,10 +4434,10 @@ void UsbPrintMem()
  80025a0:	080023e8 	cmpgeui	zero,at,143
  80025a4:	080023e8 	cmpgeui	zero,at,143
  80025a8:	080023e8 	cmpgeui	zero,at,143
- 80025ac:	08002800 	call	800280 <__reset-0x77ffd80>
- 80025b0:	080028c0 	call	80028c <__reset-0x77ffd74>
+ 80025ac:	08002800 	call	800280 <__alt_mem_sdram-0x77ffd80>
+ 80025b0:	080028c0 	call	80028c <__alt_mem_sdram-0x77ffd74>
  80025b4:	080023e8 	cmpgeui	zero,at,143
- 80025b8:	080028c0 	call	80028c <__reset-0x77ffd74>
+ 80025b8:	080028c0 	call	80028c <__alt_mem_sdram-0x77ffd74>
  80025bc:	080023e8 	cmpgeui	zero,at,143
  80025c0:	080023e8 	cmpgeui	zero,at,143
  80025c4:	080023e8 	cmpgeui	zero,at,143
@@ -4467,9 +4467,9 @@ void UsbPrintMem()
  8002624:	080023e8 	cmpgeui	zero,at,143
  8002628:	08002c6c 	andhi	zero,at,177
  800262c:	08002ca0 	cmpeqi	zero,at,178
- 8002630:	080028c0 	call	80028c <__reset-0x77ffd74>
- 8002634:	080028c0 	call	80028c <__reset-0x77ffd74>
- 8002638:	080028c0 	call	80028c <__reset-0x77ffd74>
+ 8002630:	080028c0 	call	80028c <__alt_mem_sdram-0x77ffd74>
+ 8002634:	080028c0 	call	80028c <__alt_mem_sdram-0x77ffd74>
+ 8002638:	080028c0 	call	80028c <__alt_mem_sdram-0x77ffd74>
  800263c:	08002bec 	andhi	zero,at,175
  8002640:	08002ca0 	cmpeqi	zero,at,178
  8002644:	080023e8 	cmpgeui	zero,at,143
@@ -4479,7 +4479,7 @@ void UsbPrintMem()
  8002654:	08002a90 	cmplti	zero,at,170
  8002658:	08002cac 	andhi	zero,at,178
  800265c:	08002af0 	cmpltui	zero,at,171
- 8002660:	08002b40 	call	8002b4 <__reset-0x77ffd4c>
+ 8002660:	08002b40 	call	8002b4 <__alt_mem_sdram-0x77ffd4c>
  8002664:	080023e8 	cmpgeui	zero,at,143
  8002668:	08002b4c 	andi	zero,at,173
  800266c:	080023e8 	cmpgeui	zero,at,143
@@ -18403,7 +18403,7 @@ int alt_get_fd (alt_dev* dev)
  800dd14:	d9400015 	stw	r5,0(sp)
  800dd18:	d9800115 	stw	r6,4(sp)
  800dd1c:	d9c00215 	stw	r7,8(sp)
- 800dd20:	00000000 	call	0 <__reset-0x8000000>
+ 800dd20:	00000000 	call	0 <__alt_mem_sdram-0x8000000>
  800dd24:	d9400017 	ldw	r5,0(sp)
  800dd28:	d9800117 	ldw	r6,4(sp)
  800dd2c:	d9c00217 	ldw	r7,8(sp)
@@ -18550,7 +18550,7 @@ int alt_get_fd (alt_dev* dev)
  800df58:	18000926 	beq	r3,zero,800df80 <__call_exitprocs+0x198>
  800df5c:	9009883a 	mov	r4,r18
  800df60:	b8c00015 	stw	r3,0(r23)
- 800df64:	00000000 	call	0 <__reset-0x8000000>
+ 800df64:	00000000 	call	0 <__alt_mem_sdram-0x8000000>
  800df68:	bc800017 	ldw	r18,0(r23)
  800df6c:	003fb506 	br	800de44 <__alt_data_end+0xf800de44>
  800df70:	90c00017 	ldw	r3,0(r18)

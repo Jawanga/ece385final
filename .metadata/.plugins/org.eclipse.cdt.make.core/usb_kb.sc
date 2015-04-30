@@ -4,6 +4,13 @@
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.116028434;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.116028434.;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.310415151;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1231433353">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include\c++"/>
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include\c++\i686-pc-cygwin"/>
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include\c++\backward"/>
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include"/>
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include-fixed"/>
+<includePath path="C:\cygwin\usr\include"/>
+<includePath path="C:\cygwin\usr\include\w32api"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/HAL/inc"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/drivers/inc"/>
@@ -232,6 +239,10 @@
 </instance>
 <instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.116028434;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.116028434.;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1548362880;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.1745629711">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include"/>
+<includePath path="C:\cygwin\lib\gcc\i686-pc-cygwin\4.5.3\include-fixed"/>
+<includePath path="C:\cygwin\usr\include"/>
+<includePath path="C:\cygwin\usr\include\w32api"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/HAL/inc"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/drivers/inc"/>

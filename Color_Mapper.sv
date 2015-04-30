@@ -51,6 +51,8 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign BlockDistY[4] = DrawY - BlockY[4];
     assign BlueSize = Ball_size[0];
 	 assign RedSize = Ball_size[1];
+	 
+	 logic draw_block;
 	  
     always_comb
     begin:BlueBall_on_proc
@@ -81,34 +83,32 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
     always_comb
     begin:RGB_Display
 		
-      if (((block_on[0] == 1'b1) && block_ready[0]) || ((block_on[1] == 1'b1) && block_ready[1]) || ((block_on[2] == 1'b1) && block_ready[2]) || ((block_on[3] == 1'b1) && block_ready[3]) || ((block_on[4] == 1'b1) && block_ready[4]))
-        begin 
-            Red = 8'hff;
+		Red = 8'h4f - DrawX[9:3];
+		Green = 8'h00;
+		Blue = 8'h44;
+		
+		for (int i = 0; i < 5; i++) begin
+			if (block_on[i] && block_ready[i])
+			begin
+				Red = 8'hff;
             Green = 8'h00;
             Blue = 8'hff;
-        end       
+			end
+		end
 		
-		else if (ball_red_on == 1'b1)
+		if (ball_red_on == 1'b1)
 		begin
 			Red = 8'h00;
 			Green = 8'hff;
 			Blue = 8'hff;
 		end
 		
-		else if (ball_blue_on == 1'b1)
+		if (ball_blue_on == 1'b1)
         begin 
             Red = 8'hff;
             Green = 8'hff;
             Blue = 8'h00;
 		end
-			
-        else 
-        begin 
-            Red = 8'h4f - DrawX[9:3];
-            Green = 8'h00;
-            Blue = 8'h44; 
-
-        end
 		
     end
     
