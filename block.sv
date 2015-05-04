@@ -16,6 +16,7 @@
 module  block ( input Reset, frame_clk,
 					 input [9:0]  Block_X_Center,
 					 input block_ready,
+					 output end_level,
                output [9:0]  BlockX, BlockY, BlockS);
     
     logic [9:0] Block_X_Pos, Block_X_Motion, Block_Y_Pos, Block_Y_Motion, Block_Size;
@@ -39,18 +40,22 @@ module  block ( input Reset, frame_clk,
 				Block_X_Motion <= 10'd0; //Block_X_Step;
 				Block_Y_Pos <= 0;
 				Block_X_Pos <= Block_X_Center;
+				end_level <= 0;
         end
            
         else 
         begin
 				if ((Block_Y_Pos > Block_Y_Max) || ~block_ready)	//allow block to stop once off screen, or if block is not ready to come on the screen
 				begin
+					if (Block_Y_Pos > Block_Y_Max)
+						end_level = 1;
 					Block_Y_Motion = 10'd0;
 				end
 				
 				else
 				begin
 				 Block_Y_Motion = Block_Y_Step;
+				 end_level = 0;
 				end
 				 
 				 Block_Y_Pos = (Block_Y_Pos + Block_Y_Motion);  // Update Block position

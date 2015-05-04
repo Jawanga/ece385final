@@ -50,10 +50,13 @@ module  FinalProject		( input         Clk,
 	 logic [7:0] keycode;
 	 logic [9:0] DrawX, DrawY;
 	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
-	 logic [9:0] BlockX [0:4], BlockY [0:4], BlockS [0:4];
-	 logic block_ready [0:4];
+	 logic [9:0] BlockX [0:9], BlockY [0:9], BlockS [0:9];
+	 logic block_ready [0:9];
 	 logic [5:0] index [0:1], next_index [0:1];
-    
+	 logic [9:0] seconds;
+	 logic level_one, level_two;
+    logic end_level [0:9];
+	 
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
 	 assign Run_h = ~Run;
 	 assign OTG_FSPEED = 1'bz;
@@ -100,24 +103,29 @@ module  FinalProject		( input         Clk,
                        output logic [7:0]  Red, Green, Blue );
 	 */
 	 
-	 color_mapper color_instance(.BallX, .BallY, .DrawX, .DrawY, .Ball_size(BallS), .BlockX, .BlockY, .Block_size(BlockS), .block_ready, .Red, .Green, .Blue);
+	 color_mapper color_instance(.BallX, .BallY, .DrawX, .DrawY, .Ball_size(BallS), .BlockX, .BlockY, .Block_size(BlockS), .block_ready, .level_one, .level_two, .Red, .Green, .Blue);
 	 /*
 	 module  ball ( input Reset, frame_clk,
                output [9:0]  BallX, BallY, BallS );
 	 */
 	 
-	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .index(index[0]), .next_index(next_index[0]));
-	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode, .index(index[1]), .next_index(next_index[1]));
+	 ball blue(.Reset(Reset_h), .frame_clk(vs), .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode);//, .index(index[0]), .next_index(next_index[0]));
+	 ball red(.Reset(Reset_h), .frame_clk(vs), .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode);//, .index(index[1]), .next_index(next_index[1]));
 	 
-	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .block_ready);
+	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .end_level(end_level[9]), .block_ready, .level_one, .level_two, .seconds);
 	 
-	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .BlockS(BlockS[0]), .block_ready(block_ready[0]));
-	 block block2(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(220), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .BlockS(BlockS[1]), .block_ready(block_ready[1]));
-	 block block3(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(330), .BlockX(BlockX[2]), .BlockY(BlockY[2]), .BlockS(BlockS[2]), .block_ready(block_ready[2]));
-	 block block4(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(275), .BlockX(BlockX[3]), .BlockY(BlockY[3]), .BlockS(BlockS[3]), .block_ready(block_ready[3]));
-	 block block5(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(385), .BlockX(BlockX[4]), .BlockY(BlockY[4]), .BlockS(BlockS[4]), .block_ready(block_ready[4]));
+	 block block1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .BlockS(BlockS[0]), .block_ready(block_ready[0]), .end_level(end_level[0]));
+	 block block2(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(220), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .BlockS(BlockS[1]), .block_ready(block_ready[1]), .end_level(end_level[1]));
+	 block block3(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(330), .BlockX(BlockX[2]), .BlockY(BlockY[2]), .BlockS(BlockS[2]), .block_ready(block_ready[2]), .end_level(end_level[2]));
+	 block block4(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(275), .BlockX(BlockX[3]), .BlockY(BlockY[3]), .BlockS(BlockS[3]), .block_ready(block_ready[3]), .end_level(end_level[3]));
+	 block block5(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(385), .BlockX(BlockX[4]), .BlockY(BlockY[4]), .BlockS(BlockS[4]), .block_ready(block_ready[4]), .end_level(end_level[4]));
+	 block block6(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(440), .BlockX(BlockX[5]), .BlockY(BlockY[5]), .BlockS(BlockS[5]), .block_ready(block_ready[5]), .end_level(end_level[5]));
+	 block block7(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(220), .BlockX(BlockX[6]), .BlockY(BlockY[6]), .BlockS(BlockS[6]), .block_ready(block_ready[6]), .end_level(end_level[6]));
+	 block block8(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(330), .BlockX(BlockX[7]), .BlockY(BlockY[7]), .BlockS(BlockS[7]), .block_ready(block_ready[7]), .end_level(end_level[7]));
+	 block block9(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(275), .BlockX(BlockX[8]), .BlockY(BlockY[8]), .BlockS(BlockS[8]), .block_ready(block_ready[8]), .end_level(end_level[8]));
+	 block block10(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(385), .BlockX(BlockX[9]), .BlockY(BlockY[9]), .BlockS(BlockS[9]), .block_ready(block_ready[9]), .end_level(end_level[9]));
 	 
-	 HexDriver hex_inst_0 (keycode[3:0], HEX0);
+	 HexDriver hex_inst_0 (seconds[3:0], HEX0);
 	 HexDriver hex_inst_1 (keycode[7:4], HEX1);
     
 

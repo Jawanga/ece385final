@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 30, 2015 5:55:55 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1430434555044</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>U:\ECE385\ece385final\trunk\software\usb_kb_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>May 4, 2015 4:19:16 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1430731156218</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>D:\Documents\ECE385\ece385final\trunk\software\usb_kb_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\usb_system.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -594,6 +594,30 @@
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Enable BSP generation to query if SOPC system has FPU present. If true ignores export of 'ALT_CFLAGS += -mhard-float' to public.mk if FPU is found in the system. If true ignores export of 'ALT_CFLAGS += -mhard-soft' if FPU is not found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.cdx_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>If true, prevents GCC from using CDX instructions. If false, GCC uses CDX instructions if present in the CPU.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.bmx_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>If true, prevents GCC from using BMX instructions. If false, GCC uses BMX instructions if present in the CPU.</Description>
                 <Restrictions>none</Restrictions>
                 <Enabled>false</Enabled>
                 <Group>none</Group>
