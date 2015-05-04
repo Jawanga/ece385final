@@ -179,7 +179,8 @@ signed real sine[60] {
 };
 module  ball ( input Reset, frame_clk,
 					input [7:0] keycode, input color, input [5:0] index;
-               output [9:0]  BallX, BallY, BallS);
+               output [9:0]  BallX, BallY, BallS,
+			   output [5:0] next_index);
     
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
 	 
@@ -193,11 +194,8 @@ module  ball ( input Reset, frame_clk,
     parameter [9:0] Ball_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis
     parameter [9:0] Ball_Y_Step=1;      // Step size on the Y axis
-	parameter [7:0] Radius=80;			//radius of the circle
-	
+	parameter [7:0] radius=80;			//radius of the circle
 
-	signed real relative_x = 0;
-	signed real relative_y = 0;
 	
 	
     assign Ball_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
@@ -237,20 +235,20 @@ module  ball ( input Reset, frame_clk,
 						begin
 							prev_index = index;
 							if (index == 0)
-								index = 59;
+								next_index = 59;
 							else 
-								index ++;
-							Ball_X_Motion = (cosine[prev_index] - cosine[index]) * radius;
-							Ball_Y_Motion = (sine[prev_index] - sine[index]) * radius;
+								next_index = index - 1;
+							Ball_X_Motion = (cosine[prev_index] - cosine[next_index]) * radius;
+							Ball_Y_Motion = (sine[prev_index] - sine[next_index]) * radius;
 						end
 				 4:		//left key
 							prev_index = index;
 							if (index == 59)
 								index = 0;
 							else
-								index--;
-							Ball_X_Motion = (cosine[prev_index] - cosine[index]) * radius;
-							Ball_Y_Motion = (sine[prev_index] - sine[index]) * radius;
+								next_index = index + 1;
+							Ball_X_Motion = (cosine[prev_index] - cosine[next_index]) * radius;
+							Ball_Y_Motion = (sine[prev_index] - sine[next_index]) * radius;
 							
 						end
 				 endcase
