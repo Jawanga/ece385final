@@ -315,11 +315,11 @@ module  ball ( input Reset, frame_clk,
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
 	 
     parameter [9:0] Ball_X_Center=320;  // Center position on the X axis
-	parameter [9:0] Ball_X_Right=400;
-	parameter [9:0] Ball_X_Left=240;
-    parameter [9:0] Ball_Y_Center=240;  // Center position on the Y axis
-    parameter [9:0] Ball_X_Min=0;       // Leftmost point on the X axis
-    parameter [9:0] Ball_X_Max=639;     // Rightmost point on the X axis
+	parameter [9:0] Ball_X_Right=380;
+	parameter [9:0] Ball_X_Left=260;
+    parameter [9:0] Ball_Y_Center=390;  // Center position on the Y axis
+    parameter [9:0] Ball_X_Min=150;       // Leftmost point on the X axis
+    parameter [9:0] Ball_X_Max=490;     // Rightmost point on the X axis
     parameter [9:0] Ball_Y_Min=0;       // Topmost point on the Y axis
     parameter [9:0] Ball_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis

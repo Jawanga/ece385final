@@ -1,19 +1,23 @@
 
 State Machine - |FinalProject|block_SM:statemachine_instance|state
-Name state.BLOCK10 state.BLOCK9 state.BLOCK8 state.BLOCK7 state.BLOCK6 state.BLOCK5 state.BLOCK4 state.BLOCK3 state.BLOCK2 state.BLOCK1 state.MID1TO2 state.LEVEL1 state.RESET 
-state.RESET 0 0 0 0 0 0 0 0 0 0 0 0 0 
-state.LEVEL1 0 0 0 0 0 0 0 0 0 0 0 1 1 
-state.MID1TO2 0 0 0 0 0 0 0 0 0 0 1 0 1 
-state.BLOCK1 0 0 0 0 0 0 0 0 0 1 0 0 1 
-state.BLOCK2 0 0 0 0 0 0 0 0 1 0 0 0 1 
-state.BLOCK3 0 0 0 0 0 0 0 1 0 0 0 0 1 
-state.BLOCK4 0 0 0 0 0 0 1 0 0 0 0 0 1 
-state.BLOCK5 0 0 0 0 0 1 0 0 0 0 0 0 1 
-state.BLOCK6 0 0 0 0 1 0 0 0 0 0 0 0 1 
-state.BLOCK7 0 0 0 1 0 0 0 0 0 0 0 0 1 
-state.BLOCK8 0 0 1 0 0 0 0 0 0 0 0 0 1 
-state.BLOCK9 0 1 0 0 0 0 0 0 0 0 0 0 1 
-state.BLOCK10 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Name state.BLOCK12 state.BLOCK11 state.BLOCK10 state.BLOCK9 state.BLOCK8 state.BLOCK7 state.BLOCK6 state.BLOCK5 state.BLOCK4 state.BLOCK3 state.BLOCK2 state.BLOCK1 state.MID1TO2 state.LEVEL2 state.LEVEL1 state.RESET state.BLOCK13 
+state.RESET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.LEVEL1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 
+state.LEVEL2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 
+state.MID1TO2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 
+state.BLOCK1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 
+state.BLOCK2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 
+state.BLOCK3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 
+state.BLOCK4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 
+state.BLOCK5 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 
+state.BLOCK6 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK7 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK8 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK9 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK10 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK11 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK12 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.BLOCK13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
 
 State Machine - |FinalProject|usb_system:usbsys_instance|usb_system_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 

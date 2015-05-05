@@ -16,10 +16,14 @@
 module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0:1],
 							  input			[9:0] BlockX [0:9], BlockY [0:9], Block_size [0:9], DrawX, DrawY,
 							  input			block_ready [0:9],
+							  input			[9:0] RectX [0:2], RectY[0:2], Rect_size[0:2],
+							  input			rect_ready [0:2],
 							  input			level_one, level_two,
                        output logic [7:0]  Red, Green, Blue );
     
     logic ball_red_on, ball_blue_on, block_on [0:9];
+	 logic rect_on [0:2];
+	 
 	 logic L_on;
 	 logic [10:0] L_X = 230;
 	 logic [10:0] L_Y = 80;
@@ -105,6 +109,7 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	  
     int RedDistX, RedDistY, RedSize, BlueDistX, BlueDistY, BlueSize;
 	 int BlockDistX [0:9], BlockDistY [0:9];
+	 int RectDistX [0:2], RectDistY[0:2];
 	 assign BlueDistX = DrawX - BallX[0];
     assign BlueDistY = DrawY - BallY[0];
 	 assign RedDistX = DrawX - BallX[1];
@@ -129,6 +134,13 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign BlockDistY[8] = DrawY - BlockY[8];
 	 assign BlockDistX[9] = DrawX - BlockX[9];
 	 assign BlockDistY[9] = DrawY - BlockY[9];
+	 
+	 assign RectDistX[0] = DrawX - RectX[0];
+	 assign RectDistY[0] = DrawY - RectY[0];
+	 assign RectDistX[1] = DrawX - RectX[1];
+	 assign RectDistY[1] = DrawY - RectY[1];
+	 assign RectDistX[2] = DrawX - RectX[2];
+	 assign RectDistY[2] = DrawY - RectY[2];
     assign BlueSize = Ball_size[0];
 	 assign RedSize = Ball_size[1];
 	  
@@ -155,6 +167,16 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 				block_on[i] = 1'b1;
 		  else
 				block_on[i] = 1'b0;
+		end
+	 end
+	 
+	 always_comb
+	 begin:Rect_on_proc
+		for (int j = 0; j < $size(RectDistX); j++) begin
+			if ((RectDistX[j] <= Rect_size[j]) && (RectDistY[j] <= Rect_size[j]/2))
+				rect_on[j] = 1'b1;
+			else
+				rect_on[j] = 1'b0;
 		end
 	 end
 	 
@@ -337,6 +359,12 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 		Green = 8'h00;
 		Blue = 8'h44;
 		
+		if (DrawX < 150 || DrawX > 490) begin
+			Red = 8'h00;
+			Green = 8'h00;
+			Blue = 8'h00;
+		end
+		
 		for (int i = 0; i < $size(block_on); i++) begin
 			if (block_on[i] && block_ready[i])
 			begin
@@ -346,18 +374,27 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 			end
 		end
 		
+		for (int i = 0; i < $size(rect_on); i++) begin
+			if (rect_on[i] && rect_ready[i])
+			begin
+				Red = 8'hff;
+            Green = 8'h00;
+            Blue = 8'hff;
+			end
+		end
+		
 		if (ball_red_on == 1'b1)
 		begin
-			Red = 8'h00;
-			Green = 8'hff;
-			Blue = 8'hff;
+			Red = 8'hff;
+			Green = 8'h00;
+			Blue = 8'h00;
 		end
 		
 		if (ball_blue_on == 1'b1)
         begin 
-            Red = 8'hff;
-            Green = 8'hff;
-            Blue = 8'h00;
+            Red = 8'h00;
+            Green = 8'h00;
+            Blue = 8'hff;
 		end
 		
 		if ((L_on == 1'b1) && sprite_data[DrawX - L_X] == 1'b1)

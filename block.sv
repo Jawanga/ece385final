@@ -17,7 +17,7 @@ module  block ( input Reset, frame_clk,
 					 input [9:0]  Block_X_Center,
 					 input block_ready,
 					 output end_level,
-               output [9:0]  BlockX, BlockY, BlockS);
+               output [9:0]  BlockX, BlockY);
     
     logic [9:0] Block_X_Pos, Block_X_Motion, Block_Y_Pos, Block_Y_Motion, Block_Size;
 	 
@@ -30,7 +30,7 @@ module  block ( input Reset, frame_clk,
     parameter [9:0] Block_X_Step=1;      // Step size on the X axis
     parameter [9:0] Block_Y_Step=1;      // Step size on the Y axis
 	
-    assign Block_Size = 12;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
+    //assign Block_Size = 20;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
     always_ff @ (posedge Reset or posedge frame_clk )
     begin: Move_Block
@@ -78,7 +78,7 @@ module  block ( input Reset, frame_clk,
    
     assign BlockY = Block_Y_Pos;
    
-    assign BlockS = Block_Size;
+    //assign BlockS = Block_Size;
     
 
 endmodule

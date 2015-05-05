@@ -93,12 +93,12 @@ OBJ_DIR := ./obj
 
 # This following VERSION comment indicates the version of the tool used to 
 # generate this makefile. A makefile variable is provided for VERSION as well. 
-# ACDS_VERSION: 14.1
-ACDS_VERSION := 14.1
+# ACDS_VERSION: 14.0
+ACDS_VERSION := 14.0
 
 # This following BUILD_NUMBER comment indicates the build number of the tool 
 # used to generate this makefile. 
-# BUILD_NUMBER: 186
+# BUILD_NUMBER: 200
 
 SETTINGS_FILE := settings.bsp
 SOPC_FILE := ../../usb_system.sopcinfo
