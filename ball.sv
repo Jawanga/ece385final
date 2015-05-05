@@ -51,129 +51,140 @@
 	
 */
 
-signed real cosine[60] = {
-1000
-,
-995
-,
-979
-,
-952
-,
-914
-,
-867
-,
-810
-,
-744
-,
-670
-,
-588
-,
-501
-,
-407
-,
-310
-,
-208
-,
-105
-,
-1
-,
--104
-,
--207
-,
--309
-,
--406
-,
--499
-,
--587
-,
--669
-,
--743
-,
--809
-,
--866
-,
--913
-,
--951
-,
--978
-,
--994
-,
--1000
-,
--994
-,
--978
-,
--951
-,
--913
-,
--866
-,
--809
-,
--743
-,
--669
-,
--587
-,
--500
-,
--406
-,
--309
-,
--207
-,
--104
-,
-0
-,
-105
-,
-208
-,
-310
-,
-407
-,
-501
-,
-588
-,
-670
-,
-744
-,
-810
-,
-867
-,
-914
-,
-952
-,
-979
-,
-995
+/*
+real signed cosine[60] = {
+	1.0,
+	0.995,
+	0.979,
+	0.952,
+	0.914,
+	0.867,
+	0.81,
+	0.744,
+	0.67,
+	0.588,
+	0.501,
+	0.407,
+	0.31,
+	0.208,
+	0.105,
+	0.001,
+	-0.104,
+	-0.207,
+	-0.309,
+	-0.406,
+	-0.499,
+	-0.587,
+	-0.669,
+	-0.743,
+	-0.809,
+	-0.866,
+	-0.913,
+	-0.951,
+	-0.978,
+	-0.994,
+	-1.0,
+	-0.994,
+	-0.978,
+	-0.951,
+	-0.913,
+	-0.866,
+	-0.809,
+	-0.743,
+	-0.669,
+	-0.587,
+	-0.5,
+	-0.406,
+	-0.309,
+	-0.207,
+	-0.104,
+	0.0,
+	0.105,
+	0.208,
+	0.31,
+	0.407,
+	0.501,
+	0.588,
+	0.67,
+	0.744,
+	0.81,
+	0.867,
+	0.914,
+	0.952,
+	0.979,
+	0.995
 };
 
-signed real sine[60] {
+real sine[60] = {
+	0.0,
+	0.105,
+	0.208,
+	0.31,
+	0.407,
+	0.5,
+	0.588,
+	0.67,
+	0.744,
+	0.81,
+	0.867,
+	0.914,
+	0.952,
+	0.979,
+	0.995,
+	1.0,
+	0.995,
+	0.979,
+	0.952,
+	0.914,
+	0.867,
+	0.81,
+	0.744,
+	0.67,
+	0.588,
+	0.5,
+	0.407,
+	0.31,
+	0.208,
+	0.105,
+	0.001,
+	-0.104,
+	-0.207,
+	-0.309,
+	-0.406,
+	-0.5,
+	-0.587,
+	-0.669,
+	-0.743,
+	-0.809,
+	-0.866,
+	-0.913,
+	-0.951,
+	-0.978,
+	-0.994,
+	-1.0,
+	-0.994,
+	-0.978,
+	-0.951,
+	-0.913,
+	-0.866,
+	-0.809,
+	-0.743,
+	-0.669,
+	-0.587,
+	-0.5,
+	-0.406,
+	-0.309,
+	-0.207,
+	-0.104
+
+};
+*/
+
+int signed cosine [60] = '{1000, 995, 979, 952, 914, 867, 810, 744, 670, 588, 501, 407, 310, 208, 105, 1, -104, -207, -309, -406, -499, -587,
+												  -669, -743, -809, -866, -913, -951, -978, -994, -1000, -994, -978, -951, -913, -866, -809, -743, -669, -587, -500,
+												  -406, -309, -207, -104, 0, 105, 208, 310, 407, 501, 588, 670, 744, 810, 867, 914, 952, 979, 995};
+
+int signed sine[60] = '{
 	0
 ,
 105
@@ -295,8 +306,9 @@ signed real sine[60] {
 -104
 
 };
+
 module  ball ( input Reset, frame_clk,
-					input [7:0] keycode, input color, input [5:0] index;
+					input [7:0] keycode, input color, input [5:0] index,
                output [9:0]  BallX, BallY, BallS,
 			   output [5:0] next_index);
     
@@ -314,7 +326,7 @@ module  ball ( input Reset, frame_clk,
     parameter [9:0] Ball_Y_Step=1;      // Step size on the Y axis
 	parameter [7:0] radius=80;			//radius of the circle
 
-	
+	logic [5:0] prev_index;
 	
     assign Ball_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
@@ -325,17 +337,17 @@ module  ball ( input Reset, frame_clk,
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
 			Ball_Y_Pos <= Ball_Y_Center;
-			relative_x = 0;
-			relative_y = 0;
+			//relative_x = 0;
+			//relative_y = 0;
 			if (color == 1'b1)
 			begin
 				Ball_X_Pos <= Ball_X_Right;	//red - right - 2'b1
-				index = 0;
+				next_index = 0;
 			end
 			else if (color == 1'b0)
 			begin
 				Ball_X_Pos <= Ball_X_Left;
-				index = 30;
+				next_index = 30;
 			end
         end
 		
@@ -356,17 +368,18 @@ module  ball ( input Reset, frame_clk,
 								next_index = 59;
 							else 
 								next_index = index - 1;
-							Ball_X_Motion = (cosine[prev_index] - cosine[next_index]) * radius;
-							Ball_Y_Motion = (sine[prev_index] - sine[next_index]) * radius;
+							Ball_X_Motion = (cosine[prev_index] - cosine[next_index]) * radius / 1000;
+							Ball_Y_Motion = (sine[prev_index] - sine[next_index]) * radius / 1000;
 						end
 				 4:		//left key
+						begin
 							prev_index = index;
 							if (index == 59)
-								index = 0;
+								next_index = 0;
 							else
 								next_index = index + 1;
-							Ball_X_Motion = (cosine[prev_index] - cosine[next_index]) * radius;
-							Ball_Y_Motion = (sine[prev_index] - sine[next_index]) * radius;
+							Ball_X_Motion = (cosine[prev_index] - cosine[next_index]) * radius / 1000;
+							Ball_Y_Motion = (sine[prev_index] - sine[next_index]) * radius / 1000;
 							
 						end
 				 endcase
