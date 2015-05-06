@@ -1,4 +1,5 @@
 module block_SM (input Clk, Reset, Run,
+					  input Collision [0:1],
 					  input end_level [0:12],
 					  input [7:0] keycode,
 					  output logic block_ready [0:9],
@@ -11,9 +12,14 @@ module block_SM (input Clk, Reset, Run,
 		reg [27:0] counter;
 		//logic [9:0] seconds;
 		
-		always_ff @ (posedge Clk or posedge Reset) begin
+		always_ff @ (posedge Clk or posedge Reset or posedge Collision[0] or posedge Collision[1]) begin
 			if (Reset) begin
 				state <= RESET;
+				counter <= 0;
+				seconds <= 0;
+			end
+			else if (Collision[0] || Collision[1]) begin
+				state <= next_state;
 				counter <= 0;
 				seconds <= 0;
 			end
@@ -45,43 +51,63 @@ module block_SM (input Clk, Reset, Run,
 						next_state <= BLOCK1;
 				end
 				BLOCK1: begin
-					if (seconds == 3)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 3)
 						next_state <= BLOCK2;
 				end
 				BLOCK2: begin
-					if (seconds == 5)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 5)
 						next_state <= BLOCK3;
 				end
 				BLOCK3: begin
-					if (seconds == 7)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 7)
 						next_state <= BLOCK4;
 				end
 				BLOCK4: begin
-					if (seconds == 9)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 9)
 						next_state <= BLOCK5;
 				end
 				BLOCK5: begin
-					if (seconds == 11)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 11)
 						next_state <= BLOCK6;
 				end
 				BLOCK6: begin
-					if (seconds == 13)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 13)
 						next_state <= BLOCK7;
 				end
 				BLOCK7: begin
-					if (seconds == 15)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 15)
 						next_state <= BLOCK8;
 				end
 				BLOCK8: begin
-					if (seconds == 17)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 17)
 						next_state <= BLOCK9;
 				end
 				BLOCK9: begin
-					if (seconds == 19)
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (seconds == 19)
 						next_state <= BLOCK10;
 				end
 				BLOCK10: begin
-					if (end_level[9])
+					if (Collision[0] || Collision[1])
+						next_state <= LEVEL1;
+					else if (end_level[9])
 						next_state <= MID1TO2;
 				end
 				MID1TO2: begin

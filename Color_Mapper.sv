@@ -19,11 +19,10 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 							  input			[9:0] RectX [0:2], RectY[0:2], Rect_size[0:2],
 							  input			rect_ready [0:2],
 							  input			level_one, level_two,
-                       output logic [7:0]  Red, Green, Blue,
-					   output logic Collision);
+                       output logic [7:0]  Red, Green, Blue);
     
     logic ball_red_on, ball_blue_on, block_on [0:9];
-	logic blocks_on;
+	 logic blocks_on;
 
 	 logic rect_on [0:2];
 	 logic L_on;
@@ -145,7 +144,6 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign RectDistY[2] = DrawY - RectY[2];
     assign BlueSize = Ball_size[0];
 	 assign RedSize = Ball_size[1];
-	assign blocks_on = 1'b0;
 	 
     always_comb
     begin:BlueBall_on_proc
@@ -167,22 +165,22 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 begin:Block_on_proc
 		for (int i = 0; i < $size(BlockDistX); i++) begin
 		  if ( (BlockDistX[i] <= Block_size[i]) && (BlockDistY[i] <= Block_size[i]) )
-			begin
 				block_on[i] = 1'b1;
-				blocks_on = 1'b1;
-			end
 		  else
 				block_on[i] = 1'b0;
 		end
 	 end
-	 
+	/*
 	always_comb
-	begin:Collision_meow
-		if (ball_blue_on | ball_red_on | blocks_on)
-			Collision = 1'b1;
-		else
-			Collision = 1'b0;
+	begin:Collision_block
+		Collision = 1'b0;
+		for (int k = 0; k < $size(BlockDistX); k++) begin
+			if ((ball_blue_on && block_on[k]) || (ball_red_on && block_on[k])) begin
+				Collision = 1'b1;
+			end
+		end
 	end
+	*/
 	
 	 always_comb
 	 begin:Rect_on_proc
