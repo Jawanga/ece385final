@@ -13,7 +13,7 @@
 //-------------------------------------------------------------------------
 
 
-module  block ( input Reset, frame_clk,
+module  block ( input Reset, Collision frame_clk,
 					 input [9:0]  Block_X_Center,
 					 input block_ready,
 					 output end_level,
@@ -34,7 +34,7 @@ module  block ( input Reset, frame_clk,
    
     always_ff @ (posedge Reset or posedge frame_clk )
     begin: Move_Block
-        if (Reset)  // Asynchronous Reset
+        if (Reset | Collision)  // Asynchronous Reset
         begin 
             Block_Y_Motion <= 10'd0; //Block_Y_Step;
 				Block_X_Motion <= 10'd0; //Block_X_Step;
