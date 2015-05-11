@@ -56,15 +56,22 @@ module  FinalProject		( input         Clk,
 	 logic rect_ready [0:2];
 	 logic [5:0] index [0:1], next_index [0:1];
 	 logic [9:0] seconds;
-	 logic level_one, level_two;
+	 logic level_one, level_two, title, pstart;
     logic end_level [0:12];
 	 logic Collision [0:1];
+	 logic blue_paint [0:1][0:9], orange_paint [0:1][0:9];
+	 
+	 initial begin
+		for (int i = 0; i < $size(block_ready); i++) begin
+			block_ready[i] = 0;
+		end
+		keycode = 0;
+	 end
 	 
     assign {Reset_h}=~ (Reset);  // The push buttons are active low
 	 assign Run_h = ~Run;
 	 assign OTG_FSPEED = 1'bz;
 	 assign OTG_LSPEED = 1'bz;
-	 assign index = next_index;
 	 
 	 assign BlockS[0] = 20;
 	 assign BlockS[1] = 20;
@@ -121,16 +128,16 @@ module  FinalProject		( input         Clk,
                        output logic [7:0]  Red, Green, Blue );
 	 */
 	 
-	 color_mapper color_instance(.BallX, .BallY, .DrawX, .DrawY, .Ball_size(BallS), .BlockX, .BlockY, .Block_size(BlockS), .block_ready, .RectX, .RectY, .Rect_size(RectS), .rect_ready, .level_one, .level_two, .Red, .Green, .Blue);
+	 color_mapper color_instance(.BallX, .BallY, .DrawX, .DrawY, .Ball_size(BallS), .BlockX, .BlockY, .Block_size(BlockS), .block_ready, .RectX, .RectY, .Rect_size(RectS), .rect_ready, .title, .level_one, .level_two, .pstart, .blue_paint, .orange_paint, .Red, .Green, .Blue);
 	 /*
 	 module  ball ( input Reset, frame_clk,
                output [9:0]  BallX, BallY, BallS );
 	 */
 	 
-	 ball blue(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[1]), .BlockX, .BlockY, .BlockS, .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .Collision(Collision[0]));//, .index(index[0]), .next_index(next_index[0]));
-	 ball red(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[0]), .BlockX, .BlockY, .BlockS, .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode, .Collision(Collision[1]));//, .index(index[1]), .next_index(next_index[1]));
+	 ball blue(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[1]), .BlockX, .BlockY, .BlockS, .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .blue_paint(blue_paint[0]), .orange_paint(orange_paint[0]), .Collision(Collision[0]));//, .index(index[0]), .next_index(next_index[0]));
+	 ball red(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[0]), .BlockX, .BlockY, .BlockS, .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode, .blue_paint(blue_paint[1]), .orange_paint(orange_paint[1]), .Collision(Collision[1]));//, .index(index[1]), .next_index(next_index[1]));
 	 
-	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .Collision, .keycode, .end_level, .block_ready, .rect_ready, .level_one, .level_two, .seconds);
+	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .Collision, .keycode, .end_level, .block_ready, .rect_ready, .title, .level_one, .level_two, .pstart, .seconds);
 	 
 	 block block1(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(370), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .block_ready(block_ready[0]), .end_level(end_level[0]));
 	 block block2(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(320), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .block_ready(block_ready[1]), .end_level(end_level[1]));

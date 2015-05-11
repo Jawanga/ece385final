@@ -18,7 +18,8 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 							  input			block_ready [0:9],
 							  input			[9:0] RectX [0:2], RectY[0:2], Rect_size[0:2],
 							  input			rect_ready [0:2],
-							  input			level_one, level_two,
+							  input			level_one, level_two, title, pstart,
+							  input			blue_paint [0:1][0:9], orange_paint [0:1][0:9],
                        output logic [7:0]  Red, Green, Blue);
     
     logic ball_red_on, ball_blue_on, block_on [0:9];
@@ -91,10 +92,28 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 logic [10:0] O2_size_X = 8;
 	 logic [10:0] O2_size_Y = 16;
 	 
+	 logic title_on;
+	 logic [10:0] title_X = 300;
+	 logic [10:0] title_Y = 80;
+	 logic [10:0] title_size_X = 41;
+	 logic [10:0] title_size_Y = 16;
+	 
+	 logic pstart_on;
+	 logic [10:0] pstart_X = 265;
+	 logic [10:0] pstart_Y = 235;
+	 logic [10:0] pstart_size_X = 110;
+	 logic [10:0] pstart_size_Y = 16;
+	 
 	 logic [10:0] sprite_addr;
 	 logic [0:7] sprite_data;
-	 font_rom sprite(.addr(sprite_addr), .data(sprite_data));
+	 logic [3:0] title_addr;
+	 logic [0:40] title_data;
+	 logic [3:0] pstart_addr;
+	 logic [0:109] pstart_data;
 	 
+	 font_rom sprite(.addr(sprite_addr), .data(sprite_data));
+	 title_rom title_screen(.addr(title_addr), .data(title_data));
+	 pstart_rom press_start(.addr(pstart_addr), .data(pstart_data));
  /* Old Ball: Generated square box by checking if the current pixel is within a square of length
     2*Ball_Size, centered at (BallX, BallY).  Note that this requires unsigned comparisons.
 	 
@@ -185,7 +204,7 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 always_comb
 	 begin:Rect_on_proc
 		for (int j = 0; j < $size(RectDistX); j++) begin
-			if ((RectDistX[j] <= Rect_size[j]) && (RectDistY[j] <= Rect_size[j]/2))
+			if ((RectDistX[j] <= Rect_size[j]) && (RectDistY[j] <= Rect_size[j]/4))
 				rect_on[j] = 1'b1;
 			else
 				rect_on[j] = 1'b0;
@@ -194,8 +213,7 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 
 	 always_comb
 	 begin:lvl1_on_proc
-		if (DrawX >= L_X && DrawX < L_X + L_size_X && DrawY >= L_Y && DrawY < L_Y + L_size_Y && (level_one || level_two)) begin
-			L_on = 1'b1;
+			L_on = 1'b0;
 			E_on = 1'b0;
 			V_on = 1'b0;
 			E2_on = 1'b0;
@@ -206,161 +224,63 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 			T_on = 1'b0;
 			W_on = 1'b0;
 			O2_on = 1'b0;
+			title_on = 1'b0;
+			pstart_on = 1'b0;
+			sprite_addr = 10'b0;
+			title_addr = 4'b0;
+			pstart_addr = 4'b0;
+			
+		if(DrawX >= title_X && DrawX < title_X + title_size_X && DrawY >= title_Y && DrawY < title_Y + title_size_Y && title) begin
+			title_on = 1'b1;
+			title_addr = (DrawY - title_Y);
+		end
+		else if(DrawX >= pstart_X && DrawX < pstart_X + pstart_size_X && DrawY >= pstart_Y && DrawY < pstart_Y + pstart_size_Y && title && pstart) begin
+			pstart_on = 1'b1;
+			pstart_addr = (DrawY - pstart_Y);
+		end
+		else if (DrawX >= L_X && DrawX < L_X + L_size_X && DrawY >= L_Y && DrawY < L_Y + L_size_Y && (level_one || level_two)) begin
+			L_on = 1'b1;
 			sprite_addr = (DrawY - L_Y + 16*'h4c);
 		end
 		else if (DrawX >= E_X && DrawX < E_X + E_size_X && DrawY >= E_Y && DrawY < E_Y + E_size_Y && (level_one || level_two)) begin
-			L_on = 1'b0;
 			E_on = 1'b1;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - E_Y + 16*'h45);
 		end
 		else if (DrawX >= V_X && DrawX < V_X + V_size_X && DrawY >= V_Y && DrawY < V_Y + V_size_Y && (level_one || level_two)) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
 			V_on = 1'b1;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - V_Y + 16*'h56);
 		end
 		else if (DrawX >= E2_X && DrawX < E2_X + E2_size_X && DrawY >= E2_Y && DrawY < E2_Y + E2_size_Y && (level_one || level_two)) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
 			E2_on = 1'b1;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - E2_Y + 16*'h45);
 		end
 		else if (DrawX >= L2_X && DrawX < L2_X + L2_size_X && DrawY >= L2_Y && DrawY < L2_Y + L2_size_Y && (level_one || level_two)) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
 			L2_on = 1'b1;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - L2_Y + 16*'h4c);
 		end
 		else if (DrawX >= O_X && DrawX < O_X + O_size_X && DrawY >= O_Y && DrawY < O_Y + O_size_Y && level_one) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
 			O_on = 1'b1;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - O_Y + 16*'h4f);
 		end
 		else if (DrawX >= N_X && DrawX < N_X + N_size_X && DrawY >= N_Y && DrawY < N_Y + N_size_Y && level_one) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
 			N_on = 1'b1;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - N_Y + 16*'h4e);
 		end
 		else if (DrawX >= E3_X && DrawX < E3_X + E3_size_X && DrawY >= E3_Y && DrawY < E3_Y + E3_size_Y && level_one) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
 			E3_on = 1'b1;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - E3_Y + 16*'h45);
 		end
 		else if (DrawX >= T_X && DrawX < T_X + T_size_X && DrawY >= T_Y && DrawY < T_Y + T_size_Y && level_two) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
 			T_on = 1'b1;
-			W_on = 1'b0;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - T_Y + 16*'h54);
 		end
 		else if (DrawX >= W_X && DrawX < W_X + W_size_X && DrawY >= W_Y && DrawY < W_Y + W_size_Y && level_two) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
 			W_on = 1'b1;
-			O2_on = 1'b0;
 			sprite_addr = (DrawY - W_Y + 16*'h57);
 		end
 		else if (DrawX >= O2_X && DrawX < O2_X + O2_size_X && DrawY >= O2_Y && DrawY < O2_Y + O2_size_Y && level_two) begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
 			O2_on = 1'b1;
 			sprite_addr = (DrawY - O2_Y + 16*'h4f);
-		end
-		else begin
-			L_on = 1'b0;
-			E_on = 1'b0;
-			V_on = 1'b0;
-			E2_on = 1'b0;
-			L2_on = 1'b0;
-			O_on = 1'b0;
-			N_on = 1'b0;
-			E3_on = 1'b0;
-			T_on = 1'b0;
-			W_on = 1'b0;
-			O2_on = 1'b0;
-			sprite_addr = 10'b0;
 		end
 	end
        
@@ -380,9 +300,21 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 		for (int i = 0; i < $size(block_on); i++) begin
 			if (block_on[i] && block_ready[i])
 			begin
-				Red = 8'hff;
-            Green = 8'h00;
-            Blue = 8'hff;
+				if (blue_paint[0][i] || blue_paint[1][i]) begin
+					Red = 8'h00;
+					Green = 8'h00;
+					Blue = 8'hff;
+				end
+				else if (orange_paint[0][i] || orange_paint[1][i]) begin
+					Red = 8'hff;
+					Green = 8'ha5;
+					Blue = 8'h00;
+				end
+				else begin
+					Red = 8'hff;
+					Green = 8'h00;
+					Blue = 8'hff;
+				end
 			end
 		end
 		
@@ -398,7 +330,7 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 		if (ball_red_on == 1'b1)
 		begin
 			Red = 8'hff;
-			Green = 8'h00;
+			Green = 8'ha5;
 			Blue = 8'h00;
 		end
 		
@@ -409,6 +341,20 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
             Blue = 8'hff;
 		end
 		
+		if ((title_on == 1'b1) && title_data[DrawX - title_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
+		
+		if ((pstart_on == 1'b1) && pstart_data[DrawX - pstart_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
+			
 		if ((L_on == 1'b1) && sprite_data[DrawX - L_X] == 1'b1)
 			begin
 				Red = 8'hff;

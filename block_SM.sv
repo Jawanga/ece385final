@@ -4,13 +4,19 @@ module block_SM (input Clk, Reset, Run,
 					  input [7:0] keycode,
 					  output logic block_ready [0:9],
 					  output logic rect_ready [0:2],
-					  output logic level_one, level_two,
+					  output logic title, pstart, level_one, level_two,
 					  output logic [9:0] seconds);
 
 		enum logic [4:0] {RESET, LEVEL1, LEVEL2, MID1TO2, BLOCK1, BLOCK2, BLOCK3, BLOCK4, BLOCK5, BLOCK6, BLOCK7, BLOCK8, BLOCK9, BLOCK10, BLOCK11, BLOCK12, BLOCK13} state, next_state;
 		
 		reg [27:0] counter;
+		reg [27:0] pstart_counter;
 		//logic [9:0] seconds;
+		
+		initial begin
+			state <= RESET;
+			next_state <= RESET;
+		end
 		
 		always_ff @ (posedge Clk or posedge Reset or posedge Collision[0] or posedge Collision[1]) begin
 			if (Reset) begin
@@ -34,6 +40,14 @@ module block_SM (input Clk, Reset, Run,
 					counter <= 0;
 					seconds <= seconds + 1;
 				end
+				else if (state == RESET) begin
+					if (pstart_counter == 50000000) begin
+						pstart <= ~pstart;
+						pstart_counter <= 0;
+						end
+					else
+						pstart_counter <= pstart_counter + 1;
+				end
 				else
 					counter <= counter + 1;
 			end
@@ -52,61 +66,61 @@ module block_SM (input Clk, Reset, Run,
 				end
 				BLOCK1: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 3)
 						next_state <= BLOCK2;
 				end
 				BLOCK2: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 5)
 						next_state <= BLOCK3;
 				end
 				BLOCK3: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 7)
 						next_state <= BLOCK4;
 				end
 				BLOCK4: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 9)
 						next_state <= BLOCK5;
 				end
 				BLOCK5: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 11)
 						next_state <= BLOCK6;
 				end
 				BLOCK6: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 13)
 						next_state <= BLOCK7;
 				end
 				BLOCK7: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 15)
 						next_state <= BLOCK8;
 				end
 				BLOCK8: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 17)
 						next_state <= BLOCK9;
 				end
 				BLOCK9: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (seconds == 19)
 						next_state <= BLOCK10;
 				end
 				BLOCK10: begin
 					if (Collision[0] || Collision[1])
-						next_state <= LEVEL1;
+						next_state <= BLOCK1;
 					else if (end_level[9])
 						next_state <= MID1TO2;
 				end
@@ -140,10 +154,13 @@ module block_SM (input Clk, Reset, Run,
 			for (int i = 0; i < $size(rect_ready); i++) begin
 				rect_ready[i] = 0;
 			end
+			title = 0;
 			level_one = 0;
 			level_two = 0;
 			case (state)
 					RESET:
+						title = 1;
+					LEVEL1:
 						level_one = 1;
 					BLOCK1:
 						block_ready[0] = 1;
@@ -178,21 +195,15 @@ module block_SM (input Clk, Reset, Run,
 						block_ready[5] = 1;
 					end
 					BLOCK7: begin
-					/*
 						block_ready[0] = 1;
 						block_ready[1] = 1;
 						block_ready[2] = 1;
 						block_ready[3] = 1;
 						block_ready[4] = 1;
 						block_ready[5] = 1;
-					*/
-						for (int i = 0; i < 6; i++) begin
-							block_ready[i] = ~end_level[i];
-						end
 						block_ready[6] = 1;
 					end
 					BLOCK8: begin
-					/*
 						block_ready[0] = 1;
 						block_ready[1] = 1;
 						block_ready[2] = 1;
@@ -200,14 +211,9 @@ module block_SM (input Clk, Reset, Run,
 						block_ready[4] = 1;
 						block_ready[5] = 1;
 						block_ready[6] = 1;
-					*/
-						for (int i = 0; i < 7; i++) begin
-							block_ready[i] = ~end_level[i];
-						end
 						block_ready[7] = 1;
 					end
 					BLOCK9: begin
-						/*
 						block_ready[0] = 1;
 						block_ready[1] = 1;
 						block_ready[2] = 1;
@@ -216,10 +222,6 @@ module block_SM (input Clk, Reset, Run,
 						block_ready[5] = 1;
 						block_ready[6] = 1;
 						block_ready[7] = 1;
-						*/
-						for (int i = 0; i < 8; i++) begin
-							block_ready[i] = ~end_level[i];
-						end
 						block_ready[8] = 1;
 					end
 					BLOCK10: begin

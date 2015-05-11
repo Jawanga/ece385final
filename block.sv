@@ -36,7 +36,7 @@ module  block ( input Reset, frame_clk,
     always_ff @ (posedge Reset or posedge Collision[0] or posedge Collision[1] or posedge frame_clk )
     begin: Move_Block
         if (Reset || Collision[0] || Collision[1])  // Asynchronous Reset
-        begin 
+        begin
             Block_Y_Motion <= 10'd0; //Block_Y_Step;
 				Block_X_Motion <= 10'd0; //Block_X_Step;
 				Block_Y_Pos <= 0;
