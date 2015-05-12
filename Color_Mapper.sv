@@ -14,18 +14,18 @@
 
 
 module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0:1],
-							  input			[9:0] BlockX [0:13], BlockY [0:13], Block_size [0:13], DrawX, DrawY,
-							  input			block_ready [0:13],
-							  input			[9:0] RectX [0:5], RectY[0:5], Rect_size[0:5],
-							  input			rect_ready [0:5],
-							  input			level_one, level_two, title, pstart,
-							  input			blue_paint [0:19], orange_paint [0:19],
+							  input			[9:0] BlockX [0:17], BlockY [0:17], Block_size [0:17], DrawX, DrawY,
+							  input			block_ready [0:17],
+							  input			[9:0] RectX [0:11], RectY[0:11], Rect_size[0:11],
+							  input			rect_ready [0:11],
+							  input			level_one, level_two, title, win, pstart, level_final, hidden,
+							  input			blue_paint [0:29], orange_paint [0:29],
                        output logic [7:0]  Red, Green, Blue);
     
-    logic ball_red_on, ball_blue_on, block_on [0:13];
+    logic ball_red_on, ball_blue_on, block_on [0:17];
 	 logic blocks_on;
 
-	 logic rect_on [0:5];
+	 logic rect_on [0:11];
 	 
 	 logic L_on;
 	 logic [10:0] L_X = 230;
@@ -93,6 +93,36 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 logic [10:0] O2_size_X = 8;
 	 logic [10:0] O2_size_Y = 16;
 	 
+	 logic H_on;
+	 logic [10:0] H_X = 360;
+	 logic [10:0] H_Y = 80;
+	 logic [10:0] H_size_X = 8;
+	 logic [10:0] H_size_Y = 16;
+	 
+	 logic T2_on;
+	 logic [10:0] T2_X = 340;
+	 logic [10:0] T2_Y = 80;
+	 logic [10:0] T2_size_X = 8;
+	 logic [10:0] T2_size_Y = 16;
+	 
+	 logic R_on;
+	 logic [10:0] R_X = 380;
+	 logic [10:0] R_Y = 80;
+	 logic [10:0] R_size_X = 8;
+	 logic [10:0] R_size_Y = 16;
+	 
+	 logic E4_on;
+	 logic [10:0] E4_X = 400;
+	 logic [10:0] E4_Y = 80;
+	 logic [10:0] E4_size_X = 8;
+	 logic [10:0] E4_size_Y = 16;
+	 
+	 logic E5_on;
+	 logic [10:0] E5_X = 420;
+	 logic [10:0] E5_Y = 80;
+	 logic [10:0] E5_size_X = 8;
+	 logic [10:0] E5_size_Y = 16;
+	 
 	 logic title_on;
 	 logic [10:0] title_X = 300;
 	 logic [10:0] title_Y = 80;
@@ -105,16 +135,26 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 logic [10:0] pstart_size_X = 110;
 	 logic [10:0] pstart_size_Y = 16;
 	 
+	 logic win_on;
+	 logic [10:0] win_X = 290;
+	 logic [10:0] win_Y = 235;
+	 logic [10:0] win_size_X = 65;
+	 logic [10:0] win_size_Y = 16;
+	 
 	 logic [10:0] sprite_addr;
 	 logic [0:7] sprite_data;
 	 logic [3:0] title_addr;
 	 logic [0:40] title_data;
 	 logic [3:0] pstart_addr;
 	 logic [0:109] pstart_data;
+	 logic [3:0] win_addr;
+	 logic [0:64] win_data;
 	 
 	 font_rom sprite(.addr(sprite_addr), .data(sprite_data));
 	 title_rom title_screen(.addr(title_addr), .data(title_data));
 	 pstart_rom press_start(.addr(pstart_addr), .data(pstart_data));
+	 win_rom winner(.addr(win_addr), .data(win_data));
+	 
  /* Old Ball: Generated square box by checking if the current pixel is within a square of length
     2*Ball_Size, centered at (BallX, BallY).  Note that this requires unsigned comparisons.
 	 
@@ -129,8 +169,8 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	  we have to first cast them from logic to int (signed by default) before they are multiplied). */
 	  
     int RedDistX, RedDistY, RedSize, BlueDistX, BlueDistY, BlueSize;
-	 int BlockDistX [0:13], BlockDistY [0:13];
-	 int RectDistX [0:5], RectDistY[0:5];
+	 int BlockDistX [0:17], BlockDistY [0:17];
+	 int RectDistX [0:11], RectDistY[0:11];
 	 assign BlueDistX = DrawX - BallX[0];
     assign BlueDistY = DrawY - BallY[0];
 	 assign RedDistX = DrawX - BallX[1];
@@ -163,6 +203,14 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign BlockDistY[12] = DrawY - BlockY[12];
 	 assign BlockDistX[13] = DrawX - BlockX[13];
 	 assign BlockDistY[13] = DrawY - BlockY[13];
+	 assign BlockDistX[14] = DrawX - BlockX[14];
+	 assign BlockDistY[14] = DrawY - BlockY[14];
+	 assign BlockDistX[15] = DrawX - BlockX[15];
+	 assign BlockDistY[15] = DrawY - BlockY[15];
+	 assign BlockDistX[16] = DrawX - BlockX[16];
+	 assign BlockDistY[16] = DrawY - BlockY[16];
+	 assign BlockDistX[17] = DrawX - BlockX[17];
+	 assign BlockDistY[17] = DrawY - BlockY[17];
 	 
 	 assign RectDistX[0] = DrawX - RectX[0];
 	 assign RectDistY[0] = DrawY - RectY[0];
@@ -176,6 +224,18 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign RectDistY[4] = DrawY - RectY[4];
 	 assign RectDistX[5] = DrawX - RectX[5];
 	 assign RectDistY[5] = DrawY - RectY[5];
+	 assign RectDistX[6] = DrawX - RectX[6];
+	 assign RectDistY[6] = DrawY - RectY[6];
+	 assign RectDistX[7] = DrawX - RectX[7];
+	 assign RectDistY[7] = DrawY - RectY[7];
+	 assign RectDistX[8] = DrawX - RectX[8];
+	 assign RectDistY[8] = DrawY - RectY[8];
+	 assign RectDistX[9] = DrawX - RectX[9];
+	 assign RectDistY[9] = DrawY - RectY[9];
+	 assign RectDistX[10] = DrawX - RectX[10];
+	 assign RectDistY[10] = DrawY - RectY[10];
+	 assign RectDistX[11] = DrawX - RectX[11];
+	 assign RectDistY[11] = DrawY - RectY[11];
 	 
     assign BlueSize = Ball_size[0];
 	 assign RedSize = Ball_size[1];
@@ -240,11 +300,18 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 			T_on = 1'b0;
 			W_on = 1'b0;
 			O2_on = 1'b0;
+			T2_on = 1'b0;
+			H_on = 1'b0;
+			R_on = 1'b0;
+			E4_on = 1'b0;
+			E5_on = 1'b0;
 			title_on = 1'b0;
 			pstart_on = 1'b0;
+			win_on = 1'b0;
 			sprite_addr = 10'b0;
 			title_addr = 4'b0;
 			pstart_addr = 4'b0;
+			win_addr = 4'b0;
 			
 		if(DrawX >= title_X && DrawX < title_X + title_size_X && DrawY >= title_Y && DrawY < title_Y + title_size_Y && title) begin
 			title_on = 1'b1;
@@ -254,23 +321,27 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 			pstart_on = 1'b1;
 			pstart_addr = (DrawY - pstart_Y);
 		end
-		else if (DrawX >= L_X && DrawX < L_X + L_size_X && DrawY >= L_Y && DrawY < L_Y + L_size_Y && (level_one || level_two)) begin
+		else if(DrawX >= win_X && DrawX < win_X + win_size_X && DrawY >= win_Y && DrawY < win_Y + win_size_Y && win) begin
+			win_on = 1'b1;
+			win_addr = (DrawY - win_Y);
+		end
+		else if (DrawX >= L_X && DrawX < L_X + L_size_X && DrawY >= L_Y && DrawY < L_Y + L_size_Y && (level_one || level_two || level_final)) begin
 			L_on = 1'b1;
 			sprite_addr = (DrawY - L_Y + 16*'h4c);
 		end
-		else if (DrawX >= E_X && DrawX < E_X + E_size_X && DrawY >= E_Y && DrawY < E_Y + E_size_Y && (level_one || level_two)) begin
+		else if (DrawX >= E_X && DrawX < E_X + E_size_X && DrawY >= E_Y && DrawY < E_Y + E_size_Y && (level_one || level_two || level_final)) begin
 			E_on = 1'b1;
 			sprite_addr = (DrawY - E_Y + 16*'h45);
 		end
-		else if (DrawX >= V_X && DrawX < V_X + V_size_X && DrawY >= V_Y && DrawY < V_Y + V_size_Y && (level_one || level_two)) begin
+		else if (DrawX >= V_X && DrawX < V_X + V_size_X && DrawY >= V_Y && DrawY < V_Y + V_size_Y && (level_one || level_two || level_final)) begin
 			V_on = 1'b1;
 			sprite_addr = (DrawY - V_Y + 16*'h56);
 		end
-		else if (DrawX >= E2_X && DrawX < E2_X + E2_size_X && DrawY >= E2_Y && DrawY < E2_Y + E2_size_Y && (level_one || level_two)) begin
+		else if (DrawX >= E2_X && DrawX < E2_X + E2_size_X && DrawY >= E2_Y && DrawY < E2_Y + E2_size_Y && (level_one || level_two || level_final)) begin
 			E2_on = 1'b1;
 			sprite_addr = (DrawY - E2_Y + 16*'h45);
 		end
-		else if (DrawX >= L2_X && DrawX < L2_X + L2_size_X && DrawY >= L2_Y && DrawY < L2_Y + L2_size_Y && (level_one || level_two)) begin
+		else if (DrawX >= L2_X && DrawX < L2_X + L2_size_X && DrawY >= L2_Y && DrawY < L2_Y + L2_size_Y && (level_one || level_two || level_final)) begin
 			L2_on = 1'b1;
 			sprite_addr = (DrawY - L2_Y + 16*'h4c);
 		end
@@ -297,6 +368,26 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 		else if (DrawX >= O2_X && DrawX < O2_X + O2_size_X && DrawY >= O2_Y && DrawY < O2_Y + O2_size_Y && level_two) begin
 			O2_on = 1'b1;
 			sprite_addr = (DrawY - O2_Y + 16*'h4f);
+		end
+		else if (DrawX >= T2_X && DrawX < T2_X + T2_size_X && DrawY >= T2_Y && DrawY < T2_Y + T2_size_Y && level_final) begin
+			T2_on = 1'b1;
+			sprite_addr = (DrawY - T2_Y + 16*'h54);
+		end
+		else if (DrawX >= H_X && DrawX < H_X + H_size_X && DrawY >= H_Y && DrawY < H_Y + H_size_Y && level_final) begin
+			H_on = 1'b1;
+			sprite_addr = (DrawY - H_Y + 16*'h48);
+		end
+		else if (DrawX >= R_X && DrawX < R_X + R_size_X && DrawY >= R_Y && DrawY < R_Y + R_size_Y && level_final) begin
+			R_on = 1'b1;
+			sprite_addr = (DrawY - R_Y + 16*'h52);
+		end
+		else if (DrawX >= E4_X && DrawX < E4_X + E4_size_X && DrawY >= E4_Y && DrawY < E4_Y + E4_size_Y && level_final) begin
+			E4_on = 1'b1;
+			sprite_addr = (DrawY - E4_Y + 16*'h45);
+		end
+		else if (DrawX >= E5_X && DrawX < E5_X + E5_size_X && DrawY >= E5_Y && DrawY < E5_Y + E5_size_Y && level_final) begin
+			E5_on = 1'b1;
+			sprite_addr = (DrawY - E5_Y + 16*'h45);
 		end
 	end
        
@@ -328,9 +419,23 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 					Blue = 8'h00;
 				end
 				else begin
-					Red = 8'hff;
-					Green = 8'h00;
-					Blue = 8'hff;
+					if (i >= 14 && i <= 17) begin
+						if (hidden) begin
+							Red = 8'h4f - DrawX[9:3];
+							Green = 8'h00;
+							Blue = 8'h44;
+						end
+						else begin
+							Red = 8'hff;
+							Green = 8'h00;
+							Blue = 8'hff;
+						end
+					end
+					else begin
+						Red = 8'hff;
+						Green = 8'h00;
+						Blue = 8'hff;
+					end
 				end
 			
 			/*
@@ -356,9 +461,23 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 					Blue = 8'h00;
 				end
 				else begin
-					Red = 8'hff;
-					Green = 8'h00;
-					Blue = 8'hff;
+					if (i >= 6 && i <= 11) begin
+						if (hidden) begin
+							Red = 8'h4f - DrawX[9:3];
+							Green = 8'h00;
+							Blue = 8'h44;
+						end
+						else begin
+							Red = 8'hff;
+							Green = 8'h00;
+							Blue = 8'hff;
+						end
+					end
+					else begin
+						Red = 8'hff;
+						Green = 8'h00;
+						Blue = 8'hff;
+					end
 				end
 			
 			/*
@@ -391,6 +510,13 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 			end
 		
 		if ((pstart_on == 1'b1) && pstart_data[DrawX - pstart_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
+			
+		if ((win_on == 1'b1) && win_data[DrawX - win_X] == 1'b1)
 			begin
 				Red = 8'hff;
 				Green = 8'hff;
@@ -473,7 +599,41 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 				Green = 8'hff;
 				Blue = 8'h00;
 			end
+			
+		if ((T2_on == 1'b1) && sprite_data[DrawX - T2_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
+			
+		if ((H_on == 1'b1) && sprite_data[DrawX - H_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
+			
+		if ((R_on == 1'b1) && sprite_data[DrawX - R_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
 		
+		if ((E4_on == 1'b1) && sprite_data[DrawX - E4_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
+			
+		if ((E5_on == 1'b1) && sprite_data[DrawX - E5_X] == 1'b1)
+			begin
+				Red = 8'hff;
+				Green = 8'hff;
+				Blue = 8'h00;
+			end
     end
     
 endmodule

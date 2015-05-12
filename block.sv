@@ -15,7 +15,7 @@
 
 module  block ( input Reset, frame_clk, restart,
 					 input Collision [0:1],
-					 input [9:0]  Block_X_Center,
+					 input [9:0]  Block_X_Center, Block_Y_Step,
 					 input block_ready,
 					 output end_level,
                output [9:0]  BlockX, BlockY);
@@ -29,7 +29,7 @@ module  block ( input Reset, frame_clk, restart,
     parameter [9:0] Block_Y_Min=0;       // Topmost point on the Y axis
     parameter [9:0] Block_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Block_X_Step=1;      // Step size on the X axis
-    parameter [9:0] Block_Y_Step=1;      // Step size on the Y axis
+
 	
     //assign Block_Size = 20;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
