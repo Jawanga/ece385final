@@ -50,21 +50,31 @@ module  FinalProject		( input         Clk,
 	 logic [7:0] keycode;
 	 logic [9:0] DrawX, DrawY;
 	 logic [9:0] BallX [0:1], BallY [0:1], BallS [0:1];
-	 logic [9:0] BlockX [0:9], BlockY [0:9], BlockS [0:9];
-	 logic block_ready [0:9];
-	 logic [9:0] RectX [0:2], RectY[0:2], RectS[0:2];
-	 logic rect_ready [0:2];
+	 logic [9:0] BlockX [0:13], BlockY [0:13], BlockS [0:13];
+	 logic block_ready [0:13];
+	 logic [9:0] RectX [0:5], RectY[0:5], RectS[0:5];
+	 logic rect_ready [0:5];
 	 logic [5:0] index [0:1], next_index [0:1];
 	 logic [9:0] seconds;
-	 logic level_one, level_two, title, pstart;
-    logic end_level [0:12];
+	 logic level_one, level_two, title, pstart, restart;
+    logic end_level [0:19];
 	 logic Collision [0:1];
-	 logic blue_paint [0:1][0:9], orange_paint [0:1][0:9];
+	 logic blue_paint [0:19], orange_paint [0:19];
+	 logic [5:0] block_hit [0:1], block_hit_other [0:1];
 	 
 	 initial begin
 		for (int i = 0; i < $size(block_ready); i++) begin
 			block_ready[i] = 0;
 		end
+		for (int i = 0; i < $size(rect_ready); i++) begin
+			rect_ready[i] = 0;
+		end
+		for (int i = 0; i < 20; i++) begin
+			blue_paint[i] = 0;
+			orange_paint[i] = 0;
+		end
+		Collision[0] = 0;
+		Collision[1] = 0;
 		keycode = 0;
 	 end
 	 
@@ -83,10 +93,20 @@ module  FinalProject		( input         Clk,
 	 assign BlockS[7] = 20;
 	 assign BlockS[8] = 20;
 	 assign BlockS[9] = 20;
+	 assign BlockS[10] = 20;
+	 assign BlockS[11] = 20;
+	 assign BlockS[12] = 20;
+	 assign BlockS[13] = 20;
 	 
 	 assign RectS[0] = 40;
 	 assign RectS[1] = 40;
 	 assign RectS[2] = 40;
+	 assign RectS[3] = 50;
+	 assign RectS[4] = 70;
+	 assign RectS[5] = 60;
+	 
+	 assign index[0] = next_index[0];
+	 assign index[1] = next_index[1];
 	    
 	 usb_system usbsys_instance(
 										 .clk_clk(Clk),         
@@ -134,25 +154,33 @@ module  FinalProject		( input         Clk,
                output [9:0]  BallX, BallY, BallS );
 	 */
 	 
-	 ball blue(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[1]), .BlockX, .BlockY, .BlockS, .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .blue_paint(blue_paint[0]), .orange_paint(orange_paint[0]), .Collision(Collision[0]));//, .index(index[0]), .next_index(next_index[0]));
-	 ball red(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[0]), .BlockX, .BlockY, .BlockS, .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode, .blue_paint(blue_paint[1]), .orange_paint(orange_paint[1]), .Collision(Collision[1]));//, .index(index[1]), .next_index(next_index[1]));
+	 ball blue(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[1]), .block_hit_other(block_hit[1]), .BlockX, .BlockY, .BlockS, .RectX, .RectY, .RectS, .color(0), .BallX(BallX[0]), .BallY(BallY[0]), .BallS(BallS[0]), .keycode, .paint(blue_paint), .Collision(Collision[0]), .block_hit(block_hit[0]), .index(index[0]), .next_index(next_index[0]));
+	 ball red(.Reset(Reset_h), .frame_clk(vs), .Collision_other(Collision[0]), .block_hit_other(block_hit[0]), .BlockX, .BlockY, .BlockS, .RectX, .RectY, .RectS, .color(1), .BallX(BallX[1]), .BallY(BallY[1]), .BallS(BallS[1]), .keycode, .paint(orange_paint), .Collision(Collision[1]), .block_hit(block_hit[1]), .index(index[1]), .next_index(next_index[1]));
 	 
-	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .Collision, .keycode, .end_level, .block_ready, .rect_ready, .title, .level_one, .level_two, .pstart, .seconds);
+	 block_SM statemachine_instance(.Clk, .Reset(Reset_h), .Run(Run_h), .Collision, .keycode, .end_level, .block_ready, .rect_ready, .title, .level_one, .level_two, .pstart, .restart, .seconds);
 	 
-	 block block1(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(370), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .block_ready(block_ready[0]), .end_level(end_level[0]));
-	 block block2(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(320), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .block_ready(block_ready[1]), .end_level(end_level[1]));
-	 block block3(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(250), .BlockX(BlockX[2]), .BlockY(BlockY[2]), .block_ready(block_ready[2]), .end_level(end_level[2]));
-	 block block4(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(340), .BlockX(BlockX[3]), .BlockY(BlockY[3]), .block_ready(block_ready[3]), .end_level(end_level[3]));
-	 block block5(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(310), .BlockX(BlockX[4]), .BlockY(BlockY[4]), .block_ready(block_ready[4]), .end_level(end_level[4]));
-	 block block6(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(290), .BlockX(BlockX[5]), .BlockY(BlockY[5]), .block_ready(block_ready[5]), .end_level(end_level[5]));
-	 block block7(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(365), .BlockX(BlockX[6]), .BlockY(BlockY[6]), .block_ready(block_ready[6]), .end_level(end_level[6]));
-	 block block8(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(300), .BlockX(BlockX[7]), .BlockY(BlockY[7]), .block_ready(block_ready[7]), .end_level(end_level[7]));
-	 block block9(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(250), .BlockX(BlockX[8]), .BlockY(BlockY[8]), .block_ready(block_ready[8]), .end_level(end_level[8]));
-	 block block10(.Reset(Reset_h), .frame_clk(vs), .Collision, .Block_X_Center(300), .BlockX(BlockX[9]), .BlockY(BlockY[9]), .block_ready(block_ready[9]), .end_level(end_level[9]));
+	 block block1(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(370), .BlockX(BlockX[0]), .BlockY(BlockY[0]), .block_ready(block_ready[0]), .end_level(end_level[0]));
+	 block block2(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(320), .BlockX(BlockX[1]), .BlockY(BlockY[1]), .block_ready(block_ready[1]), .end_level(end_level[1]));
+	 block block3(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(250), .BlockX(BlockX[2]), .BlockY(BlockY[2]), .block_ready(block_ready[2]), .end_level(end_level[2]));
+	 block block4(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(340), .BlockX(BlockX[3]), .BlockY(BlockY[3]), .block_ready(block_ready[3]), .end_level(end_level[3]));
+	 block block5(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(310), .BlockX(BlockX[4]), .BlockY(BlockY[4]), .block_ready(block_ready[4]), .end_level(end_level[4]));
+	 block block6(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(290), .BlockX(BlockX[5]), .BlockY(BlockY[5]), .block_ready(block_ready[5]), .end_level(end_level[5]));
+	 block block7(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(365), .BlockX(BlockX[6]), .BlockY(BlockY[6]), .block_ready(block_ready[6]), .end_level(end_level[6]));
+	 block block8(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(BlockX[7]), .BlockY(BlockY[7]), .block_ready(block_ready[7]), .end_level(end_level[7]));
+	 block block9(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(250), .BlockX(BlockX[8]), .BlockY(BlockY[8]), .block_ready(block_ready[8]), .end_level(end_level[8]));
+	 block block10(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(BlockX[9]), .BlockY(BlockY[9]), .block_ready(block_ready[9]), .end_level(end_level[9]));
 	 
-	 block rect1(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(300), .BlockX(RectX[0]), .BlockY(RectY[0]), .block_ready(rect_ready[0]), .end_level(end_level[10]));
-	 block rect2(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(300), .BlockX(RectX[1]), .BlockY(RectY[1]), .block_ready(rect_ready[1]), .end_level(end_level[11]));
-	 block rect3(.Reset(Reset_h), .frame_clk(vs), .Block_X_Center(300), .BlockX(RectX[2]), .BlockY(RectY[2]), .block_ready(rect_ready[2]), .end_level(end_level[12]));
+	 block rect1(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(RectX[0]), .BlockY(RectY[0]), .block_ready(rect_ready[0]), .end_level(end_level[10]));
+	 block rect2(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(350), .BlockX(RectX[1]), .BlockY(RectY[1]), .block_ready(rect_ready[1]), .end_level(end_level[11]));
+	 block rect3(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(250), .BlockX(RectX[2]), .BlockY(RectY[2]), .block_ready(rect_ready[2]), .end_level(end_level[12]));
+	 block block11(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(BlockX[10]), .BlockY(BlockY[10]), .block_ready(block_ready[10]), .end_level(end_level[13]));
+	 block block12(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(BlockX[11]), .BlockY(BlockY[11]), .block_ready(block_ready[11]), .end_level(end_level[14]));
+	 block rect4(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(250), .BlockX(RectX[3]), .BlockY(RectY[3]), .block_ready(rect_ready[3]), .end_level(end_level[15]));
+	 block block13(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(BlockX[12]), .BlockY(BlockY[12]), .block_ready(block_ready[12]), .end_level(end_level[16]));
+	 block rect5(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(250), .BlockX(RectX[4]), .BlockY(RectY[4]), .block_ready(rect_ready[4]), .end_level(end_level[17]));
+	 block rect6(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(250), .BlockX(RectX[5]), .BlockY(RectY[5]), .block_ready(rect_ready[5]), .end_level(end_level[18]));
+	 block block14(.Reset(Reset_h), .frame_clk(vs), .restart, .Collision, .Block_X_Center(300), .BlockX(BlockX[13]), .BlockY(BlockY[13]), .block_ready(block_ready[13]), .end_level(end_level[19]));
+	 
 	 HexDriver hex_inst_0 (seconds[3:0], HEX0);
 	 HexDriver hex_inst_1 (keycode[7:4], HEX1);
     

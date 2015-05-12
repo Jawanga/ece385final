@@ -14,18 +14,19 @@
 
 
 module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0:1],
-							  input			[9:0] BlockX [0:9], BlockY [0:9], Block_size [0:9], DrawX, DrawY,
-							  input			block_ready [0:9],
-							  input			[9:0] RectX [0:2], RectY[0:2], Rect_size[0:2],
-							  input			rect_ready [0:2],
+							  input			[9:0] BlockX [0:13], BlockY [0:13], Block_size [0:13], DrawX, DrawY,
+							  input			block_ready [0:13],
+							  input			[9:0] RectX [0:5], RectY[0:5], Rect_size[0:5],
+							  input			rect_ready [0:5],
 							  input			level_one, level_two, title, pstart,
-							  input			blue_paint [0:1][0:9], orange_paint [0:1][0:9],
+							  input			blue_paint [0:19], orange_paint [0:19],
                        output logic [7:0]  Red, Green, Blue);
     
-    logic ball_red_on, ball_blue_on, block_on [0:9];
+    logic ball_red_on, ball_blue_on, block_on [0:13];
 	 logic blocks_on;
 
-	 logic rect_on [0:2];
+	 logic rect_on [0:5];
+	 
 	 logic L_on;
 	 logic [10:0] L_X = 230;
 	 logic [10:0] L_Y = 80;
@@ -128,8 +129,8 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	  we have to first cast them from logic to int (signed by default) before they are multiplied). */
 	  
     int RedDistX, RedDistY, RedSize, BlueDistX, BlueDistY, BlueSize;
-	 int BlockDistX [0:9], BlockDistY [0:9];
-	 int RectDistX [0:2], RectDistY[0:2];
+	 int BlockDistX [0:13], BlockDistY [0:13];
+	 int RectDistX [0:5], RectDistY[0:5];
 	 assign BlueDistX = DrawX - BallX[0];
     assign BlueDistY = DrawY - BallY[0];
 	 assign RedDistX = DrawX - BallX[1];
@@ -154,6 +155,14 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign BlockDistY[8] = DrawY - BlockY[8];
 	 assign BlockDistX[9] = DrawX - BlockX[9];
 	 assign BlockDistY[9] = DrawY - BlockY[9];
+	 assign BlockDistX[10] = DrawX - BlockX[10];
+	 assign BlockDistY[10] = DrawY - BlockY[10];
+	 assign BlockDistX[11] = DrawX - BlockX[11];
+	 assign BlockDistY[11] = DrawY - BlockY[11];
+	 assign BlockDistX[12] = DrawX - BlockX[12];
+	 assign BlockDistY[12] = DrawY - BlockY[12];
+	 assign BlockDistX[13] = DrawX - BlockX[13];
+	 assign BlockDistY[13] = DrawY - BlockY[13];
 	 
 	 assign RectDistX[0] = DrawX - RectX[0];
 	 assign RectDistY[0] = DrawY - RectY[0];
@@ -161,6 +170,13 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 	 assign RectDistY[1] = DrawY - RectY[1];
 	 assign RectDistX[2] = DrawX - RectX[2];
 	 assign RectDistY[2] = DrawY - RectY[2];
+	 assign RectDistX[3] = DrawX - RectX[3];
+	 assign RectDistY[3] = DrawY - RectY[3];
+	 assign RectDistX[4] = DrawX - RectX[4];
+	 assign RectDistY[4] = DrawY - RectY[4];
+	 assign RectDistX[5] = DrawX - RectX[5];
+	 assign RectDistY[5] = DrawY - RectY[5];
+	 
     assign BlueSize = Ball_size[0];
 	 assign RedSize = Ball_size[1];
 	 
@@ -300,12 +316,13 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 		for (int i = 0; i < $size(block_on); i++) begin
 			if (block_on[i] && block_ready[i])
 			begin
-				if (blue_paint[0][i] || blue_paint[1][i]) begin
+			
+				if (blue_paint[i]) begin
 					Red = 8'h00;
 					Green = 8'h00;
 					Blue = 8'hff;
 				end
-				else if (orange_paint[0][i] || orange_paint[1][i]) begin
+				else if (orange_paint[i]) begin
 					Red = 8'hff;
 					Green = 8'ha5;
 					Blue = 8'h00;
@@ -315,15 +332,40 @@ module  color_mapper ( input        [9:0] BallX [0:1], BallY [0:1], Ball_size [0
 					Green = 8'h00;
 					Blue = 8'hff;
 				end
+			
+			/*
+			Red = 8'hff;
+			Green = 8'h00;
+			Blue = 8'hff;
+			*/
 			end
 		end
 		
 		for (int i = 0; i < $size(rect_on); i++) begin
 			if (rect_on[i] && rect_ready[i])
 			begin
-				Red = 8'hff;
-            Green = 8'h00;
-            Blue = 8'hff;
+			
+				if (blue_paint[i+14]) begin
+					Red = 8'h00;
+					Green = 8'h00;
+					Blue = 8'hff;
+				end
+				else if (orange_paint[i+14]) begin
+					Red = 8'hff;
+					Green = 8'ha5;
+					Blue = 8'h00;
+				end
+				else begin
+					Red = 8'hff;
+					Green = 8'h00;
+					Blue = 8'hff;
+				end
+			
+			/*
+			Red = 8'hff;
+			Green = 8'h00;
+			Blue = 8'hff;
+			*/
 			end
 		end
 		

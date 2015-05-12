@@ -54,18 +54,23 @@
 
 
 module  ball ( input Reset, frame_clk, Collision_other,
-					input [7:0] keycode, input color,
-					input [9:0] BlockX [0:9], BlockY [0:9], BlockS [0:9],
+					input [5:0] block_hit_other,
+					input [7:0] keycode, input color, input[5:0] index,
+					input [9:0] BlockX [0:13], BlockY [0:13], BlockS [0:13],
+					input [9:0] RectX [0:5], RectY [0:5], RectS [0:5],
                output logic [9:0]  BallX, BallY, BallS,
-					output logic orange_paint [0:9], blue_paint [0:9],
-					output logic Collision);
+					output logic paint [0:19],
+					output logic [5:0] block_hit,
+					output logic Collision,
+					output logic [5:0] next_index);
     
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
-	 logic block_collision [0:9];
+	 logic block_collision [0:13];
+	 logic rect_collision [0:5];
 	 
     parameter [9:0] Ball_X_Center=320;  // Center position on the X axis
-	parameter [9:0] Ball_X_Right=380;
-	parameter [9:0] Ball_X_Left=260;
+	 parameter [9:0] Ball_X_Right=380;
+	 parameter [9:0] Ball_X_Left=260;
     parameter [9:0] Ball_Y_Center=390;  // Center position on the Y axis
     parameter [9:0] Ball_X_Min=150;       // Leftmost point on the X axis
     parameter [9:0] Ball_X_Max=490;     // Rightmost point on the X axis
@@ -73,7 +78,26 @@ module  ball ( input Reset, frame_clk, Collision_other,
     parameter [9:0] Ball_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis
     parameter [9:0] Ball_Y_Step=1;      // Step size on the Y axis
-
+	 parameter int signed radius = 60;
+	 
+	 logic [5:0] prev_index;
+	 logic [5:0] up_index, down_index;
+	 logic [5:0] zero_index, last_index;
+	 
+	 assign prev_index = index;
+	 assign up_index = index + 1;
+	 assign down_index = index - 1;
+	 assign zero_index = 1;
+	 assign last_index = 60;
+	 
+	 int signed sine_val, cosine_val;		//????!?!?!?!?!??!?!?
+	 int signed up_sine_val, up_cosine_val, down_sine_val, down_cosine_val, zero_sine_val, zero_cosine_val, last_sine_val, last_cosine_val;
+	 Sin_Cos get_vals ( .clk(frame_clk), .index, .sine(sine_val), .cosine(cosine_val));
+	 Sin_Cos up_index_val (.clk(frame_clk), .index(up_index), .sine(up_sine_val), .cosine(up_cosine_val));
+	 Sin_Cos down_index_val (.clk(frame_clk), .index(down_index), .sine(down_sine_val), .cosine(down_cosine_val));
+	 Sin_Cos zero_index_val (.clk(frame_clk), .index(zero_index), .sine(zero_sine_val), .cosine(zero_cosine_val));
+	 Sin_Cos last_index_val (.clk(frame_clk), .index(last_index), .sine(last_sine_val), .cosine(last_cosine_val));
+	 
     assign Ball_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
 	 assign block_collision[0] = ((((Ball_X_Pos - Ball_Size) >= BlockX[0]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[0] + BlockS[0]))) && ((Ball_Y_Pos >= BlockY[0]) && (Ball_Y_Pos <= (BlockY[0] + BlockS[0]))))
 						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[0]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[0] + BlockS[0]))) && ((Ball_Y_Pos >= BlockY[0]) && (Ball_Y_Pos <= (BlockY[0] + BlockS[0]))))
@@ -115,7 +139,48 @@ module  ball ( input Reset, frame_clk, Collision_other,
 						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[9]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[9] + BlockS[9]))) && ((Ball_Y_Pos >= BlockY[9]) && (Ball_Y_Pos <= (BlockY[9] + BlockS[9]))))
 						|| (((Ball_X_Pos >= BlockX[9]) && (Ball_X_Pos <= (BlockX[9] + BlockS[9]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[9]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[9] + BlockS[9]))))
 						|| (((Ball_X_Pos >= BlockX[9]) && (Ball_X_Pos <= (BlockX[9] + BlockS[9]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[9]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[9] + BlockS[9]))));
-   
+    assign block_collision[10] = ((((Ball_X_Pos - Ball_Size) >= BlockX[10]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[10] + BlockS[10]))) && ((Ball_Y_Pos >= BlockY[10]) && (Ball_Y_Pos <= (BlockY[10] + BlockS[10]))))
+						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[10]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[10] + BlockS[10]))) && ((Ball_Y_Pos >= BlockY[10]) && (Ball_Y_Pos <= (BlockY[10] + BlockS[10]))))
+						|| (((Ball_X_Pos >= BlockX[10]) && (Ball_X_Pos <= (BlockX[10] + BlockS[10]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[10]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[10] + BlockS[10]))))
+						|| (((Ball_X_Pos >= BlockX[10]) && (Ball_X_Pos <= (BlockX[10] + BlockS[10]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[10]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[10] + BlockS[10]))));
+	 assign block_collision[11] = ((((Ball_X_Pos - Ball_Size) >= BlockX[11]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[11] + BlockS[11]))) && ((Ball_Y_Pos >= BlockY[11]) && (Ball_Y_Pos <= (BlockY[11] + BlockS[11]))))
+						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[11]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[11] + BlockS[11]))) && ((Ball_Y_Pos >= BlockY[11]) && (Ball_Y_Pos <= (BlockY[11] + BlockS[11]))))
+						|| (((Ball_X_Pos >= BlockX[11]) && (Ball_X_Pos <= (BlockX[11] + BlockS[11]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[11]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[11] + BlockS[11]))))
+						|| (((Ball_X_Pos >= BlockX[11]) && (Ball_X_Pos <= (BlockX[11] + BlockS[11]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[11]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[11] + BlockS[11]))));
+	 assign block_collision[12] = ((((Ball_X_Pos - Ball_Size) >= BlockX[12]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[12] + BlockS[12]))) && ((Ball_Y_Pos >= BlockY[12]) && (Ball_Y_Pos <= (BlockY[12] + BlockS[12]))))
+						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[12]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[12] + BlockS[12]))) && ((Ball_Y_Pos >= BlockY[12]) && (Ball_Y_Pos <= (BlockY[12] + BlockS[12]))))
+						|| (((Ball_X_Pos >= BlockX[12]) && (Ball_X_Pos <= (BlockX[12] + BlockS[12]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[12]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[12] + BlockS[12]))))
+						|| (((Ball_X_Pos >= BlockX[12]) && (Ball_X_Pos <= (BlockX[12] + BlockS[12]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[12]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[12] + BlockS[12]))));
+	 assign block_collision[13] = ((((Ball_X_Pos - Ball_Size) >= BlockX[13]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[13] + BlockS[13]))) && ((Ball_Y_Pos >= BlockY[13]) && (Ball_Y_Pos <= (BlockY[13] + BlockS[13]))))
+						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[13]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[13] + BlockS[13]))) && ((Ball_Y_Pos >= BlockY[13]) && (Ball_Y_Pos <= (BlockY[13] + BlockS[13]))))
+						|| (((Ball_X_Pos >= BlockX[13]) && (Ball_X_Pos <= (BlockX[13] + BlockS[13]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[13]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[13] + BlockS[13]))))
+						|| (((Ball_X_Pos >= BlockX[13]) && (Ball_X_Pos <= (BlockX[13] + BlockS[13]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[13]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[13] + BlockS[13]))));
+	 
+	 assign rect_collision[0] = ((((Ball_X_Pos - Ball_Size) >= RectX[0]) && ((Ball_X_Pos - Ball_Size) <= (RectX[0] + RectS[0]))) && ((Ball_Y_Pos >= RectY[0]) && (Ball_Y_Pos <= (RectY[0] + RectS[0]/4))))
+						|| ((((Ball_X_Pos + Ball_Size) >= RectX[0]) && ((Ball_X_Pos + Ball_Size) <= (RectX[0] + RectS[0]))) && ((Ball_Y_Pos >= RectY[0]) && (Ball_Y_Pos <= (RectY[0] + RectS[0]/4))))
+						|| (((Ball_X_Pos >= RectX[0]) && (Ball_X_Pos <= (RectX[0] + RectS[0]))) && (((Ball_Y_Pos - Ball_Size) >= RectY[0]) && ((Ball_Y_Pos - Ball_Size) <= (RectY[0] + RectS[0]/4))))
+						|| (((Ball_X_Pos >= RectX[0]) && (Ball_X_Pos <= (RectX[0] + RectS[0]))) && (((Ball_Y_Pos + Ball_Size) >= RectY[0]) && ((Ball_Y_Pos + Ball_Size) <= (RectY[0] + RectS[0]/4))));
+	 assign rect_collision[1] = ((((Ball_X_Pos - Ball_Size) >= RectX[1]) && ((Ball_X_Pos - Ball_Size) <= (RectX[1] + RectS[1]))) && ((Ball_Y_Pos >= RectY[1]) && (Ball_Y_Pos <= (RectY[1] + RectS[1]/4))))
+						|| ((((Ball_X_Pos + Ball_Size) >= RectX[1]) && ((Ball_X_Pos + Ball_Size) <= (RectX[1] + RectS[1]))) && ((Ball_Y_Pos >= RectY[1]) && (Ball_Y_Pos <= (RectY[1] + RectS[1]/4))))
+						|| (((Ball_X_Pos >= RectX[1]) && (Ball_X_Pos <= (RectX[1] + RectS[1]))) && (((Ball_Y_Pos - Ball_Size) >= RectY[1]) && ((Ball_Y_Pos - Ball_Size) <= (RectY[1] + RectS[1]/4))))
+						|| (((Ball_X_Pos >= RectX[1]) && (Ball_X_Pos <= (RectX[1] + RectS[1]))) && (((Ball_Y_Pos + Ball_Size) >= RectY[1]) && ((Ball_Y_Pos + Ball_Size) <= (RectY[1] + RectS[1]/4))));
+	 assign rect_collision[2] = ((((Ball_X_Pos - Ball_Size) >= RectX[2]) && ((Ball_X_Pos - Ball_Size) <= (RectX[2] + RectS[2]))) && ((Ball_Y_Pos >= RectY[2]) && (Ball_Y_Pos <= (RectY[2] + RectS[2]/4))))
+						|| ((((Ball_X_Pos + Ball_Size) >= RectX[2]) && ((Ball_X_Pos + Ball_Size) <= (RectX[2] + RectS[2]))) && ((Ball_Y_Pos >= RectY[2]) && (Ball_Y_Pos <= (RectY[2] + RectS[2]/4))))
+						|| (((Ball_X_Pos >= RectX[2]) && (Ball_X_Pos <= (RectX[2] + RectS[2]))) && (((Ball_Y_Pos - Ball_Size) >= RectY[2]) && ((Ball_Y_Pos - Ball_Size) <= (RectY[2] + RectS[2]/4))))
+						|| (((Ball_X_Pos >= RectX[2]) && (Ball_X_Pos <= (RectX[2] + RectS[2]))) && (((Ball_Y_Pos + Ball_Size) >= RectY[2]) && ((Ball_Y_Pos + Ball_Size) <= (RectY[2] + RectS[2]/4))));
+	 assign rect_collision[3] = ((((Ball_X_Pos - Ball_Size) >= RectX[3]) && ((Ball_X_Pos - Ball_Size) <= (RectX[3] + RectS[3]))) && ((Ball_Y_Pos >= RectY[3]) && (Ball_Y_Pos <= (RectY[3] + RectS[3]/4))))
+						|| ((((Ball_X_Pos + Ball_Size) >= RectX[3]) && ((Ball_X_Pos + Ball_Size) <= (RectX[3] + RectS[3]))) && ((Ball_Y_Pos >= RectY[3]) && (Ball_Y_Pos <= (RectY[3] + RectS[3]/4))))
+						|| (((Ball_X_Pos >= RectX[3]) && (Ball_X_Pos <= (RectX[3] + RectS[3]))) && (((Ball_Y_Pos - Ball_Size) >= RectY[3]) && ((Ball_Y_Pos - Ball_Size) <= (RectY[3] + RectS[3]/4))))
+						|| (((Ball_X_Pos >= RectX[3]) && (Ball_X_Pos <= (RectX[3] + RectS[3]))) && (((Ball_Y_Pos + Ball_Size) >= RectY[3]) && ((Ball_Y_Pos + Ball_Size) <= (RectY[3] + RectS[3]/4))));
+	 assign rect_collision[4] = ((((Ball_X_Pos - Ball_Size) >= RectX[4]) && ((Ball_X_Pos - Ball_Size) <= (RectX[4] + RectS[4]))) && ((Ball_Y_Pos >= RectY[4]) && (Ball_Y_Pos <= (RectY[4] + RectS[4]/4))))
+						|| ((((Ball_X_Pos + Ball_Size) >= RectX[4]) && ((Ball_X_Pos + Ball_Size) <= (RectX[4] + RectS[4]))) && ((Ball_Y_Pos >= RectY[4]) && (Ball_Y_Pos <= (RectY[4] + RectS[4]/4))))
+						|| (((Ball_X_Pos >= RectX[4]) && (Ball_X_Pos <= (RectX[4] + RectS[4]))) && (((Ball_Y_Pos - Ball_Size) >= RectY[4]) && ((Ball_Y_Pos - Ball_Size) <= (RectY[4] + RectS[4]/4))))
+						|| (((Ball_X_Pos >= RectX[4]) && (Ball_X_Pos <= (RectX[4] + RectS[4]))) && (((Ball_Y_Pos + Ball_Size) >= RectY[4]) && ((Ball_Y_Pos + Ball_Size) <= (RectY[4] + RectS[4]/4))));
+	 assign rect_collision[5] = ((((Ball_X_Pos - Ball_Size) >= RectX[5]) && ((Ball_X_Pos - Ball_Size) <= (RectX[5] + RectS[5]))) && ((Ball_Y_Pos >= RectY[5]) && (Ball_Y_Pos <= (RectY[5] + RectS[5]/4))))
+						|| ((((Ball_X_Pos + Ball_Size) >= RectX[5]) && ((Ball_X_Pos + Ball_Size) <= (RectX[5] + RectS[5]))) && ((Ball_Y_Pos >= RectY[5]) && (Ball_Y_Pos <= (RectY[5] + RectS[5]/4))))
+						|| (((Ball_X_Pos >= RectX[5]) && (Ball_X_Pos <= (RectX[5] + RectS[5]))) && (((Ball_Y_Pos - Ball_Size) >= RectY[5]) && ((Ball_Y_Pos - Ball_Size) <= (RectY[5] + RectS[5]/4))))
+						|| (((Ball_X_Pos >= RectX[5]) && (Ball_X_Pos <= (RectX[5] + RectS[5]))) && (((Ball_Y_Pos + Ball_Size) >= RectY[5]) && ((Ball_Y_Pos + Ball_Size) <= (RectY[5] + RectS[5]/4))));
+
     always_ff @ (posedge Reset or posedge frame_clk or posedge Collision_other)
     begin: Move_Ball
         if (Reset || Collision_other)  // Asynchronous Reset
@@ -124,97 +189,418 @@ module  ball ( input Reset, frame_clk, Collision_other,
          Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
 			Ball_Y_Pos <= Ball_Y_Center;
-			for (int i = 0; i < $size(blue_paint); i++) begin
-					blue_paint[i] = 0;
-					orange_paint[i] = 0;
-			end
+			paint[block_hit_other] <= 0;
 			if (color == 1'b1)
 			begin
 				Ball_X_Pos <= Ball_X_Right;	//red - right - 2'b1
+				next_index <= 1;
 			end
 			else if (color == 1'b0)
 			begin
 				Ball_X_Pos <= Ball_X_Left;
+				next_index <= 31;
 			end
         end
 		
-		 else if(((((Ball_X_Pos - Ball_Size) >= BlockX[0]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[0] + BlockS[0]))) && ((Ball_Y_Pos >= BlockY[0]) && (Ball_Y_Pos <= (BlockY[0] + BlockS[0]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[0]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[0] + BlockS[0]))) && ((Ball_Y_Pos >= BlockY[0]) && (Ball_Y_Pos <= (BlockY[0] + BlockS[0]))))
-						|| (((Ball_X_Pos >= BlockX[0]) && (Ball_X_Pos <= (BlockX[0] + BlockS[0]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[0]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[0] + BlockS[0]))))
-						|| (((Ball_X_Pos >= BlockX[0]) && (Ball_X_Pos <= (BlockX[0] + BlockS[0]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[0]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[0] + BlockS[0]))))
-		            || ((((Ball_X_Pos - Ball_Size) >= BlockX[1]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[1] + BlockS[1]))) && ((Ball_Y_Pos >= BlockY[1]) && (Ball_Y_Pos <= (BlockY[1] + BlockS[1]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[1]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[1] + BlockS[1]))) && ((Ball_Y_Pos >= BlockY[1]) && (Ball_Y_Pos <= (BlockY[1] + BlockS[1]))))
-						|| (((Ball_X_Pos >= BlockX[1]) && (Ball_X_Pos <= (BlockX[1] + BlockS[1]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[1]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[1] + BlockS[1]))))
-						|| (((Ball_X_Pos >= BlockX[1]) && (Ball_X_Pos <= (BlockX[1] + BlockS[1]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[1]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[1] + BlockS[1]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[2]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[2] + BlockS[2]))) && ((Ball_Y_Pos >= BlockY[2]) && (Ball_Y_Pos <= (BlockY[2] + BlockS[2]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[2]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[2] + BlockS[2]))) && ((Ball_Y_Pos >= BlockY[2]) && (Ball_Y_Pos <= (BlockY[2] + BlockS[2]))))
-						|| (((Ball_X_Pos >= BlockX[2]) && (Ball_X_Pos <= (BlockX[2] + BlockS[2]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[2]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[2] + BlockS[2]))))
-						|| (((Ball_X_Pos >= BlockX[2]) && (Ball_X_Pos <= (BlockX[2] + BlockS[2]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[2]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[2] + BlockS[2]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[3]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[3] + BlockS[3]))) && ((Ball_Y_Pos >= BlockY[3]) && (Ball_Y_Pos <= (BlockY[3] + BlockS[3]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[3]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[3] + BlockS[3]))) && ((Ball_Y_Pos >= BlockY[3]) && (Ball_Y_Pos <= (BlockY[3] + BlockS[3]))))
-						|| (((Ball_X_Pos >= BlockX[3]) && (Ball_X_Pos <= (BlockX[3] + BlockS[3]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[3]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[3] + BlockS[3]))))
-						|| (((Ball_X_Pos >= BlockX[3]) && (Ball_X_Pos <= (BlockX[3] + BlockS[3]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[3]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[3] + BlockS[3]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[4]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[4] + BlockS[4]))) && ((Ball_Y_Pos >= BlockY[4]) && (Ball_Y_Pos <= (BlockY[4] + BlockS[4]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[4]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[4] + BlockS[4]))) && ((Ball_Y_Pos >= BlockY[4]) && (Ball_Y_Pos <= (BlockY[4] + BlockS[4]))))
-						|| (((Ball_X_Pos >= BlockX[4]) && (Ball_X_Pos <= (BlockX[4] + BlockS[4]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[4]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[4] + BlockS[4]))))
-						|| (((Ball_X_Pos >= BlockX[4]) && (Ball_X_Pos <= (BlockX[4] + BlockS[4]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[4]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[4] + BlockS[4]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[5]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[5] + BlockS[5]))) && ((Ball_Y_Pos >= BlockY[5]) && (Ball_Y_Pos <= (BlockY[5] + BlockS[5]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[5]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[5] + BlockS[5]))) && ((Ball_Y_Pos >= BlockY[5]) && (Ball_Y_Pos <= (BlockY[5] + BlockS[5]))))
-						|| (((Ball_X_Pos >= BlockX[5]) && (Ball_X_Pos <= (BlockX[5] + BlockS[5]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[5]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[5] + BlockS[5]))))
-						|| (((Ball_X_Pos >= BlockX[5]) && (Ball_X_Pos <= (BlockX[5] + BlockS[5]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[5]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[5] + BlockS[5]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[6]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[6] + BlockS[6]))) && ((Ball_Y_Pos >= BlockY[6]) && (Ball_Y_Pos <= (BlockY[6] + BlockS[6]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[6]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[6] + BlockS[6]))) && ((Ball_Y_Pos >= BlockY[6]) && (Ball_Y_Pos <= (BlockY[6] + BlockS[6]))))
-						|| (((Ball_X_Pos >= BlockX[6]) && (Ball_X_Pos <= (BlockX[6] + BlockS[6]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[6]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[6] + BlockS[6]))))
-						|| (((Ball_X_Pos >= BlockX[6]) && (Ball_X_Pos <= (BlockX[6] + BlockS[6]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[6]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[6] + BlockS[6]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[7]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[7] + BlockS[7]))) && ((Ball_Y_Pos >= BlockY[7]) && (Ball_Y_Pos <= (BlockY[7] + BlockS[7]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[7]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[7] + BlockS[7]))) && ((Ball_Y_Pos >= BlockY[7]) && (Ball_Y_Pos <= (BlockY[7] + BlockS[7]))))
-						|| (((Ball_X_Pos >= BlockX[7]) && (Ball_X_Pos <= (BlockX[7] + BlockS[7]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[7]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[7] + BlockS[7]))))
-						|| (((Ball_X_Pos >= BlockX[7]) && (Ball_X_Pos <= (BlockX[7] + BlockS[7]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[7]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[7] + BlockS[7]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[8]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[8] + BlockS[8]))) && ((Ball_Y_Pos >= BlockY[8]) && (Ball_Y_Pos <= (BlockY[8] + BlockS[8]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[8]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[8] + BlockS[8]))) && ((Ball_Y_Pos >= BlockY[8]) && (Ball_Y_Pos <= (BlockY[8] + BlockS[8]))))
-						|| (((Ball_X_Pos >= BlockX[8]) && (Ball_X_Pos <= (BlockX[8] + BlockS[8]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[8]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[8] + BlockS[8]))))
-						|| (((Ball_X_Pos >= BlockX[8]) && (Ball_X_Pos <= (BlockX[8] + BlockS[8]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[8]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[8] + BlockS[8]))))
-						|| ((((Ball_X_Pos - Ball_Size) >= BlockX[9]) && ((Ball_X_Pos - Ball_Size) <= (BlockX[9] + BlockS[9]))) && ((Ball_Y_Pos >= BlockY[9]) && (Ball_Y_Pos <= (BlockY[9] + BlockS[9]))))
-						|| ((((Ball_X_Pos + Ball_Size) >= BlockX[9]) && ((Ball_X_Pos + Ball_Size) <= (BlockX[9] + BlockS[9]))) && ((Ball_Y_Pos >= BlockY[9]) && (Ball_Y_Pos <= (BlockY[9] + BlockS[9]))))
-						|| (((Ball_X_Pos >= BlockX[9]) && (Ball_X_Pos <= (BlockX[9] + BlockS[9]))) && (((Ball_Y_Pos - Ball_Size) >= BlockY[9]) && ((Ball_Y_Pos - Ball_Size) <= (BlockY[9] + BlockS[9]))))
-						|| (((Ball_X_Pos >= BlockX[9]) && (Ball_X_Pos <= (BlockX[9] + BlockS[9]))) && (((Ball_Y_Pos + Ball_Size) >= BlockY[9]) && ((Ball_Y_Pos + Ball_Size) <= (BlockY[9] + BlockS[9]))))
-						)
+		 else if(block_collision[0] || block_collision[1] || block_collision[2] || block_collision[3] || block_collision[4] || block_collision[5] || block_collision[6] || block_collision[7] || block_collision[8]
+						|| block_collision[9] || block_collision[10] || block_collision[11] || block_collision[12] || block_collision[13] || rect_collision[0] || rect_collision[1] || rect_collision[2] || rect_collision[3] || rect_collision[4] || rect_collision[5])
+						
 			begin 
 		   Collision = 1'b1;
          Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
 			Ball_Y_Pos <= Ball_Y_Center;
+			for (int i = 0; i < $size(block_collision); i++) begin
+				if (block_collision[i]) begin
+						paint[i] = 1;
+						block_hit = i;
+				end
+			end
+			for (int j = 0; j < $size(rect_collision); j++) begin
+				if (rect_collision[j]) begin
+						paint[j+14] = 1;
+						block_hit = j+14;
+				end
+			end
 			if (color == 1'b1)
 			begin
 				Ball_X_Pos <= Ball_X_Right;	//red - right - 2'b1
-				for (int i = 0; i < $size(block_collision); i++) begin
-					if (block_collision[i]) begin
-						orange_paint[i] = 1;
-						blue_paint[i] = 0;
-					end
-				end
+				next_index <= 1;
 			end
 			else if (color == 1'b0)
 			begin
 				Ball_X_Pos <= Ball_X_Left;
-				for (int i = 0; i < $size(block_collision); i++) begin
-					if (block_collision[i]) begin
-						orange_paint[i] = 0;
-						blue_paint[i] = 1;
-					end
-				end
+				next_index <= 31;
 			end
         end
 		  
         else 
-        begin 
+        begin
 				Collision = 1'b0;
+				case (keycode)
+					default:
+						begin
+						
+							if(Ball_X_Pos <= Ball_X_Center)
+								Ball_X_Motion = Ball_X_Center - cosine_val*radius/1000;
+							else
+								Ball_X_Motion = Ball_X_Center + cosine_val * radius/1000;
+							if(Ball_Y_Pos >= Ball_Y_Center)
+								Ball_Y_Motion = Ball_Y_Center + sine_val * radius/1000;
+							else
+								Ball_Y_Motion = Ball_Y_Center - sine_val * radius/1000;
+
+						end
+						
+						7:		//right key
+						begin
+							if (index == 60)
+							begin
+								next_index = 1;
+								Ball_X_Motion = Ball_X_Center + zero_cosine_val*radius/1000;
+								Ball_Y_Motion = Ball_Y_Center + zero_sine_val*radius/1000;
+							end
+							else
+							begin
+								next_index = index + 1;
+								if (index > 0 && index < 16)
+									begin
+									Ball_X_Motion = Ball_X_Center + up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + up_sine_val*radius/1000;
+									end
+								else if (index >= 16 && index <= 30)
+									begin
+									Ball_X_Motion = Ball_X_Center - up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + up_sine_val*radius/1000;
+									end
+								else if (index > 30 && index < 46)
+									begin
+									Ball_X_Motion = Ball_X_Center - up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - up_sine_val*radius/1000;
+									end
+								else if (index >= 46)
+									begin
+									Ball_X_Motion = Ball_X_Center + up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - up_sine_val*radius/1000;
+									end
+							end
+							
+						end
+					4:		//left key
+					
+						begin
+							if (index == 1)
+							begin
+								next_index = 60;
+								Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+								Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+							end	
+								
+							else
+							begin
+								next_index = index - 1;
+								if (index > 0 && index < 16)
+									begin
+									Ball_X_Motion = Ball_X_Center + down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + down_sine_val*radius/1000;
+									end
+								else if (index >= 16 && index <= 30)
+									begin
+									Ball_X_Motion = Ball_X_Center - down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + down_sine_val*radius/1000;
+									end
+								else if (index > 30 && index < 46)
+									begin
+									Ball_X_Motion = Ball_X_Center - down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - down_sine_val*radius/1000;
+									end
+								else if (index >= 46)
+									begin
+									Ball_X_Motion = Ball_X_Center + down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - down_sine_val*radius/1000;
+									end
+							end
+						end
+				 endcase
+					/*
+					7:		//right key
+						begin
+							if (index == 31)
+							begin
+								next_index = 1;
+								
+								if((Ball_Y_Pos <= Ball_Y_Center && (index < 16 || index > 30)) || (Ball_X_Pos <= Ball_X_Center && (index < 16 || index > 30))) //Ball_X_Pos < Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - zero_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - zero_sine_val*radius/1000;
+									end
+								else if ((Ball_Y_Pos < Ball_Y_Center && 16 <= index && index < 30) || (Ball_X_Pos > Ball_X_Center && index > 16 && index < 30))//Ball_X_Pos >= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + zero_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - zero_sine_val*radius/1000;
+									end
+								else if ((Ball_Y_Pos >= Ball_Y_Center && (index < 16 || index > 30)) || (Ball_X_Pos > Ball_X_Center && (index < 16 || index > 30)))//Ball_X_Pos > Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + zero_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + zero_sine_val*radius/1000;
+									end
+								else if ((Ball_Y_Pos > Ball_Y_Center && 16 <= index && index < 30) || (Ball_X_Pos < Ball_X_Center && index > 16 && index < 30)) //Ball_X_Pos <= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - zero_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + zero_sine_val*radius/1000;
+									end
+
+
+							end
+							else
+							begin
+								next_index = index + 1;
+								if((Ball_Y_Pos <= Ball_Y_Center && (index < 16 || index > 30)) || (Ball_X_Pos <= Ball_X_Center && (index < 16 || index > 30))) //if(Ball_Y_Pos <= Ball_Y_Center && index < 16)//Ball_X_Pos < Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - up_sine_val*radius/1000;
+									end
+								else if ((Ball_Y_Pos < Ball_Y_Center && 16 <= index && index < 30) || (Ball_X_Pos > Ball_X_Center && index > 16 && index < 30))//else if (Ball_Y_Pos < Ball_Y_Center && index >= 16) //Ball_X_Pos >= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - up_sine_val*radius/1000;
+									end
+								else if ((Ball_Y_Pos >= Ball_Y_Center && (index < 16 || index > 30)) || (Ball_X_Pos > Ball_X_Center && (index < 16 || index > 30)))//else if (Ball_Y_Pos >= Ball_Y_Center && index < 16) //Ball_X_Pos > Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + up_sine_val*radius/1000;
+									end
+								else if ((Ball_Y_Pos > Ball_Y_Center && 16 <= index && index < 30) || (Ball_X_Pos < Ball_X_Center && index > 16 && index < 30))//else if (Ball_Y_Pos > Ball_Y_Center && index >= 16) //Ball_X_Pos <= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - up_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + up_sine_val*radius/1000;
+									end
+							end
+							
+						end
+					4:		//left key
+					
+						begin
+							if (index == 1)
+							begin
+								next_index = 31;
+								
+								if(Ball_Y_Pos < Ball_Y_Center && index <=16) // Ball_X_Pos <= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+									end
+								else if (Ball_Y_Pos <= Ball_Y_Center && index >16) //Ball_X_Pos > Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+									end
+								else if (Ball_Y_Pos > Ball_Y_Center && index <=16) //Ball_X_Pos >= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+									end
+								else if (Ball_Y_Pos >= Ball_Y_Center && index >16) //Ball_X_Pos < Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+									end
+
+							end
+							else
+							begin
+								next_index = index - 1;
+								if(Ball_Y_Pos < Ball_Y_Center && Ball_X_Pos <= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - down_sine_val*radius/1000;
+									end
+								else if (Ball_Y_Pos <= Ball_Y_Center && Ball_X_Pos > Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center - down_sine_val*radius/1000;
+									end
+								else if (Ball_Y_Pos > Ball_Y_Center && Ball_X_Pos >= Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center + down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + down_sine_val*radius/1000;
+									end
+								else if (Ball_Y_Pos >= Ball_Y_Center && Ball_X_Pos < Ball_X_Center)
+									begin
+									Ball_X_Motion = Ball_X_Center - down_cosine_val*radius/1000;
+									Ball_Y_Motion = Ball_Y_Center + down_sine_val*radius/1000;
+									end
+							end
+					
+							
+						end
+				 endcase
+					*/
+					/*
+					7:		//right key
+						begin
+							if (index == 31)
+							begin
+								next_index = 1;
+								if(Ball_Y_Pos < Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center + zero_cosine_val*radius/1000;
+								else if(Ball_Y_Pos > Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center - zero_cosine_val*radius/1000;
+								if(Ball_X_Pos < Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center - zero_sine_val*radius/1000;
+								else if(Ball_Y_Pos > Ball_Y_Center)
+									Ball_Y_Motion = Ball_Y_Center + zero_sine_val*radius/1000;
+								if (Ball_X_Pos == Ball_X_Center)
+									begin
+									if (Ball_Y_Pos < Ball_Y_Center)
+										begin
+										//decrease x & y
+										Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+										Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+										end
+									else
+										begin
+										//increase x & y
+										Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+										Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+										end
+									end
+								if (Ball_Y_Pos == Ball_Y_Center)
+								begin
+									if (Ball_X_Pos < Ball_X_Center)
+										//increase y, decrease x
+										begin
+										Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+										Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+										end
+									else
+										//decrease y, increase x
+										begin
+										Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+										Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+										end
+								end
+							end
+							else
+							begin
+								next_index = index + 1;
+								if(Ball_Y_Pos < Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center + up_cosine_val*radius/1000;
+								else if(Ball_Y_Pos > Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center - up_cosine_val*radius/1000;
+								if(Ball_X_Pos < Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center - up_sine_val*radius/1000;
+								else if(Ball_X_Pos > Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center + up_sine_val*radius/1000;
+							end
+							
+						end
+					4:		//left key
+					
+						begin
+							if (index == 1)
+							begin
+								next_index = 31;
+								if(Ball_Y_Pos < Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+								else if(Ball_Y_Pos > Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+								if(Ball_X_Pos < Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+								else if(Ball_X_Pos > Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+								if (Ball_X_Pos == Ball_X_Center)
+									begin
+									if (Ball_Y_Pos < Ball_Y_Center)
+										begin
+										//decrease x & y
+										Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+										Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+										end
+									else
+										begin
+										//increase x & y
+										Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+										Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+										end
+									end
+								if (Ball_Y_Pos == Ball_Y_Center)
+								begin
+									if (Ball_X_Pos < Ball_X_Center)
+										//increase y, decrease x
+										begin
+										Ball_X_Motion = Ball_X_Center + last_cosine_val*radius/1000;
+										Ball_Y_Motion = Ball_Y_Center + last_sine_val*radius/1000;
+										end
+									else
+										//decrease y, increase x
+										begin
+										Ball_Y_Motion = Ball_Y_Center - last_sine_val*radius/1000;
+										Ball_X_Motion = Ball_X_Center - last_cosine_val*radius/1000;
+										end
+								end
+							end
+							else
+							begin
+								next_index = index - 1;
+								if(Ball_Y_Pos < Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center - down_cosine_val*radius/1000;
+								else if(Ball_Y_Pos > Ball_Y_Center)
+									Ball_X_Motion = Ball_X_Center + down_cosine_val*radius/1000;
+								if(Ball_X_Pos < Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center + down_sine_val*radius/1000;
+								else if(Ball_X_Pos > Ball_X_Center)
+									Ball_Y_Motion = Ball_Y_Center - down_sine_val*radius/1000;
+
+							end
+					
+							
+						end
+				 endcase	*/	
+				/*
 				 case (keycode)
 					default:
 						begin
-							Ball_X_Motion = 0;
-							Ball_Y_Motion = 0;
+							Ball_X_Motion = Ball_X_Center + cosine_val * radius/1000;
+							Ball_Y_Motion = Ball_Y_Center + sine_val * radius/1000;
 						end
+					7:		//right key
+						begin
+							prev_index = index;
+							//defaults??
+							if (index == 59)
+							begin
+								next_index = 1;
+								Ball_X_Motion = Ball_X_Center + (zero_cosine_val) * radius/1000;
+								Ball_Y_Motion = Ball_Y_Center + (zero_sine_val) * radius/1000;
+							end
+							else 
+							begin
+								next_index = index + 1;
+								Ball_X_Motion = Ball_X_Center + (up_cosine_val) * radius / 1000;
+								Ball_Y_Motion = Ball_Y_Center + (up_sine_val) * radius / 1000;
+							end
+						end
+				 4:		//left key
+						begin
+							prev_index = index;
+							if (index == 1)
+							begin
+								next_index = 59;
+								Ball_X_Motion = Ball_X_Center + (last_cosine_val) * radius/1000;
+								Ball_Y_Motion = Ball_Y_Center + (last_sine_val) * radius/1000;
+							end
+							else
+							begin
+								next_index = index - 1;
+								Ball_X_Motion = Ball_X_Center + (down_cosine_val)* radius/1000;
+								Ball_Y_Motion = Ball_Y_Center + (down_sine_val) * radius/1000;
+							end
+							
+						end
+				 endcase
+				 */
+				/*
 				 7:		//right key
 						begin
 							if (Ball_Y_Pos < Ball_Y_Center)
@@ -312,6 +698,7 @@ module  ball ( input Reset, frame_clk, Collision_other,
 							
 						end
 				 endcase
+				 */
 				 
 				 /*
 				 if ( (Ball_Y_Pos + Ball_Size) >= Ball_Y_Max )  // Ball is at the bottom edge, BOUNCE!
@@ -335,8 +722,8 @@ module  ball ( input Reset, frame_clk, Collision_other,
 				 Ball_Y_Pos = (Ball_Y_Pos + Ball_Y_Motion);  // Update ball position
 				 Ball_X_Pos = (Ball_X_Pos + Ball_X_Motion);
 				*/
-			Ball_Y_Pos = (Ball_Y_Pos + Ball_Y_Motion);  // Update ball position
-			Ball_X_Pos = (Ball_X_Pos + Ball_X_Motion);
+			Ball_Y_Pos = Ball_Y_Motion;  // Update ball position
+			Ball_X_Pos = Ball_X_Motion;
 	  /**************************************************************************************
 	    ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
 		 Hidden Question #2/2:

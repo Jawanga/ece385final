@@ -2,7 +2,7 @@
 <?scdStore version="2"?>
 
 <scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.520970030;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.520970030.;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.404421841;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1792579382">
+<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.532141311;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.532141311.;cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.686429885;cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1307475804">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/HAL/inc"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/"/>
@@ -230,7 +230,7 @@
 <definedSymbol symbol="ALT_SINGLE_THREADED=1"/>
 </collector>
 </instance>
-<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.520970030;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.520970030.;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1484944681;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.964661585">
+<instance id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.532141311;preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.532141311.;cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1205150593;cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.512156728">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/HAL/inc"/>
 <includePath path="U:/ECE385/ece385final/trunk/software/usb_kb_bsp/"/>

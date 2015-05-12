@@ -13,7 +13,7 @@
 //-------------------------------------------------------------------------
 
 
-module  block ( input Reset, frame_clk,
+module  block ( input Reset, frame_clk, restart,
 					 input Collision [0:1],
 					 input [9:0]  Block_X_Center,
 					 input block_ready,
@@ -33,9 +33,9 @@ module  block ( input Reset, frame_clk,
 	
     //assign Block_Size = 20;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
-    always_ff @ (posedge Reset or posedge Collision[0] or posedge Collision[1] or posedge frame_clk )
+    always_ff @ (posedge Reset or posedge restart or posedge Collision[0] or posedge Collision[1] or posedge frame_clk )
     begin: Move_Block
-        if (Reset || Collision[0] || Collision[1])  // Asynchronous Reset
+        if (Reset || restart || Collision[0] || Collision[1])  // Asynchronous Reset
         begin
             Block_Y_Motion <= 10'd0; //Block_Y_Step;
 				Block_X_Motion <= 10'd0; //Block_X_Step;
